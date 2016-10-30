@@ -1,0 +1,9 @@
+1.  Run the game in View.
+2.  A popup window will appear and prompt the players to enter the number of players. 
+    The number of players should be between 2 and 4. Enter a number between 2 and 4
+    and press OK.
+3.  Depend on how many players there are, a new popup window will appear and prompt 
+    the players to enter the owner of Token 1 to Token 4. The players can each enter 
+    in their name. When this is done, a new popup window will appear and display the 
+    total number of players, and what the name of each player is. Then click OK to continue.
+4. A Monopoly game board will appear now.....

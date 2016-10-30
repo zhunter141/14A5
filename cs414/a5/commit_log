@@ -1,0 +1,2164 @@
+commit 73588a69ce43dc6da3d05def08e31076812c09bc
+Merge: cfb6a02 a2b8155
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Wed Oct 26 17:47:57 2016 -0600
+
+    Merge branch 'master' into tj_tokenPlayer
+
+commit cfb6a0246a59d7f26e511b4db3a9ba7e08f0def0
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Wed Oct 26 17:46:44 2016 -0600
+
+    finished game_instruction.txt and SystemTestCase.txt
+
+commit a2b81553ec5814014cb1ed9e4b2dc14affcad8e8
+Merge: 1e6b536 83a6286
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Wed Oct 26 14:57:00 2016 -0600
+
+    Merge pull request #69 from /hz_dice
+    
+    Hz BoardTest
+
+commit 83a6286b45fc4e4643fa92c3d9812276aeb3f65a
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Wed Oct 26 14:30:40 2016 -0600
+
+    Implemented BoardTest.
+
+commit 59e946e0f315e986440b631e2dbf117c53254c11
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Wed Oct 26 14:28:40 2016 -0600
+
+    added in systemTestCase.txt and game_instruction.txt
+
+commit 17f24cf4267985577e2f8a305e19a69f0e8c1ba6
+Merge: b1fb3f6 1e6b536
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Wed Oct 26 14:17:24 2016 -0600
+
+    Merge branch 'master' into hz_dice
+
+commit 1e6b536e3d2858dbe335f524f2e09f5567d60056
+Merge: 16a643f 394ae66
+Author: vfuentes1213 <vfuentes1213@gmail.com>
+Date:   Wed Oct 26 13:54:49 2016 -0600
+
+    Merge pull request #68 from /vf_BoardSquareSwing
+    
+    Vf board square swing
+
+commit 394ae667dce9ab631034c0ced9bf76eea9684a7f
+Merge: b848e08 16a643f
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Wed Oct 26 13:50:17 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+
+commit 16a643f894a5aa7a79609e4021210453f692a52a
+Merge: 58a841d 63d3af5
+Author: jevelyn <jevelyn@rams.colostate.edu>
+Date:   Wed Oct 26 13:15:51 2016 -0600
+
+    Merge pull request #67 from /hj_monopolygame
+    
+    Hj monopolygame
+
+commit b848e089475c4c27ee08e1f59ded0ec704d24027
+Merge: 6081079 58a841d
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Wed Oct 26 13:15:13 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+
+commit 63d3af51b724301e0e54e6dbb11954db4c980915
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Wed Oct 26 12:36:14 2016 -0600
+
+    change step back, add one msg when going to jail
+
+commit 60810790f440fb89dd7ac3bf9f32d4dc6ec24cff
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Wed Oct 26 12:08:48 2016 -0600
+
+    vf Cleaning up some of the logic in sell deed.
+
+commit b1fb3f6a90d1eedb64c51bc4c1485fc6537128dc
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Tue Oct 25 20:10:21 2016 -0600
+
+    Implemented BoardTest.
+
+commit ac63b0369544c95120bba98ebaa9835d2304b12e
+Merge: 7fb594b 58a841d
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 20:06:23 2016 -0600
+
+    Merge branch 'master' into hj_monopolygame
+
+commit f4091e3a08c3efd2ffa559b3995bfb2d5729fb4d
+Merge: a2779c2 58a841d
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Tue Oct 25 20:05:36 2016 -0600
+
+    Merge branch 'master' into hz_dice
+
+commit 7fb594bc142317cc996159113cc023b58266f725
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 20:04:54 2016 -0600
+
+    del
+
+commit bfa3354140f27ab8c035d1373d28e615f4279d71
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 20:03:36 2016 -0600
+
+    pull
+
+commit a2779c26733286682e8f2bf2d223efe2181fafaa
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Tue Oct 25 20:02:15 2016 -0600
+
+    Removing unecessary file.
+
+commit 7a452178f77cc8af7b4a9e805ec723ffd176c789
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Tue Oct 25 19:59:42 2016 -0600
+
+    Working on BoardTest.
+
+commit 58a841d0e390adf9b40734b40e11245a091bc48f
+Merge: cbcf3fc 7d77ee2
+Author: tzujui <tzujuiyu@gmail.com>
+Date:   Tue Oct 25 19:58:08 2016 -0600
+
+    Merge pull request #66 from /tj_tokenPlayer
+    
+    Tj token player
+
+commit 7d77ee25c5d61934ded3a922f8d354a8afa45384
+Merge: fc6622c cbcf3fc
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Tue Oct 25 19:56:30 2016 -0600
+
+    Merge branch 'master' into tj_tokenPlayer
+
+commit fc6622c01dd9c8a113afa2dea40979efe522f8ed
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Tue Oct 25 19:55:24 2016 -0600
+
+    fixed null pointer exception in modifyDeed
+
+commit cbcf3fc6a484b59015712d5fdaa2f0c8a9e09fb2
+Merge: c39b657 50734e1
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Tue Oct 25 19:27:21 2016 -0600
+
+    Merge pull request #65 from /hz_dice
+    
+    Hz change a couple method signture in Model
+
+commit 50734e12b8cebc98bf1ece000a9e80d0ddfefea7
+Merge: 2d758bd c39b657
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Tue Oct 25 19:24:25 2016 -0600
+
+    Merge branch 'master' into hz_dice
+    
+    Conflicts:
+    	cs414/a4/Model.java
+
+commit c39b65733b92e0ac52bb122b23f552678237eee1
+Merge: 04eab3d 622aa71
+Author: jevelyn <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 19:17:21 2016 -0600
+
+    Merge pull request #64 from /hj_monopolygame
+    
+    Hj monopolygame
+
+commit 622aa71e5ce46cd45f4668f65a1911f798cb0742
+Merge: 02adbda 04eab3d
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 19:16:00 2016 -0600
+
+    Merge branch 'master' into hj_monopolygame
+
+commit 02adbda57ec846ccefdb2238634efa00a3f4d0bd
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 19:14:32 2016 -0600
+
+    pull
+
+commit 04eab3d66d6aad95b7448ac6d416ac3122d4e083
+Merge: 69cbfd7 d6239f5
+Author: tzujui <tzujuiyu@gmail.com>
+Date:   Tue Oct 25 19:12:02 2016 -0600
+
+    Merge pull request #63 from 0tj_tokenPlayer
+    
+    Added Unmortgage label and pass the data to model
+
+commit d6239f599cd12ed41b9a9b7d9fd5a2b94f161187
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Tue Oct 25 19:10:01 2016 -0600
+
+    Unmortgage
+
+commit b0a834d4c7d370f2d2847a72397d4eab1ac84603
+Merge: e3bbc2b 69cbfd7
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Tue Oct 25 19:06:51 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+
+commit 69cbfd7a027543ea231a44502a7a64af993f977f
+Merge: cb82f31 31fca3b
+Author: tzujui <tzujuiyu@gmail.com>
+Date:   Tue Oct 25 19:04:57 2016 -0600
+
+    Merge pull request #62 from /tj_tokenPlayer
+    
+    Tj token player
+
+commit 31fca3b33b42d9a18d893e297f7a65485487b46d
+Merge: 424ccd7 cb82f31
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Tue Oct 25 19:03:03 2016 -0600
+
+    Merge branch 'master' into tj_tokenPlayer
+
+commit 424ccd7cc1edfaf28e37e8b5c936dae1d9b337af
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Tue Oct 25 19:02:14 2016 -0600
+
+    JUnit stuff
+
+commit fac14d20c76d79bfea43edd9935146f670d5348f
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Tue Oct 25 19:01:08 2016 -0600
+
+    Junit stuff
+
+commit e3bbc2bd856f88ef19efd13a692f4a3c47b537bd
+Merge: 262a458 cb82f31
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Tue Oct 25 18:53:00 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+
+commit e9064c25c8ae7a83ad4ae7b2a26a4c40884202f5
+Merge: 2c0d762 cb82f31
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 18:52:55 2016 -0600
+
+    merge
+
+commit 262a458446c057d8410c3075b6408271ce8c0726
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Tue Oct 25 18:50:40 2016 -0600
+
+    Adding latest changes.
+
+commit 2c0d76209e88697a0ca636f4a2d092d32f98b105
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 18:49:50 2016 -0600
+
+    fix bugs
+
+commit cb82f31116ab208bef75208d937f116c2f302b5b
+Merge: a60328a d4d63a6
+Author: vfuentes1213 <vfuentes1213@gmail.com>
+Date:   Tue Oct 25 18:23:13 2016 -0600
+
+    Merge pull request #60 from /vf_BoardSquareSwing
+    
+    Vf board square swing
+
+commit d4d63a6c8e202b2a5e99462ab027c2c02f6b13b2
+Merge: 60c1534 a60328a
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Tue Oct 25 18:19:56 2016 -0600
+
+    vf - Resolved!
+
+commit 739bec8c6494e582d029c5b35871795114b19b41
+Merge: b3c9b77 a60328a
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 18:12:55 2016 -0600
+
+    Merge branch 'master' into hj_monopolygame
+
+commit 60c15343d810fe13e8a828a158f089726dc47265
+Merge: 86fa07a 16cd567
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Tue Oct 25 18:12:08 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+
+commit b3c9b7734f5c1f971030d273cca207c0a88eb5ca
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 18:12:05 2016 -0600
+
+    pull
+
+commit a60328aa6e858a7181ac34c13fa8fa7c58109da6
+Merge: 16cd567 9a2e04f
+Author: tzujui <tzujuiyu@gmail.com>
+Date:   Tue Oct 25 18:11:35 2016 -0600
+
+    Merge pull request #59 from /tj_tokenPlayer
+    
+    Tj finished modifyDeed() in View.java
+
+commit 9a2e04f91599858a81163e4926af62eaf7bc45ca
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Tue Oct 25 18:09:25 2016 -0600
+
+    finished modifyDeed
+
+commit 2d758bd914ddc148bdd8f99bfec2d42f6aecb9d4
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Tue Oct 25 18:06:09 2016 -0600
+
+    A few method were not public.
+
+commit 69749f2184b176dd44c6bd34e85fa63b3c36d9ca
+Merge: 7f9ec93 16cd567
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Tue Oct 25 17:53:49 2016 -0600
+
+    Merge branch 'master' into tj_tokenPlayer
+
+commit 7f9ec93f788afbff775f127917001d78e007301e
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Tue Oct 25 17:52:43 2016 -0600
+
+    worked on modifyDeed switch cases
+
+commit 16cd567550fbaff3db1968c4dc6df934600c29e0
+Merge: e52544b bd14e98
+Author: jevelyn <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 17:51:21 2016 -0600
+
+    Merge pull request #58 from /hj_monopolygame
+    
+    Hj monopolygame
+
+commit bd14e986de12b6b5d767ea3995587b022352c034
+Merge: 63a02e4 e52544b
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 17:47:37 2016 -0600
+
+    Merge branch 'master' into hj_monopolygame
+
+commit 86fa07abd810c040d4093cb3a83fada62d4815e9
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Tue Oct 25 17:47:13 2016 -0600
+
+    vf - comment out code so index out of bound exception doesn't happen.
+
+commit e52544b141cb3fdaf149a5979f40e47aec37dd98
+Merge: 59f91b5 096ab25
+Author: tzujui <tzujuiyu@gmail.com>
+Date:   Tue Oct 25 17:46:38 2016 -0600
+
+    Merge pull request #57 from /tj_tokenPlayer
+    
+    Tj token player
+
+commit 63a02e4c7c5e594859ed473ef4f6ac84c2be92c0
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 17:45:34 2016 -0600
+
+    ummortgage
+
+commit 096ab25eb9fc2a8c6ca1076327c7e6e7c2cd46ff
+Merge: 586b3c4 59f91b5
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Tue Oct 25 17:44:15 2016 -0600
+
+    Merge branch 'master' into tj_tokenPlayer
+
+commit 586b3c4a589946c44b9729b59131b01f35af4e19
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Tue Oct 25 17:43:12 2016 -0600
+
+    added modifyDeed(Square myDeed)
+
+commit 161ee0cb3e9fcc9970070dd9c1fc7d3140870066
+Merge: 6a05f9d 59f91b5
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Tue Oct 25 17:37:49 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+
+commit a4d6214727b5a7e1a9099b320ba5250eccdd2e1c
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Tue Oct 25 17:25:07 2016 -0600
+
+    added hashMap for [my deed] button
+
+commit 456155a9ffa0bea63c57ed825fe89281c8e63932
+Merge: 239f3bb 59f91b5
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 17:23:44 2016 -0600
+
+    Merge branch 'master' into hj_monopolygame
+
+commit 239f3bb10a0d8f004872855991ae4140d4f82093
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 17:22:36 2016 -0600
+
+    tu pull
+
+commit 59f91b5bfd3387e7abd243d953f92c36b4496b92
+Merge: 5aaa066 4f53e58
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Tue Oct 25 17:22:26 2016 -0600
+
+    Merge pull request #56 from /hz_dice
+    
+    Hz minor change in AllTests
+
+commit 4f53e58a4dfcf67960977c50c411da2885bd21fe
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Tue Oct 25 17:20:05 2016 -0600
+
+    Changed AllTests to run all tests.
+
+commit 3e965e2907aca34c327e680538eb61e39cb5ceb4
+Merge: c3ed719 5aaa066
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Tue Oct 25 17:16:55 2016 -0600
+
+    Merge branch 'master' into hz_dice
+
+commit 6a05f9d4e2174cae577a9e2c6125fe259c351863
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Tue Oct 25 17:12:06 2016 -0600
+
+    vf - minor changes...
+
+commit c3ed71979793e5437c088929d0a900409e1046cc
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Tue Oct 25 17:10:57 2016 -0600
+
+    Changed AllTest to run all Junit tests.
+
+commit 5aaa066d4c217475933417df1a3b957ce859d88a
+Merge: 67215f8 012a813
+Author: tzujui <tzujuiyu@gmail.com>
+Date:   Tue Oct 25 17:08:45 2016 -0600
+
+    Merge pull request #55 from /tj_tokenPlayer
+    
+    Tj token player
+
+commit 012a81332e92bd9b452f04106ebf84f65bf4824c
+Merge: 1f888ec 67215f8
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Tue Oct 25 17:07:58 2016 -0600
+
+    Merge branch 'master' into tj_tokenPlayer
+
+commit 1f888ecfb09e9e311cefc2e6d946fe8575d86ba0
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Tue Oct 25 17:06:49 2016 -0600
+
+    removed comboBox
+
+commit 612afc9a3a86df34e94b62c2af07f2e087f57978
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Tue Oct 25 17:00:12 2016 -0600
+
+    vf - Minor changes setting default game time.
+
+commit cac4b0a0832a93c07a397ea0cd286b9a54d74482
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 16:51:14 2016 -0600
+
+    add mortgage without pay back
+
+commit 67215f8b28f5208314f1e226e59cf2f12e44d7dc
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Tue Oct 25 16:50:43 2016 -0600
+
+    Delete game_instruction.txt~
+
+commit 69dda8d4560d355e7752658eca93ec08de323ba7
+Merge: 4685620 a49386a
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Tue Oct 25 16:48:10 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+
+commit 4685620641b39a56232c94e038a2b6f475e6ffce
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Tue Oct 25 16:44:45 2016 -0600
+
+    vf - Timer working!
+    
+    Default time is 10min.
+
+commit a49386abfdd5d43d144820e62e67a6ef89e6167b
+Merge: 72fd9d7 dbea96d
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Tue Oct 25 16:36:23 2016 -0600
+
+    Merge pull request #54 from /hz_dice
+    
+    Hz Fixed tests and added instruction file.
+
+commit dbea96d325381b8131d564e11d04f0ab7c8dd16b
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Tue Oct 25 16:34:27 2016 -0600
+
+    Fixed SquareTest, DeedTest, UtilityTest, RailRoadTest. Added game_instruction.
+
+commit 2bf6b64c4e637744e001ae4d21a4e2e3883071b1
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Tue Oct 25 16:29:48 2016 -0600
+
+    Revert "Fixed SquareTest, DeedTest, UtilityTest, RailRoadTest. Adding game_instruction.txt."
+    
+    This reverts commit ce1143036759eba4a1a69cf82c81a58f5f63a12c.
+
+commit ce1143036759eba4a1a69cf82c81a58f5f63a12c
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Tue Oct 25 16:20:02 2016 -0600
+
+    Fixed SquareTest, DeedTest, UtilityTest, RailRoadTest. Adding game_instruction.txt.
+
+commit 01e4088af1629ee85f8f9d2b40f4ae4f8331fea3
+Merge: 0377df1 72fd9d7
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 16:18:21 2016 -0600
+
+    Merge branch 'master' into hj_monopolygame
+
+commit 0377df1a28b8b734c42973572c99075174022611
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 16:16:33 2016 -0600
+
+    del
+
+commit ad83f707e09039256bb40dbc7f6372b24b3863b6
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 16:11:56 2016 -0600
+
+    test
+
+commit 72fd9d724392fde99f349ed87e85022efb2650a7
+Merge: 9b26706 941d0c1
+Author: tzujui <tzujuiyu@gmail.com>
+Date:   Tue Oct 25 15:50:33 2016 -0600
+
+    Merge pull request #51 from /tj_tokenPlayer
+    
+    Tj token player
+
+commit 9b267064c92a971e80363e4fc618b31cd7000c38
+Merge: 9649f1d 62d2ce7
+Author: jevelyn <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 15:50:02 2016 -0600
+
+    Merge pull request #50 from /hj_monopolygame
+    
+    add taxes
+
+commit 62d2ce710adaf6ef67a00a0c55f1f96bec8fadcd
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 15:45:57 2016 -0600
+
+    add taxes
+
+commit 941d0c1a41611bbdff5ad10b05ec12bf53c7d75d
+Merge: 5d79cf0 9649f1d
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Tue Oct 25 15:45:23 2016 -0600
+
+    Merge branch 'master' into tj_tokenPlayer
+
+commit 5d79cf01b423896859173ae2971d89177224cdb1
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Tue Oct 25 15:36:16 2016 -0600
+
+    fixed playerTests.java
+
+commit 9649f1d2ec237ee798ea107b60e495b5b7c6f4ce
+Merge: 2b1a97f 7df68eb
+Author: vfuentes1213 <vfuentes1213@gmail.com>
+Date:   Tue Oct 25 15:26:36 2016 -0600
+
+    Merge pull request #49 from /vf_BoardSquareSwing
+    
+    Vf board square swing
+
+commit 7df68eb19888f806b2ad8a30806cd373aa9e728d
+Merge: de16662 2b1a97f
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Tue Oct 25 15:24:22 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+
+commit 2b1a97fcc2ed515f573d8a57683cc50f5d309c14
+Merge: 4297b9c 609bbc3
+Author: jevelyn <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 15:18:14 2016 -0600
+
+    Merge pull request #48 from /hj_monopolygame
+    
+    Hj monopolygame
+
+commit 609bbc33d9dafcf76740eb4da9b8eabb1fad6f2a
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 15:16:44 2016 -0600
+
+    nothing
+
+commit 281da96b1f7b350d0f39cd65ae920a4a41586491
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Tue Oct 25 15:14:45 2016 -0600
+
+    add functionality of jail
+
+commit de1666283678ea4e2952305f7d1bc5885aeb33a3
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Tue Oct 25 13:53:12 2016 -0600
+
+    vf - End game button seems to be working correctly.
+    
+    The game will display who the winner is, based on who has the
+    most amount of cash, we may want to change this later so that we
+    take into account their properties. A good way to do this, as suggested by Huijun is to force all the players to sell their properties when the
+    game ends.
+
+commit 2476d5435765aec7a02bdf4ccae983a2249e5682
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Tue Oct 25 13:33:47 2016 -0600
+
+    vf - Added, display tokens when players enter names.
+
+commit 8b16b3c7186b1b30eed8d1fac2617a7934d9d137
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Tue Oct 25 12:47:51 2016 -0600
+
+    vf - Added build + end game buttons.
+
+commit 7168e0e5fd8a35afe245a6c95b2927bbaabbed14
+Merge: 524cab1 4297b9c
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Tue Oct 25 11:23:32 2016 -0600
+
+    Merge branch 'master' into tj_tokenPlayer
+
+commit 524cab1424948f385eb6bc6591e2f64ea6a45f7d
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Tue Oct 25 10:40:21 2016 -0600
+
+    created combo box for sellling deeds
+
+commit 56a44ff7f95a9e39eff2cfd35380bceb64db99b2
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Mon Oct 24 21:03:45 2016 -0600
+
+    add tests
+
+commit 82165d77cafdf720f85b40dee66080f13a1a22ba
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Mon Oct 24 21:01:24 2016 -0600
+
+    vf - minor changes
+
+commit 51026ae4b72a63c4e366218bce2986a3c3ded217
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Mon Oct 24 20:59:47 2016 -0600
+
+    fix bug in buy
+
+commit 5888ff6305a27281b9afbda754aa2d9e200e9b75
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Mon Oct 24 20:38:45 2016 -0600
+
+    changes
+
+commit 5f35daee4a4238cafe22dbb936d09806857707ca
+Merge: 5a6d7f3 4297b9c
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Mon Oct 24 20:24:27 2016 -0600
+
+    Merge branch 'master' into hj_monopolygame
+
+commit 5a6d7f3de1667d5dfa0df862f4b4a739d9523431
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Mon Oct 24 20:23:34 2016 -0600
+
+    changes
+
+commit 4297b9c570c425092b43acd7f7a1e137a1a6f0f3
+Merge: dc47284 40bfb9d
+Author: vfuentes1213 <vfuentes1213@gmail.com>
+Date:   Mon Oct 24 20:08:39 2016 -0600
+
+    Merge pull request #47 from /vf_BoardSquareSwing
+    
+    Vf board square swing
+
+commit 40bfb9da43023171f7bccfb59c9f4df3bf3254d0
+Merge: 6f8774d dc47284
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Mon Oct 24 20:07:03 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+
+commit 6f8774d48aef4859682bc0796c84ed8cdfd2d631
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Mon Oct 24 19:44:23 2016 -0600
+
+    vf - minor changes
+
+commit dc47284fc27e92e2d6d11ca7cbd0ddc7e634e314
+Merge: 3eaf6a3 7be9e73
+Author: tzujui <tzujuiyu@gmail.com>
+Date:   Mon Oct 24 19:41:37 2016 -0600
+
+    Merge pull request #46 from /tj_tokenPlayer
+    
+    Tj worked on sell deed combo box
+
+commit 7be9e73991756d38d986aeee5bf0bf518476b86c
+Merge: f43ffe0 3eaf6a3
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Mon Oct 24 19:40:14 2016 -0600
+
+    Merge branch 'master' into tj_tokenPlayer
+
+commit 3eaf6a349973af81eb285f50bb17c0584029b8ef
+Merge: a196675 c27e287
+Author: jevelyn <jevelyn@rams.colostate.edu>
+Date:   Mon Oct 24 19:39:15 2016 -0600
+
+    Merge pull request #45 from /hj_monopolygame
+    
+    Hj monopolygame
+
+commit f43ffe06e9118a64489d74175a049f511723de26
+Merge: 313a345 a196675
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Mon Oct 24 19:37:40 2016 -0600
+
+    Merge branch 'master' into tj_tokenPlayer
+
+commit 313a34582066b0ab313bb48fd44717b5802830de
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Mon Oct 24 19:35:33 2016 -0600
+
+    worked on sell combo box in view and controller
+
+commit deaf1688b96679300d1e6197ae4c1b95d7ae5276
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Mon Oct 24 19:32:54 2016 -0600
+
+    vf - Moving tokens seems to be working properly now.
+
+commit c27e28704cd203c4e5efbbf1a11e1dfb04c0e3bb
+Merge: 17138b0 a196675
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Mon Oct 24 19:32:33 2016 -0600
+
+    Merge branch 'master' into hj_monopolygame
+
+commit a196675c72bc498a8a35bd16809a9389f636fa4b
+Merge: f87f9e3 e10ae7d
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Mon Oct 24 19:31:43 2016 -0600
+
+    Merge pull request #44 from /hz_dice
+    
+    Hz Fixed null pointer resulted from Bank's withdraw method.
+
+commit 17138b0c0c70d82f32d2e100f69f6e3839631d68
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Mon Oct 24 19:30:17 2016 -0600
+
+    try to see changes
+
+commit e10ae7dfd2c2e447bebaa921dc3a9659bc139b26
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Mon Oct 24 19:29:35 2016 -0600
+
+    Fixed null pointer resulted from Bank's withdraw method. (left unwanted things last time)
+
+commit 51296a10eceda47e34aff8839fb5db668b7f4f58
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Mon Oct 24 19:23:40 2016 -0600
+
+    Fixed null pointer resulted from Bank's withdraw method.
+
+commit 0652810c18c75cd7c640a8582a795baa81ad43b6
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Mon Oct 24 19:09:23 2016 -0600
+
+    add function of building a house/hotel
+
+commit f87f9e31b090de21094327d5215f070119cdbb04
+Merge: e6a8182 9837fc4
+Author: jevelyn <jevelyn@rams.colostate.edu>
+Date:   Mon Oct 24 17:51:56 2016 -0600
+
+    Merge pull request #43 from /hj_monopolygame
+    
+    Hj monopolygame
+
+commit 9837fc4affe1c05a0c5e20c7d39e2d63edd71434
+Merge: c089454 976e945
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Mon Oct 24 17:50:45 2016 -0600
+
+    Merge branch 'master' into hj_monopolygame
+
+commit 976e9457cddde56066e2d481db6a95042dfd3bdf
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Mon Oct 24 17:48:48 2016 -0600
+
+    fix bug in sell
+
+commit cb4d805a4c5ad99ecfc2620e7eeaa5b4616b4da3
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Mon Oct 24 17:34:35 2016 -0600
+
+    vf - A huge commit! Need to commit more frequently next time!
+
+commit b5d2b7968af697d31ad4f429cd50270eb96419ba
+Merge: 86b2b93 e6a8182
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Mon Oct 24 12:48:38 2016 -0600
+
+    Merge branch 'master' into hz_dice
+
+commit 86b2b938f3e8328917f1f31731ac97ea02ff238c
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Mon Oct 24 12:47:18 2016 -0600
+
+    Left a print statement in View when I did my last merge, it's deleted now.
+
+commit e6a8182113b4bd0c230bdf21ef78264e1c3e6c30
+Merge: 0daa3c0 1b5c0d2
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Mon Oct 24 12:42:41 2016 -0600
+
+    Merge pull request #42 from /hz_dice
+    
+    Changed the orientation of the last column. Looks all correct now.
+
+commit 1b5c0d2ba51160dd501891d09c1a2a5f0ae29de3
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Mon Oct 24 12:40:57 2016 -0600
+
+    Changed the orientation of the last column. Looks all correct now.
+
+commit c0894545806b5b12b2b8f542ae816cffd0c9207b
+Merge: 7ad4332 0daa3c0
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 18:44:51 2016 -0600
+
+    Merge branch 'master' into hj_monopolygame
+
+commit 7ad4332d0ac41e66b47ef35cad2ce20e61a48917
+Merge: 8a1b807 7a21b85
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 18:40:52 2016 -0600
+
+    Merge branch 'master' into hj_monopolygame
+
+commit 0daa3c004575be7d91cf194b212331b0e5b7f6eb
+Merge: 7a21b85 ff16e39
+Author: vfuentes1213 <vfuentes1213@gmail.com>
+Date:   Sun Oct 23 18:29:32 2016 -0600
+
+    Merge pull request #41 from /vf_BoardSquareSwing
+    
+    vf Buy Button
+
+commit ff16e395151a8bcb51f11fb5e87781ac08161e0b
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sun Oct 23 18:28:16 2016 -0600
+
+    vf - Successfully added bought deed to player's properties.
+
+commit 0ed28ac3394f8f332fc5e8edc0ed7933348e66f8
+Merge: 3f9effb 7a21b85
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sun Oct 23 18:09:16 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+
+commit 8a1b8072accebd46c10ffbc6f3f4f3998d23cf86
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 18:07:43 2016 -0600
+
+    try to pull
+
+commit 5dcf4885dac28259542b954337b227b4b5cc6002
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 18:06:35 2016 -0600
+
+    try to pull
+
+commit 3f9effb9a2ba2abab1ca9ced0723551eb85273ab
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sun Oct 23 18:02:08 2016 -0600
+
+    vf - Working on Buy Button.
+    
+    It seems to be working now!
+
+commit 7a21b851a4855839be70985e63ec06b8f0b496a1
+Merge: 029db26 dadd724
+Author: tzujui <tzujuiyu@gmail.com>
+Date:   Sun Oct 23 17:24:37 2016 -0600
+
+    Merge pull request #40 from /tj_tokenPlayer
+    
+    modified startMenu() to send model player name list from view
+
+commit dadd72483f7c0a8c00cbf8200f7310a9e3a4db3b
+Merge: b78b0ba 029db26
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Sun Oct 23 17:20:46 2016 -0600
+
+    fixed merge conflict
+    Merge branch 'master' into tj_tokenPlayer
+
+commit b78b0baba5219dfbdffac18f0de4f8bf560af498
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Sun Oct 23 17:11:40 2016 -0600
+
+    send player name to model from view startMenu()
+
+commit 029db26775571dee2093d585d89aa9d7886d5380
+Merge: ef7606e 25bca1d
+Author: jevelyn <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 17:06:59 2016 -0600
+
+    Merge pull request #39 from /hj_monopolygame
+    
+    Hj monopolygame
+
+commit 25bca1d98d011371d1c2fa3690f28c3b9262de17
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 17:01:33 2016 -0600
+
+    change Bank test
+
+commit 3b91db5634a4fd2b5def2f6bd87f487580c4523e
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 17:00:13 2016 -0600
+
+    add Bank.java Model.java  Player.java
+
+commit ef7606e62118e203bd543803fa29d491338facdf
+Merge: 4f2043a 740fee4
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sun Oct 23 16:56:38 2016 -0600
+
+    Merge pull request #38 from /hz_dice
+    
+    cleaned up comments.
+
+commit 740fee4691bc0ecb962669b6e6f280250e105b9e
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sun Oct 23 16:55:12 2016 -0600
+
+    cleaned up comments.
+
+commit 4f2043ac643b119698da104a8601669aea3be143
+Merge: c8f9503 dd415c0
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sun Oct 23 16:30:28 2016 -0600
+
+    Merge pull request #37 from zhunt141/hz_dice
+    
+    Hz Orienation
+
+commit dd415c08589ca42a66cd3e42df98d31076bbb5fe
+Merge: 4a7b832 c8f9503
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sun Oct 23 16:26:05 2016 -0600
+
+    Merge branch 'master' into hz_dice
+    
+    Conflicts:
+    	cs414/a4/View.java
+
+commit 7ea99a2cdc53265dc6d75a8120170d76e6f07f9a
+Merge: 634ae27 c8f9503
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 16:18:19 2016 -0600
+
+    Merge branch 'master' into hj_monopolygame
+
+commit 634ae272b52b6aca06eb15787ffb0ac9d142bb46
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 16:17:22 2016 -0600
+
+    add Account.java Bank.java Model.java
+
+commit 4a7b832c5dd76a099f26f32f3fa655911b00d07a
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sun Oct 23 16:02:48 2016 -0600
+
+    Changed the orientation of one of the rows in the board, work in progress.
+
+commit c8f95039656251b1f552af8af8feaeb4b2909c84
+Merge: bf701bc dcedb1d
+Author: tzujui <tzujuiyu@gmail.com>
+Date:   Sun Oct 23 16:01:50 2016 -0600
+
+    Merge pull request #35 from zher141/tj_tokenPlayer
+    
+    Tj overrides toString() in Player.java in order to send model a list of deeds
+
+commit dcedb1d900d21a44669c2e0c35159044b3173940
+Merge: 700249f bf701bc
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Sun Oct 23 15:59:02 2016 -0600
+
+    Merge branch 'master' into tj_tokenPlayer
+
+commit 700249f7cdb70d5593481dafe8b33fcef7aaed56
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Sun Oct 23 15:57:42 2016 -0600
+
+    overrided toString()
+
+commit 5c35a7b3883591c95a882b8ff64ed6f28b4dccbf
+Merge: 85fd7ef bf701bc
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 15:34:02 2016 -0600
+
+    Merge conflict
+
+commit 85fd7eff4bb35ac0a2b242e3730261110cf587ee
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 15:31:50 2016 -0600
+
+    account test
+
+commit b4036f6985363ad80966931238e654e4c21af747
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 15:31:30 2016 -0600
+
+    change account
+
+commit bf701bc325b111fc1ad23b566806747fe1fb0e55
+Merge: d88669b 12ebe6a
+Author: vfuentes1213 <vfuentes1213@gmail.com>
+Date:   Sun Oct 23 15:21:59 2016 -0600
+
+    Merge pull request #34 from zhun41/vf_BoardSquareSwing
+    
+    Vf board square swing
+
+commit 12ebe6aa006643913162175c7e325e5c8f435478
+Merge: a8e637e d88669b
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sun Oct 23 15:20:19 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+
+commit d88669b7e39b9835ce18d0ca58e5e7038cf6d91b
+Merge: 50b572a a872d63
+Author: tzujui <tzujuiyu@gmail.com>
+Date:   Sun Oct 23 15:01:40 2016 -0600
+
+    Merge pull request #33 from zhunt41/tj_tokenPlayer
+    
+    Tj added startMenu() in view.java
+
+commit a8e637e97c02b88de29fbf21e39cc451cab958a4
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sun Oct 23 15:00:36 2016 -0600
+
+    vf - Reformating the GUI.
+
+commit a872d633e4e183de44229731623bcd92149b2962
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Sun Oct 23 14:45:57 2016 -0600
+
+    added startMenu()
+
+commit 764fd02c86b074b2856389924a41b4023fa1b991
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 14:38:12 2016 -0600
+
+    del Sys print
+
+commit 50b572a48bfa3de56ede92ffcc30d3cc162d598b
+Merge: 716c74f 9adcd00
+Author: jevelyn <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 14:30:42 2016 -0600
+
+    Merge pull request #32 from zhur141/hj_monopolygame
+    
+    Hj monopolygame
+
+commit 9adcd00b0ebb77b05751a85ea60653a07ca77245
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 14:29:08 2016 -0600
+
+    modified model to display the inform
+
+commit 1815511e8c00f7bc4983b1ab9471a35fc89c4c98
+Merge: 6a85d60 716c74f
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 14:04:04 2016 -0600
+
+    change view, Model
+
+commit 6a85d6046948e6697ae90ffd093a307bfd5e5237
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 13:59:30 2016 -0600
+
+    change 2 tests
+
+commit 8a91d45a4023eab6fc5efbced0ad94390b0df785
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 13:59:04 2016 -0600
+
+    add Account.java Bank.java Model.java
+
+commit d8362a5e5d60af2500d311bb781633e00a378b70
+Merge: 7ea2247 716c74f
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Sun Oct 23 13:56:06 2016 -0600
+
+    Merge branch 'master' into tj_tokenPlayer
+
+commit 8552396c47da3e3eb9579f0833c85b73a6785652
+Merge: 8c3738e 716c74f
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sun Oct 23 13:22:21 2016 -0600
+
+    Merge branch 'master' into hz_dice
+
+commit 8c3738e09d834e0d02bae3eb4eaefae279b3d592
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sun Oct 23 13:20:40 2016 -0600
+
+    Minor change in Board to set the set up correct, work in progress.
+
+commit 716c74f68c01a0000fbbd3d3158548d913c7e597
+Merge: 799090c 5893d48
+Author: vfuentes1213 <vfuentes1213@gmail.com>
+Date:   Sun Oct 23 13:19:06 2016 -0600
+
+    Merge pull request #31 from zhun141/vf_BoardSquareSwing
+    
+    Vf board square swing
+
+commit 5893d4889020a487328a6a99d91edb046364929e
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sun Oct 23 13:17:10 2016 -0600
+
+    vf - System Testing:Player can correcly traverse the board.
+
+commit 55d5a95889a3c33890ab40a869a44dc024fa3465
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 12:52:49 2016 -0600
+
+    del Due.java
+
+commit ce604c929c6118ab602b00545d46b400b17b7832
+Merge: d4e03b9 799090c
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sun Oct 23 12:49:42 2016 -0600
+
+    merge branch 'master' into vf_BoardSquareSwing
+
+commit 799090c1fc5c48191a7b56dcd3fde08af57fba18
+Merge: c80972c 0ee5e7e
+Author: jevelyn <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 12:49:18 2016 -0600
+
+    Merge pull request #30 from zter141/hj_monopolygame
+    
+    Hj monopolygame
+
+commit d4e03b9a87e2c8b31825cd48bb86961ffdb5dd35
+Merge: 1c838f4 c80972c
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sun Oct 23 12:46:41 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+
+commit 0ee5e7e3aa0baf620c57afd96b3c3c12186998bc
+Merge: 188c598 c80972c
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 12:46:10 2016 -0600
+
+    Merge branch 'master' into hj_monopolygame
+
+commit 1c838f424dbd609345dc2ee5de6b8275866d39a7
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sun Oct 23 12:45:48 2016 -0600
+
+    vf - added end turn funcationality to ctrl class.
+
+commit c80972c90dc5e4a3de080b5db72827dd240e3240
+Merge: c61a472 48bd416
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sun Oct 23 12:45:31 2016 -0600
+
+    Merge pull request #29 from zhun141/hz_dice
+    
+    Hz Board and View
+
+commit 188c5983d8b38010eb919d8d4e001d55132b983a
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 12:45:00 2016 -0600
+
+    add msg in rollDice
+
+commit e48fa1c33c598dd8e1bfacd4721353fe994a9f45
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 12:42:22 2016 -0600
+
+    add endTurn()
+
+commit 48bd416a7a8143022e84448f8e9a8acc1b90440e
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sun Oct 23 12:41:39 2016 -0600
+
+    Filled in square names and info in Board, and modified View to show names.
+
+commit ca0f8c7322fca99a6b2fe0619f45d31f49978ea1
+Merge: f1dea70 c61a472
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 12:38:36 2016 -0600
+
+    Merge branch 'master' into hj_monopolygame
+
+commit f1dea706dec2c1f887a6d2ecf766da57af0649c9
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 12:37:16 2016 -0600
+
+    pull
+
+commit b4493037934dd827f12416b158afa4b279ead00c
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 12:36:35 2016 -0600
+
+    try to pull
+
+commit c61a472ad5c5722823b686b1e2b5372eecd12d77
+Merge: 2764aac e3fe6cb
+Author: vfuentes1213 <vfuentes1213@gmail.com>
+Date:   Sun Oct 23 12:35:34 2016 -0600
+
+    Merge pull request #28 from zhun141/vf_BoardSquareSwing
+    
+    Vf board square swing
+
+commit e3fe6cbc35dfe8f8a60d67ea27e24f337c3eb5f1
+Merge: c794a31 2764aac
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sun Oct 23 12:29:09 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+
+commit c794a3106a53bce870eff02980f172d902a3dfd2
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sun Oct 23 12:24:26 2016 -0600
+
+    vf - Added connections to ctrl for View buttons.
+    
+    Also cleaned up code a little.
+
+commit 2764aac76f92f8966d47f32f598531ccf90ba0e2
+Merge: bbcf8e6 31ec3a6
+Author: jevelyn <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 12:19:30 2016 -0600
+
+    Merge pull request #27 from /hj_monopolygame
+    
+    Hj monopolygame
+
+commit 31ec3a685ea67d38e769778403428bf5b888f910
+Merge: bc4f8c6 bbcf8e6
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 12:10:33 2016 -0600
+
+    Merge branch 'master' into hj_monopolygame
+
+commit bc4f8c6500632cfe8828bb190c3094c526c32275
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 12:09:23 2016 -0600
+
+    start test bank
+
+commit 2ded1f5d9fd163d272179f639f72b7e4a03db18e
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 12:07:54 2016 -0600
+
+    change account,fix Bank,model
+
+commit 0da9ce5da3a490ffbf3cab8dccba3a2cb565e489
+Merge: 25f7de4 bbcf8e6
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sun Oct 23 11:00:04 2016 -0600
+
+    Merge branch 'master' into hz_dice
+
+commit bbcf8e6ddc440ce8f6699c9544f3b17d3d6eb88d
+Merge: 5f32f98 898a329
+Author: jevelyn <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 10:53:29 2016 -0600
+
+    Merge pull request #26 from /hj_monopolygame
+    
+    Hj monopolygame
+
+commit 898a3298b20ab0fdde349d31d803e682f62c78af
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sun Oct 23 10:47:59 2016 -0600
+
+    add Account.java Bank.java Model.java View.java
+
+commit 7ea224738fefb2b7f35458cbcf41b87ba8dc9bcb
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Sun Oct 23 09:26:42 2016 -0600
+
+    update from 10/22
+
+commit 25f7de4720f17c751169091df8ff60b5ecfa0b56
+Merge: 46cc373 5f32f98
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sat Oct 22 18:41:23 2016 -0600
+
+    Merge branch 'master' into hz_dice
+
+commit a24eaac951663398e90fdd70036f1dad3482dee9
+Merge: f12c4f0 5f32f98
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sat Oct 22 18:04:24 2016 -0600
+
+    Merge branch 'master' into hj_monopolygame
+
+commit 5f32f98dfa77bcaa7b5eff54535a907cbd0ccd5f
+Merge: 3e20715 20a712b
+Author: vfuentes1213 <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 18:03:56 2016 -0600
+
+    Merge pull request #25 from /vf_BoardSquareSwing
+    
+    Vf board square swing
+
+commit 20a712b36312df52e2148035c8d7e971eaff3c01
+Merge: dead898 3e20715
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 18:02:16 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+
+commit f12c4f0197b159751b950e7c0f4932282b051f18
+Merge: 5aad1e3 3e20715
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sat Oct 22 17:55:58 2016 -0600
+
+    Merge branch 'master' into hj_monopolygame
+
+commit 46cc3733d555933b9627776953529523c7677ac1
+Merge: f25233d 3e20715
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sat Oct 22 17:55:09 2016 -0600
+
+    Merge branch 'master' into hz_dice
+
+commit 5aad1e3b5471027e9d2c4690b0030edb89673401
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sat Oct 22 17:54:43 2016 -0600
+
+    change test
+
+commit 3e20715c19aab3a207b5818f06410d5e32653393
+Merge: f60d067 e88979b
+Author: jevelyn <jevelyn@rams.colostate.edu>
+Date:   Sat Oct 22 17:54:01 2016 -0600
+
+    Merge pull request #24 from /hj_monopolygame
+    
+    change model,bank
+
+commit e88979b4941ca0efe2e69e54231c10adf312cb0b
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sat Oct 22 17:52:28 2016 -0600
+
+    change model,bank
+
+commit dead8987cbf78a11ba2b59aa6cc9fdcc1936071b
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 17:51:52 2016 -0600
+
+    vf - still trying to get roll dice to work.
+
+commit f25233d413b521a769b1213a1f576ead830c25e2
+Merge: ef17333 f60d067
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sat Oct 22 17:13:55 2016 -0600
+
+    Merge branch 'master' into hz_dice
+
+commit ef17333fefacec795facd2a4c3af9dbf96e28e93
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sat Oct 22 17:13:30 2016 -0600
+
+    Revert "Changes to some tests."
+    
+    This reverts commit 350897bba74d8b2aff3a5602becbf0a7257b8060.
+
+commit f60d0673443d7ddd2737b6db424ce731e30884e2
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sat Oct 22 17:07:04 2016 -0600
+
+    Changed PlayerTest, still working in progress.
+
+commit 0b6066939b608d7efdfb64415592b2cd2efd8d10
+Merge: c5663bf a41eaba
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 17:05:04 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+
+commit c5663bf5e0f1364c7a6f079c71d9e2a1cedf3417
+Merge: 3fee741 593b15a
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 17:02:43 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+    
+    Fixed!
+
+commit a41eaba5c16bfb54c29e56af485ed3725a5b5149
+Merge: 593b15a d545fa9
+Author: tzujui <tzujuiyu@gmail.com>
+Date:   Sat Oct 22 16:53:21 2016 -0600
+
+    Merge pull request #21 from /tj_tokenPlayer
+    
+    Tj modified two functions in player.java and controller.java
+
+commit d545fa901d9c4ec2ae883058c6b6b0fe3e320e70
+Merge: 3737f63 593b15a
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Sat Oct 22 16:51:40 2016 -0600
+
+    modified two function in player.java
+    Merge branch 'master' into tj_tokenPlayer
+
+commit 350897bba74d8b2aff3a5602becbf0a7257b8060
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sat Oct 22 16:51:19 2016 -0600
+
+    Changes to some tests.
+
+commit 3737f63682be4a7b19af01403dd4d3e6e6011cb0
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Sat Oct 22 16:48:08 2016 -0600
+
+    modified addDeed() and removeDeed()
+
+commit 3fee74140e17e1d48b97be163b75b894e328b38c
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 16:47:57 2016 -0600
+
+    Testing roll dice
+
+commit 593b15a797a8844cf17765004c743dc103438a41
+Merge: 7dbd70a abf4319
+Author: jevelyn <jevelyn@rams.colostate.edu>
+Date:   Sat Oct 22 16:46:23 2016 -0600
+
+    Merge pull request #20 from /hj_monopolygame
+    
+    Hj monopolygame
+
+commit abf43196bdc59b21903f7d48beca7bcad894d03a
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sat Oct 22 16:36:18 2016 -0600
+
+    add 2 tests
+
+commit 8c61a7de84ca00f6735210d9544b324645239e79
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sat Oct 22 16:29:23 2016 -0600
+
+    change Model
+
+commit 7dbd70aec660ebe13629a7c648b608c951ab690a
+Author: jevelyn <jevelyn@rams.colostate.edu>
+Date:   Sat Oct 22 16:27:57 2016 -0600
+
+    Add files via upload
+    
+    add 2 tests
+
+commit 3e0890579f3590eb5efe0b57c3832b0d36b2db54
+Merge: 0399e31 d2c299f
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 16:12:36 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+
+commit 0399e3119b858ba7345170d3a63893308a191688
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 16:11:31 2016 -0600
+
+    vf - minor changes.
+
+commit d2c299feb670a4ba2b8d04440a1837c1376124bd
+Merge: aa790a3 c0378b9
+Author: vfuentes1213 <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 15:44:05 2016 -0600
+
+    Merge pull request #19 from /vf_BoardSquareSwing
+    
+    Vf board square swing
+
+commit c0378b9848d1a795b1d0e1de6da4c38af7e97560
+Merge: 4f68418 aa790a3
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 15:42:40 2016 -0600
+
+    Resolved merge conflict
+
+commit aa790a348faecbd90984e4569f21a4032c296a35
+Merge: 2adaf01 ca41fc1
+Author: tzujui <tzujuiyu@gmail.com>
+Date:   Sat Oct 22 15:35:59 2016 -0600
+
+    Merge pull request #18 from /tj_tokenPlayer
+    
+    Tj modified hashSet<Square> myDeeds and Controller.java
+
+commit ca41fc1d8d16269f07346387f68fd8f371c496d9
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Sat Oct 22 15:32:11 2016 -0600
+
+    added view instane to controller.java
+
+commit 4f684183518225423b593d7a37d0cd1e7fc8c694
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 15:30:00 2016 -0600
+
+    Added getters/setters
+
+commit b871ec92a26066b3f96f0373961f8ee260cad5f1
+Merge: bf9c4f0 2adaf01
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Sat Oct 22 15:28:57 2016 -0600
+
+    merge changes of player.java and controller.java to my branch on github
+    Merge branch 'master' into tj_tokenPlayer
+
+commit 886466e4e38485eaa8d087e85d64b73b9e734b43
+Merge: 52d441b 2adaf01
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 15:24:29 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+
+commit 52d441b6ac7a9921806d2194c9bf5f1c31aeffe0
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 15:23:29 2016 -0600
+
+    vf - chooseDeeds method
+
+commit bf9c4f0b431c8fbf2b0657a9bd476d8bb091ef0b
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Sat Oct 22 15:23:14 2016 -0600
+
+    changed hashSet type for myDeeds
+
+commit 2adaf010e8f39cb9fb5ac74d9838ed958e2011ca
+Merge: 81c01b2 3b95021
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sat Oct 22 15:08:27 2016 -0600
+
+    Merge pull request #17 from /hz_dice
+    
+    Some more test cases and minor code changes.
+
+commit 1d0b6bfdee766cf7a6704a4d4012b253be10b255
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 15:04:11 2016 -0600
+
+    Added getter for rentCost
+
+commit 3b95021f0c18dc8b1d9b7d1a06d712c2a47e4f3b
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sat Oct 22 15:04:06 2016 -0600
+
+    Some more test cases and minor code changes.
+
+commit 81c01b29ab9a292b1903b2f8cac9b2a72a9ea949
+Merge: 4d42feb 8f2a38c
+Author: vfuentes1213 <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 14:50:15 2016 -0600
+
+    Merge pull request #16 from /vf_BoardSquareSwing
+    
+    Vf board square swing
+
+commit 8f2a38ce93c4ea5189ee8864b1121d2fd2fa5574
+Merge: 316cf99 4d42feb
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 14:41:36 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+
+commit 4d42feb1d099126504ec877032c8c16b9ce5521b
+Merge: af8c9ff 1af334a
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sat Oct 22 14:40:17 2016 -0600
+
+    Merge pull request #15 from /hz_dice
+    
+    Fixed syntax error in DeedTest.java, test is still not working fully.
+
+commit 316cf99b6cc9de4415acb5fd9b8763668c00c123
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 14:37:58 2016 -0600
+
+    Removing old view
+
+commit 1af334a7f5c62f440b6967a1289a5c9ac614b50e
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sat Oct 22 14:37:57 2016 -0600
+
+    Fixed syntax error in DeedTest.java, test is still not working fully.
+
+commit 3367c7ae24fde6a2bb52eda92f012cc776dd9ad1
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 14:33:27 2016 -0600
+
+    Minor changes
+
+commit 9ad1fc01ceb3be84d450e56c4c49eb0a7409dd9e
+Merge: e316ff8 af8c9ff
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sat Oct 22 13:40:23 2016 -0600
+
+    fix merge conflict
+
+commit e316ff8fd08ea3e60e506d66d7ec9e2bb79b9f0b
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sat Oct 22 13:36:22 2016 -0600
+
+    Change Model.java
+
+commit af8c9ff74f9fb26fd94b0b3ba66b78aeb24991fd
+Merge: 94f0cec b76069c
+Author: vfuentes1213 <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 13:34:41 2016 -0600
+
+    Merge pull request #14 from /vf_BoardSquareSwing
+    
+    Vf constructor change.
+
+commit b76069c29b4a731e0f2d0ad3136819100d343130
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 13:29:21 2016 -0600
+
+    Changes in constructor for Model.
+
+commit e16fed23b9a5ebd9898c104eb545dd0d20b48d39
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Sat Oct 22 13:14:46 2016 -0600
+
+    added removeDeed()
+
+commit 94f0cecfbe0d56ec1b72a0dc17d14d31313bb9ae
+Merge: c21d250 7f3428d
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sat Oct 22 13:07:04 2016 -0600
+
+    Merge pull request #13 from zhur141/hz_dice
+    
+    Minor changes in UtilityTest.java.
+
+commit 7f3428d268dad8410374421dab52f6455dff9268
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sat Oct 22 13:05:10 2016 -0600
+
+    Error fix in SquareTest.java.
+
+commit 42d128d340da42f14f94bbc18d4edd1f7cceb331
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sat Oct 22 13:01:31 2016 -0600
+
+    Minor changes in UtilityTest.java.
+
+commit b43b52303ff081d5b17f760c54bc6b03628eb451
+Merge: ca8ed08 c21d250
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sat Oct 22 12:52:19 2016 -0600
+
+    Merge branch 'master' into hj_monopolygame
+
+commit ca8ed087e90e6fb37e0275eb0083a1813899270b
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sat Oct 22 12:51:02 2016 -0600
+
+    change Model
+
+commit c21d250a1501f9be246377b42286a2c96a498b5d
+Merge: a9d34eb 3e16e04
+Author: tzujui <tzujuiyu@gmail.com>
+Date:   Sat Oct 22 12:48:43 2016 -0600
+
+    Merge pull request #12 from /tj_tokenPlayer
+    
+    Tj modified player.java by adding addDeed()
+
+commit a9d34eb5604e39fd1bba165b6b830e378fd571cd
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sat Oct 22 12:46:13 2016 -0600
+
+    Fixed small error in SquareTest.java, added UtilityTest.java and RailRoadTest.java
+
+commit 3e16e04c2d3a01c37399ae3153a09653d4ada821
+Merge: 8232627 ec831fc
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Sat Oct 22 12:43:45 2016 -0600
+
+    get the lastest update from git
+    Merge branch 'master' into tj_tokenPlayer
+
+commit 823262798a438d337bd7e7a5503d7a7d82644c0f
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Sat Oct 22 12:35:50 2016 -0600
+
+    added addDeed() to Player.java
+
+commit ca991526e6653297edcc1dff1705d0d274b27f5a
+Merge: 353c79f ec831fc
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 12:27:36 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+
+commit 353c79f72772b32077d6767971417159736c8dae
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 12:27:22 2016 -0600
+
+    Minor changes
+
+commit ec831fc82bda15b064c77ef52d70f55135dbb600
+Merge: 80b5ddf fd1553f
+Author: jevelyn <jevelyn@rams.colostate.edu>
+Date:   Sat Oct 22 12:17:52 2016 -0600
+
+    Merge pull request #11 from zhr141/hj_monopolygame
+    
+    Hj monopolygame
+
+commit fd1553f1603a50767bb68537e40b083f83cae189
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sat Oct 22 12:16:28 2016 -0600
+
+    change Account.java, Due.java,Model.java
+
+commit 80b5ddffba10cc6b9981655c642242d4f423b2e4
+Merge: bb07308 5414ad3
+Author: vfuentes1213 <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 12:12:20 2016 -0600
+
+    Merge pull request #10 from zhu141/vf_BoardSquareSwing
+    
+    vf - Working on a way to look at the board from the View class.
+
+commit 5414ad3172c8ad5b6d940e31b607c6273de3e1da
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 12:06:28 2016 -0600
+
+    vf - Working on a way to look at the board from the View class.
+
+commit ef31d58fcda5c6517bd6d11aae2e8a0a90ab0e0c
+Merge: 1edc608 bb07308
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sat Oct 22 10:51:13 2016 -0600
+
+    Merge branch 'master' into hj_monopolygame
+
+commit 1edc60898eb567a2f8a22952b6b0ee80a6a9f5df
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sat Oct 22 10:50:22 2016 -0600
+
+    add things in model
+
+commit bb073085ac85eec250f5bcc15303bf79ba3bb02e
+Merge: c115fa3 965f363
+Author: tzujui <tzujuiyu@gmail.com>
+Date:   Sat Oct 22 10:49:45 2016 -0600
+
+    Merge pull request #9 from zhu41/tj_tokenPlayer
+    
+    Tj token, player, and controller.java
+
+commit 965f363ba0c692b1f64aa000a8130c47c9a010ef
+Merge: 418c72a c115fa3
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Sat Oct 22 10:41:15 2016 -0600
+
+    Merge branch 'master' into tj_tokenPlayer
+
+commit 418c72aaf3628b9fc8f791424cc2b9751ec3c43d
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Sat Oct 22 10:29:56 2016 -0600
+
+    added getToken() in Player.java and Controller.java. Changed Set to HashSet in Token.jave
+
+commit 7439d788436a122244622dde215850e085b975b1
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sat Oct 22 10:28:01 2016 -0600
+
+    del MonopolyGame.java
+
+commit c4e8e4b042834be0ac80878ed3777ac1a4c596ba
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Sat Oct 22 10:18:44 2016 -0600
+
+    change Model
+
+commit c115fa3b2fd0dec75a8924ee77999047f4f2f3c0
+Merge: 218e03e 125f97e
+Author: vfuentes1213 <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 10:05:45 2016 -0600
+
+    Merge pull request #8 from zhun141/vf_BoardSquareSwing
+   
+    Vf board square swing
+
+commit 125f97ec94e1b2c2432b9d497be1d41ce0393a2c
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 10:03:34 2016 -0600
+
+    vf - minor changes so that errors are gone while Controller is set
+    
+    up.
+
+commit 16a7b9d5636126bdafa183a3acc1f77cc8fb116a
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 09:59:02 2016 -0600
+
+    Setting up connections for model and controller
+
+commit 05d450304848ba52e5d3afe166eecee04ca63c60
+Merge: 68ae0b4 218e03e
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 09:25:51 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+
+commit 218e03e9605c3f2c94b148022e263950a081bb09
+Merge: 2394237 6d307e0
+Author: tzujui <tzujuiyu@gmail.com>
+Date:   Sat Oct 22 09:24:37 2016 -0600
+
+    Merge pull request #7 from zhu41/tj_tokenPlayer
+    
+    Tj modified move() in Token.java
+
+commit 6d307e0203a11a13146a108755a47e5e44fbadeb
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Sat Oct 22 09:18:27 2016 -0600
+
+    Implemented move() function in Token.java
+
+commit 68ae0b4859f6519ce93257fac4d0f9a6637cd938
+Merge: 017336c 2394237
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sat Oct 22 09:10:06 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+
+commit 23942379864020dade03a34bd246d0279e08ab58
+Merge: 1375318 478e7a6
+Author: jevelyn <jevelyn@rams.colostate.edu>
+Date:   Thu Oct 20 17:29:53 2016 -0600
+
+    Merge pull request #6 from zhunte1/hj_monopolygame
+    
+    Change Account.java
+
+commit 017336c9ba877fce321d690c295c9b61973f4314
+Merge: 62924cb 1375318
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Thu Oct 20 17:20:16 2016 -0600
+
+    Merge branch 'master' into vf_BoardSquareSwing
+
+commit 478e7a6f2a50ceb968762e8981377a9b68f71d5e
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Thu Oct 20 17:19:24 2016 -0600
+
+    Change Account.java
+
+commit c91b5f8f5892b353d7c0b17a0e04cc2e60775484
+Author: tzujuiyu <TJ@tzujuiyus-MacBook-Air.local>
+Date:   Thu Oct 20 17:17:14 2016 -0600
+
+    tj commit test
+
+commit 1375318655c46bbe061a45930f0f185af61faeae
+Merge: 70039b6 b150586
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Thu Oct 20 17:04:30 2016 -0600
+
+    Merge pull request #5 from zhunt141/hz_dice
+    
+    Fixed major slip up
+
+commit b1505862d562db1febf7cef36cf0ee3effa5a099
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Thu Oct 20 17:02:56 2016 -0600
+
+    Fixed major slip up
+
+commit 70039b6ba7c85884c86b313b1b874d567272190e
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Thu Oct 20 16:51:30 2016 -0600
+
+    Revert "Dice.java and DiceTest.java added."
+    
+    This reverts commit aaea24098f0d2136df1c25ad98d846d7b314ac64.
+
+commit aaea24098f0d2136df1c25ad98d846d7b314ac64
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Thu Oct 20 16:27:37 2016 -0600
+
+    Dice.java and DiceTest.java added.
+
+commit 62484d0d8046935a87a6ad89cc9708b3f99d9077
+Merge: c45abc0 dc110cf
+Author: tzujui <tzujuiyu@gmail.com>
+Date:   Thu Oct 20 16:31:44 2016 -0600
+
+    Merge pull request #4 from zhuntr141/tj_tokenPlayer
+    
+    added player.java and token.java
+
+commit dc110cf23f13d4e6fcef4df8434ad7d8fe4e3b66
+Author: tzujui <tzujuiyu@gmail.com>
+Date:   Thu Oct 20 16:30:17 2016 -0600
+
+    added player.java and token.java
+
+commit c45abc06506948155216d78abfdb946a6d0b0682
+Merge: 55be922 0d6aa71
+Author: jevelyn <jevelyn@rams.colostate.edu>
+Date:   Thu Oct 20 16:23:45 2016 -0600
+
+    Merge pull request #3 from zhunr141/hj_monopolygame
+    
+    Hj monopolygame
+
+commit 0d6aa715e643f0d1ba4dae4fc012a9f226cc3532
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Thu Oct 20 16:21:52 2016 -0600
+
+    hj Add Account,Due,Bank,MonopolyGame
+
+commit 7bf62cb745b7c9702034f9a2e81dd797f252c009
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Thu Oct 20 16:15:16 2016 -0600
+
+    hj my changes
+
+commit 55be922f0688eda8dc9fb526c4e4f3dfb8b34596
+Author: Huijun Wang <jevelyn@rams.colostate.edu>
+Date:   Thu Oct 20 16:12:20 2016 -0600
+
+    From commit from HJ
+
+commit 62924cb944aefb8545d2b408c34066ea2f187221
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Wed Oct 19 22:15:56 2016 -0600
+
+    vf - Added end turn button.
+    
+    I'm playing around with putting the buttons inside
+    JPanels so that they don't take up the entire space.
+
+commit 865770768c2c8d6512c6db267580c640774ff57f
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Wed Oct 19 21:40:39 2016 -0600
+
+    vf - adding textarea for indicating game msgs
+
+commit 7ae9a969e6c69449a3187c4249c41d6b11d4d4ee
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Wed Oct 19 21:14:50 2016 -0600
+
+    vf - working on more GUI stuff.
+    
+    I'm doing this now because I need classes from other people to finish
+    testing my code.
+
+commit 2e14e82e18ee83fe9a68fb820d1c64bd08802e39
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Tue Oct 18 23:18:20 2016 -0600
+
+    vf - Initial GUI development.
+    
+    Still just playing with the various ways we could represent
+    the squares on the board.
+
+commit a58a0dd18a9626d771c9f707311a0043a85b1800
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Tue Oct 18 22:43:39 2016 -0600
+
+    vf - Adding header for Board,Square, and BoardTests classes
+
+commit 7c196208d70941ae6007d50972f61f19b5e75e8a
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Tue Oct 18 22:33:29 2016 -0600
+
+    vf - Added RR & Util classes.
+
+commit b44a7d7c5522aa4e51a15af0235612d8cf51972e
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Tue Oct 18 22:14:07 2016 -0600
+
+    vf - PlayerTests and TokenTests did not have a packagename.
+
+commit 02f35a2b8eefeea554261d5dba3ebedd9eb23a87
+Merge: 656b8f1 8615c71
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Tue Oct 18 22:04:21 2016 -0600
+
+    Merge branch 'vf_BoardSquareSwing'
+
+commit 8615c7120339d7b2b412532b5a7473040cb4d40f
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Tue Oct 18 21:59:45 2016 -0600
+
+    vf - added Tests for Deeds
+
+commit 656b8f179584970cb932e13d73df24a6da231f87
+Author: tzujui <tzujuiyu@gmail.com>
+Date:   Tue Oct 18 21:46:55 2016 -0600
+
+    Upload player and token test cases
+    
+    not sure how to go about move() function in Token. Need to discuss with the team.
+    My current thought is to ensure that both board (or maybe square) and token have consensus on current location of the player.
+
+commit 01664b9e3e0f79f87b729fa87bf563a58de89ab7
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Mon Oct 17 21:40:53 2016 -0600
+
+    vf - Testing for Owner of a Square.
+    
+    To fully test we need the Token and Player classes written. I mentioned
+    this in a prior commit but I think we will need to write an equals
+    method for Player and maybe one for Token aswell.
+
+commit caf5177fa34ef45be2956c292d2fea9208391ccf
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Mon Oct 17 21:25:18 2016 -0600
+
+    vf - More Tests cases for the Square class.
+    
+    Important: Does it make sense to Override the equals method for
+    the Square class. I did it so that we can more clearly define
+    when two Squares are equal to eachother, that is, when they have
+    the same name.
+
+commit ca1dd24ec134bc31b40166df793abc948a33cce4
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Mon Oct 17 20:47:59 2016 -0600
+
+    vf - More work on SquareTests, added it to the test Suite.
+
+commit 664b2514bf3044e8e6a78365c5de4a8718bea0dd
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Mon Oct 17 20:35:17 2016 -0600
+
+    vf - changed old package name in Square class.
+
+commit 657bae13bb6dcb74b45b1f3ad3fbbc3ec652e3ee
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Mon Oct 17 20:33:20 2016 -0600
+
+    vf - Removing old overview.txt file
+
+commit bef2bcd4607299c522f8ae3515cc55d9828f170b
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Mon Oct 17 20:31:01 2016 -0600
+
+    vf - Rename the package so that it is easier to remember.
+    
+    The overview.txt is now in the cs414.a4 package. When you clone the repo
+    remember to name the package the same to avoid problems.
+
+commit 2d2ef8568a4e154d49a1eaaf2806c4cbdd664d27
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Mon Oct 17 19:42:30 2016 -0600
+
+    vf Sorry I have multiple version of the H2VT414A4 package!
+    
+    I deleted my old version of the package.
+
+commit 0a26c898ab9571277e1b953b5ab011cfeb9c56c5
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Mon Oct 17 19:39:50 2016 -0600
+
+    vf adding local version of H2VT414A4 package
+
+commit ef30aa8bfeefd5afa581a835caa50d98a9c808e2
+Merge: 32f15bc 7279e60
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Mon Oct 17 19:38:37 2016 -0600
+
+    Merge branch 'master' of https://github.com//H2VT414A4
+
+commit 32f15bc823db3f9e92ec55a81e530343883568cf
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Mon Oct 17 19:36:36 2016 -0600
+
+    vf - A4 test package
+
+commit 7279e60575b4bac60c18bcefd124fb54ac77a622
+Merge: bf9731c 1abe471
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sun Oct 9 16:23:37 2016 -0600
+
+    Merge branch 'vf_setup'
+
+commit 1abe4716a62cc96c4dd24aaa411231ff8f2120f7
+Author: Victor Fuentes Sangabriel <vfuentes1213@gmail.com>
+Date:   Sun Oct 9 16:22:36 2016 -0600
+
+    vf my first commit
+
+commit bf9731c0db29f60968d6856c17d3cd07d5805825
+Merge: 99a7f0d 668fa17
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sun Oct 9 16:17:03 2016 -0600
+
+    Merge branch 'hz'
+
+commit 668fa17504eaadeb1b324465bdbc6d45eeaee117
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sun Oct 9 16:02:27 2016 -0600
+
+    first commit from hz local
+
+commit 99a7f0d817a8c055a0d13fd4e3f1edd56a943233
+Author: zhunter141 <zhunter141@gmail.com>
+Date:   Sun Oct 9 15:58:53 2016 -0600
+
+    first
