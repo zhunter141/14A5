@@ -66,7 +66,7 @@ public class Model {
 			msg = "You cannot roll more than once per turn!\n";
 		}
 		else{
-			// A player can roll
+			// A player can roll dice
 			// Determine who is the current Player
 			currPlayer = players[iterator%counter];
 			int steps = dice.roll();
