@@ -205,6 +205,7 @@ public class Model {
 					//Build it 
 					currDeed.setExistanceOfHouseHotel(true);
 					currDeed.setExistanceOfHotel(true);
+					currDeed.updateRent();
 					msg+= "Removing $"+currDeed.getHouseCost()+"from "+currPlayer.getName()+"\n";
 					msg += "Succesfully build a house on "+currDeed.getName()+"\n" ;
 				}
@@ -214,6 +215,7 @@ public class Model {
 			msg += "Can't build house here."+'\n' ;
 		}
 		msg +="My money: $"+ monopolyBank.getBalance(currPlayer)+"\n";
+		
 		view.update();
 	}
 	
@@ -232,6 +234,7 @@ public class Model {
 					//Build it 
 					currDeed.setExistanceOfHouseHotel(true);
 					currDeed.setExistanceOfHouse(true);
+					currDeed.updateRentHotel();
 					msg += "Succesfully build a house."+'\n' ;
 				}
 				
@@ -416,10 +419,24 @@ public class Model {
 		view.update();
 	}
 	
-	public Player[] getPlayers(){
+	 public void auction(Object o,int[] bits){
+		 monopolyBank.auction(o,bits);
 
-	 return players;
-	}
+	 }
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 public Player[] getPlayers(){
+		 return players;
+	 }
 	 public Token[] getTokens(){
 		 return allTokens;
 	 }

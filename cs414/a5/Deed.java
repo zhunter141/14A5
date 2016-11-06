@@ -88,5 +88,15 @@ public class Deed extends Square {
 	public boolean isMortgagable() {
 		return isMortgaged;
 	}
+
+	public void updateRent() {
+		this.rentCost = (int) (rentCost*1.5);
+		
+	}
+
+	public void updateRentHotel() {
+		this.rentCost = (int) (rentCost*2);
+		
+	}
 	
 }
