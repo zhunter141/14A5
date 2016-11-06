@@ -82,7 +82,7 @@ public class Controller {
 		int numPlayers = 0;
 	    String[] bit = new String [numPlayers];	    
 	    for(int i = 0; i < numPlayers; i++){
-	    	bit[i] = JOptionPane.showInputDialog("Enter you bit: ");
+	    	bit[i] = JOptionPane.showInputDialog("Enter your bit: ");
 			//Send model the name of each player 
 			//model.auction(bit[i]);
 	    }
