@@ -77,9 +77,9 @@ public class Controller {
 		});
 		return endGameButton;
 	}
-	private void auctionMenu(){
-		
-		int numPlayers = 0;
+	public void auctionMenu(){		
+		int numPlayers = 0;// get number of players
+		//System.out.println(model.getNumPlayer());
 	    String[] bit = new String [numPlayers];	    
 	    for(int i = 0; i < numPlayers; i++){
 	    	bit[i] = JOptionPane.showInputDialog("Enter your bit: ");
