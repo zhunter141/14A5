@@ -12,7 +12,7 @@ public class GameServerListener {
 		ServerSocket tcpServerSocket = null;
 		//boolean listening = true;
 		int port = 5678;
-		//int count = 0; // max of two players for now
+		int count = 1; // max of two players for now
 		
 		// Establish TCP connection
 		try{
@@ -26,10 +26,9 @@ public class GameServerListener {
 		// Successful able to listen on port 5678
 		// start listening for incoming connections
 		try{
-			PlayerThread player1 = new PlayerThread(tcpServerSocket.accept(),1);
-			player1.start();
-			PlayerThread player2 = new PlayerThread(tcpServerSocket.accept(),2);
-			player2.start();
+			while(true){
+				new PlayerThread(tcpServerSocket.accept(),count).start();				
+			}
 		}catch(IOException e){
 			System.err.println("Accept failed.");
 			tcpServerSocket.close();
