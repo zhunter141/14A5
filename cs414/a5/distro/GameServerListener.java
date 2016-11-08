@@ -7,12 +7,12 @@ package cs414.a5.distro;
 import java.io.*;
 import java.net.*;
 
-public class GamerServerListener {
+public class GameServerListener {
 	public static void main(String args[]) throws IOException{
 		ServerSocket tcpServerSocket = null;
-		boolean listening = true;
+		//boolean listening = true;
 		int port = 5678;
-		int count = 0; // max of two players for now
+		//int count = 0; // max of two players for now
 		
 		// Establish TCP connection
 		try{
@@ -26,13 +26,10 @@ public class GamerServerListener {
 		// Successful able to listen on port 5678
 		// start listening for incoming connections
 		try{
-			while(listening){
-				new GameServerThread(tcpServerSocket.accept()).start();
-				count++;
-				if(count==2){
-					break;
-				}
-			}
+			PlayerThread player1 = new PlayerThread(tcpServerSocket.accept(),1);
+			player1.start();
+			PlayerThread player2 = new PlayerThread(tcpServerSocket.accept(),2);
+			player2.start();
 		}catch(IOException e){
 			System.err.println("Accept failed.");
 			tcpServerSocket.close();
