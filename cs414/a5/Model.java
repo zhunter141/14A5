@@ -48,6 +48,9 @@ public class Model {
 	public Player getCurrPlayer(){
 		return currPlayer;
 	}
+	public int getNumPlayer(){
+		return counter;
+	}
 	
 	// Respond to Controller button presses
 	
@@ -66,7 +69,7 @@ public class Model {
 			msg = "You cannot roll more than once per turn!\n";
 		}
 		else{
-			// A player can roll
+			// A player can roll dice
 			// Determine who is the current Player
 			currPlayer = players[iterator%counter];
 			int steps = dice.roll();
@@ -205,6 +208,7 @@ public class Model {
 					//Build it 
 					currDeed.setExistanceOfHouseHotel(true);
 					currDeed.setExistanceOfHotel(true);
+					currDeed.updateRent();
 					msg+= "Removing $"+currDeed.getHouseCost()+"from "+currPlayer.getName()+"\n";
 					msg += "Succesfully build a house on "+currDeed.getName()+"\n" ;
 				}
@@ -214,6 +218,7 @@ public class Model {
 			msg += "Can't build house here."+'\n' ;
 		}
 		msg +="My money: $"+ monopolyBank.getBalance(currPlayer)+"\n";
+		
 		view.update();
 	}
 	
@@ -232,6 +237,7 @@ public class Model {
 					//Build it 
 					currDeed.setExistanceOfHouseHotel(true);
 					currDeed.setExistanceOfHouse(true);
+					currDeed.updateRentHotel();
 					msg += "Succesfully build a house."+'\n' ;
 				}
 				
@@ -416,10 +422,26 @@ public class Model {
 		view.update();
 	}
 	
-	public Player[] getPlayers(){
+	 public void auction(Object o,int[] bits){
+		 msg += monopolyBank.auction(o,bits);
+		 view.update();
 
-	 return players;
-	}
+
+	 }
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 public Player[] getPlayers(){
+		 return players;
+	 }
 	 public Token[] getTokens(){
 		 return allTokens;
 	 }
