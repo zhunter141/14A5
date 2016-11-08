@@ -263,8 +263,6 @@ public class View extends JFrame {
 
 				view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				view.setLocationByPlatform(true);
-				view.setSize(800, 600);
-
 				// link everything
 				view.addModel(model);
 				view.addController(ctrl);
