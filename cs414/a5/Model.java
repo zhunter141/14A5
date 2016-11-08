@@ -48,6 +48,9 @@ public class Model {
 	public Player getCurrPlayer(){
 		return currPlayer;
 	}
+	public int getNumPlayer(){
+		return counter;
+	}
 	
 	// Respond to Controller button presses
 	
@@ -420,7 +423,9 @@ public class Model {
 	}
 	
 	 public void auction(Object o,int[] bits){
-		 monopolyBank.auction(o,bits);
+		 msg += monopolyBank.auction(o,bits);
+		 view.update();
+
 
 	 }
 	 
