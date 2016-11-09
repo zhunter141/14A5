@@ -275,53 +275,12 @@ public class Model {
 		monopolyBank.addClient(p);
 	}
 	
+	
 	public void sellDeed(Square d){
-		// In this method, deed is a utility, railroad, deed
-		//Pay attention on choose deed
-		//removeDeeds()
-		currPlayer.removeDeed(d);
-		int cost = 0;
-		if(d instanceof Utility){
-			Utility utility =  (Utility)d;
-			d =  (Utility)d;
-			cost = utility.getCost();
-			//Just in case
-			utility.setOwner(null);
-		}
-		else if(d instanceof Deed){
-			Deed deed =  (Deed)d;
-			d =  (Deed)d;
-			cost = deed.getCost();
-			//Just in case
-			deed.setOwner(null);
-			
-			if(deed.hasBuilding() == true){
-				deed.setExistanceOfHouseHotel(false);
-				deed.setExistanceOfHotel(false);
-				deed.setExistanceOfHouse(false);
-
-				if(deed.hasHotel() == true){
-					cost += deed.getHotelCost();
-				}
-				else{
-					cost += deed.getHouseCost();
-				}	
-			}
-		}
-		// Square must be a RailRoad
-		else{
-			RailRoad railRoad =  (RailRoad)d;
-			d =  (RailRoad)d;
-			cost = railRoad.getCost();
-			//Just in case
-			railRoad.setOwner(null);
-		}
-		// Update player account
-		monopolyBank.deposit(currPlayer,cost);
-		msg ="Adding: $"+cost+" to "+currPlayer.getName()+" account!";
-		msg +="My properties: "+ currPlayer.toString()+'\n';
-		msg +="Account: "+ monopolyBank.getBalance(currPlayer)+"\n";
+		msg += currPlayer.selldeed(d, monopolyBank);
 		view.update();
+
+		
 	}
 	
 	public void buyDeed(){
@@ -333,22 +292,7 @@ public class Model {
 			view.update();
 			return;
 		}
-		// The square is purchasable because it is not own by anyone
-		// determine the cost of the square
-		// Implied 'else'
-		if(myLoc instanceof Utility){
-			Utility util =  (Utility)myLoc;
-			costOfDeed = util.getCost();
-		}
-		else if(myLoc instanceof Deed){
-			Deed deed =  (Deed)myLoc;
-			costOfDeed = deed.getCost();
-		}
-		// Square MUST be RailRoad
-		else{
-			RailRoad railRoad =  (RailRoad)myLoc;
-			costOfDeed = railRoad.getCost();
-		}
+		costOfDeed = currPlayer.buyDeed(monopolyBank, myLoc);
 		// CHECK THE PLAYER CAN AFFORD TO PURCHASE DEED
 		msg = "This is the price of "+myLoc.getName()+" $"+costOfDeed+"\n";
 		
@@ -425,20 +369,11 @@ public class Model {
 	 public void auction(Object o,int[] bits){
 		 msg = monopolyBank.auction(o,bits,players);
 		 msg += currPlayer.getName()+", Location: " + currPlayer.getToken().getLoc().getName()+'\n';
-		msg += "Account: $"+monopolyBank.getBalance(currPlayer)+'\n';
+		 msg += "Account: $"+monopolyBank.getBalance(currPlayer)+'\n';
 		 view.update();
 
 
 	 }
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
 	 
 	 
 	 public Player[] getPlayers(){
