@@ -1,7 +1,5 @@
 package cs414.a5;
 
-import java.util.LinkedList;
-
 public class Card {
 	
 	private String description;

@@ -27,7 +27,6 @@ public class DeckOfCards {
 	public Card drawCard() {
 		cards.removeFirst();
 		cards.addLast(firstCard);
-
 		return firstCard;
 	}
 	
