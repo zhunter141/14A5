@@ -218,7 +218,7 @@ public class View extends JFrame {
 		    	case "Unmortgage":
 		    		model.umMortgage(myDeed);break;
 		    	case "Auction":
-		    		ctrl.auctionMenu();break;
+		    		ctrl.auctionMenu(myDeed);break;
 		    	default:
 		    		throw new IllegalArgumentException("You have to pick one!");
 		    }  

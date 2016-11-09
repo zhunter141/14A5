@@ -423,7 +423,7 @@ public class Model {
 	}
 	
 	 public void auction(Object o,int[] bits){
-		 msg += monopolyBank.auction(o,bits);
+		 msg += monopolyBank.auction(o,bits,players);
 		 view.update();
 
 

@@ -57,7 +57,7 @@ public class Bank {
 		return accounts.get(p.getId()).getBalance();
 
 	}
-	public String auction(Object o, int[] bits) {
+	public String auction(Object o, int[] bits, Player[] players) {
 		String msg = "";
 		
 		if(o instanceof Card){
@@ -75,13 +75,20 @@ public class Bank {
 					msg = "Nobody want this deed"+'\n';
 				}
 				else{
-					Player winner = monopolyModel.getPlayers()[indexAndMax[0]];
+					System.out.println(players);
+
+					Player winner = players[indexAndMax[0]];
+
 					int bitAmount =  indexAndMax[1];
 					if(this.payDue(winner, bitAmount) == true){
-						if(deed.getOwner() != null){this.deposit(deed.getOwner(), bitAmount);}
+						if(deed.getOwner() != null){
+							deed.getOwner().removeDeed(deed);
+							this.deposit(deed.getOwner(), bitAmount);
+							}
 						deed.setOwner(winner);
 						deed.setPurchasable(false);
 						winner.addDeed(deed);
+		
 
 						msg = "Congraduations! Deed "+deed.getName()+" goes to "+deed.getOwner()+'\n';
 					}
