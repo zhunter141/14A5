@@ -1,39 +1,37 @@
 package cs414.a5;
 
-import java.awt.Color;
-import java.util.ArrayList;
-
 public class Card {
- 	private String name;
- 	
-	public Card(String name){
- 		this.name = name.toUpperCase();
- 	}
-	// Getters
 	
+	private String description;
+	private String action;
+	private int val;
 	
-	public String getName(){
-		return name;
+	public Card(String description, String action, int val) {
+		this.description = description;
+		this.action = action;
+		this.val = val;
 	}
 	
-	 
 	
-	public Player getOwner(){
-		return null;
+	public String getDescription() {
+		return description;
 	}
 	
-	 
-	
-	public void setOwner(Player p){
-		// Do nothing because regular squares cannot be owned by anyone
-	}
-	@Override
-	public boolean equals(Object o){
-		if(o instanceof Card){
-			return ((Card) o).getName().equals(this.getName());
-		}
-		return false;
+	public String getAction() {
+		return action;
 	}
 	
-	 
+	public int getVal() {
+		return val;
+	}
+	
+	
+	
+	// Card move5squares = new Card("Move 5 squares ahead!", "move", 5);
+	
+	// Constructor for board needs to change to use cards:
+	// public Board(ITile[] tiles, CardDeck chanceDeck, CardDeck communityChestDeck) {
+	
+	// Model need method to check if there is a card in a Square
+
 }
