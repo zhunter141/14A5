@@ -423,7 +423,9 @@ public class Model {
 	}
 	
 	 public void auction(Object o,int[] bits){
-		 msg += monopolyBank.auction(o,bits,players);
+		 msg = monopolyBank.auction(o,bits,players);
+		 msg += currPlayer.getName()+", Location: " + currPlayer.getToken().getLoc().getName()+'\n';
+		msg += "Account: $"+monopolyBank.getBalance(currPlayer)+'\n';
 		 view.update();
 
 
