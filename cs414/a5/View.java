@@ -24,7 +24,6 @@ public class View extends JFrame {
 	private JButton buildButton;
 	private JButton endGameButton;
 
-
 	private JPanel buttonPanel;
 	private JPanel gameMsgPanel;
 	private JPanel boardPanel;

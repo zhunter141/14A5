@@ -25,8 +25,15 @@ public class PlayerThread extends Thread{
 	    	outToClient = new ObjectOutputStream(tcpSocket.getOutputStream());
 	    	inFromClient = new ObjectInputStream(tcpSocket.getInputStream());
 	    	
-	    	// Need to send the welcome screen to the player
-	    	outToClient.writeObject(new WelcomeScreen(playerNum));
+	    	// Need to send the welcome screen to the player and the controller for it
+			WelcomeScreenController myController = new WelcomeScreenController();
+			WelcomeScreen myScreen = new WelcomeScreen(1);
+			//myController.setScreen(myScreen);
+			//myScreen.setController(myController);
+			
+	    	outToClient.writeObject(myController);
+	    	outToClient.writeObject(myScreen);
+	    	
 	    	// Close everything
 		    outToClient.close();
 		    inFromClient.close();

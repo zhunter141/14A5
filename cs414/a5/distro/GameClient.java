@@ -19,7 +19,18 @@ public class GameClient {
 	    	inFromServer = new ObjectInputStream(tcpSocket.getInputStream());
 	    	
 	    	//We need to get the Welcome screen so the player can enter their name
-	    	WelcomeScreen init = (WelcomeScreen) inFromServer.readObject();
+	    	WelcomeScreenController myController = (WelcomeScreenController) inFromServer.readObject();
+	    	WelcomeScreen myScreen = (WelcomeScreen) inFromServer.readObject();
+	    	myController.setScreen(myScreen);
+			myScreen.setController(myController);
+	    	myScreen.setupGUI();
+	    	myScreen.setVisible(false);
+	    	myScreen.setVisible(true);
+	    	
+	    	//close everything 
+	    	tcpSocket.close();
+	    	outToServer.close();
+	    	inFromServer.close();
 	    	
 		}catch(UnknownHostException e){
 			System.err.println("Unknown host: "+ addr);
@@ -30,9 +41,5 @@ public class GameClient {
 			System.exit(-1);
 		}
 		
-		// close everything
-		tcpSocket.close();
-		outToServer.close();
-		inFromServer.close();
 	}
 }

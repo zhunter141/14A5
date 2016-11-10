@@ -27,7 +27,8 @@ public class GameServerListener {
 		// start listening for incoming connections
 		try{
 			while(true){
-				new PlayerThread(tcpServerSocket.accept(),count).start();				
+				new PlayerThread(tcpServerSocket.accept(),count).start();
+				count++;
 			}
 		}catch(IOException e){
 			System.err.println("Accept failed.");
