@@ -3,6 +3,8 @@ package cs414.a5.distro;
 import java.io.*;
 import java.net.*;
 
+import cs414.a5.View;
+
 public class GameClient {
 	public static void main(String args[]) throws IOException, ClassNotFoundException{
 		Socket tcpSocket = null;
@@ -10,8 +12,10 @@ public class GameClient {
 		InetAddress addr = null;
 		ObjectOutputStream outToServer = null;
 		ObjectInputStream inFromServer = null;
+		Boolean gettingName = true;
 		
 		try{
+			System.out.println("Finding game...");
 			addr = InetAddress.getByName(ipAdder);
 			tcpSocket = new Socket(addr,5678);
 			outToServer = new ObjectOutputStream(tcpSocket.getOutputStream());
@@ -33,12 +37,15 @@ public class GameClient {
 	    	myScreen.setupGUI();
 	    	myScreen.setVisible(false);
 	    	myScreen.setVisible(true);
-	    	while(myScreen.getName().compareTo("")==0){
-	    		//System.out.println("Player name has not been entered.");
-	    		System.out.println("");
+	    	myController.setOutStream(outToServer);
+	    	
+	    	while(myScreen.gettingName){
+	    		// wait here until name has been entered by player
 	    	}
-	    	System.out.println("From GC this is the name to give the PlayerThread: "+player.getName());
-	    	outToServer.writeObject(player.getName());
+	    	myScreen.dispose();
+	    	// Get the View
+	    	//View myView = (View) inFromServer.readObject();
+	    	
 		}catch(UnknownHostException e){
 			System.err.println("Unknown host: "+ addr);
 			System.exit(-1);

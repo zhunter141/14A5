@@ -16,12 +16,14 @@ public class WelcomeScreen extends JFrame implements java.io.Serializable{
 	private PlayerDummy player;
 	private WelcomeScreenController myController;
 	private JTextField nameField;
+	public boolean gettingName;
 	
 	public WelcomeScreen(int playerNum,PlayerDummy player){
 		this.player = player;
 		this.playerNum = playerNum;
 		this.setTitle("Player "+this.playerNum);
 		this.setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+		gettingName = true;
 	}
 	
 	public void setupGUI(){
@@ -63,6 +65,7 @@ public class WelcomeScreen extends JFrame implements java.io.Serializable{
 	public String getName(){
 		return player.getName();
 	}
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

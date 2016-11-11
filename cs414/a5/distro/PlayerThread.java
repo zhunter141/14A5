@@ -10,14 +10,13 @@ public class PlayerThread extends Thread{
 	private Model model;
 	private View view;
 	private Controller ctrl;
+	private boolean ready;
 	
-	public PlayerThread(Socket tcpSocket,int playerNum, Model model, View view, Controller ctrl){
+	public PlayerThread(Socket tcpSocket,int playerNum){
 		System.out.println("I'm a new Player thread!");
 		this.tcpSocket = tcpSocket;
 		this.playerNum = playerNum;
-		this.model = model;
-		this.view = view;
-		this.ctrl = ctrl;
+		ready = false;
 	}
 	
 	public void run(){
@@ -39,6 +38,7 @@ public class PlayerThread extends Thread{
 	    	model.addPlayer(playerName);
 	    	
 	    	System.out.println("This is the player in model: "+model.getPlayers()[playerNum-1].getName());
+	    	ready = true;
 	    	
 	    	// Close everything
 		    outToClient.close();
@@ -51,5 +51,21 @@ public class PlayerThread extends Thread{
 	
 	private void msg(String s){
 		System.out.println(s);
+	}
+	
+	public boolean isReady(){
+		return ready;
+	}
+	
+	public void setModel(Model model){
+		this.model = model;
+	}
+	
+	public void setView(View view){
+		this.view = view;		
+	}
+	
+	public void setController(Controller ctrl){
+		this.ctrl = ctrl;		
 	}
 }
