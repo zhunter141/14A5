@@ -2,9 +2,6 @@ package cs414.a5.distro;
 
 import java.io.*;
 import java.net.*;
-import java.sql.Date;
-
-import javax.swing.JOptionPane;
 
 public class PlayerThread extends Thread{
 	private Socket tcpSocket = null;
@@ -25,22 +22,17 @@ public class PlayerThread extends Thread{
 	    	outToClient = new ObjectOutputStream(tcpSocket.getOutputStream());
 	    	inFromClient = new ObjectInputStream(tcpSocket.getInputStream());
 	    	
-	    	// Need to send the welcome screen to the player and the controller for it
-			WelcomeScreenController myController = new WelcomeScreenController();
-			WelcomeScreen myScreen = new WelcomeScreen(playerNum);
-			//myController.setScreen(myScreen);
-			//myScreen.setController(myController);
-			
-	    	outToClient.writeObject(myController);
-	    	outToClient.writeObject(myScreen);
+	    	// Send the GameClient its player number
+	    	outToClient.writeObject(playerNum);
 	    	
-	    	String playerName = (String) inFromClient.readObject();
-	    	msg("This is the player I got: "+playerName);
+	    	//String playerName = (String) inFromClient.readObject();
+	    	//msg("This is the player I got: "+playerName);
+	    	
 	    	// Close everything
 		    outToClient.close();
 		    inFromClient.close();
 		    
-	    }catch(IOException | ClassNotFoundException e){
+	    }catch(IOException e){
 	    	e.printStackTrace();
 	    }
 	}

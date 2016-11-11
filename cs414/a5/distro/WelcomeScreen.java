@@ -8,20 +8,19 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import cs414.a5.Player;
+
 public class WelcomeScreen extends JFrame implements java.io.Serializable{
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private int playerNum;
 	private static final int DEFAULT_WIDTH = 500;
 	private static final int DEFAULT_HEIGHT = 100;
-	private String playerName;
+	private Player player;
 	private WelcomeScreenController myController;
 	private JTextField nameField;
 	
-	public WelcomeScreen(int playerNum){
-		this.playerName = "";
+	public WelcomeScreen(int playerNum,Player player){
+		this.player = player;
 		this.playerNum = playerNum;
 		this.setTitle("Player "+this.playerNum);
 		this.setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
@@ -51,10 +50,6 @@ public class WelcomeScreen extends JFrame implements java.io.Serializable{
 		add(main);
 	}
 	
-	public String getName(){
-		return this.playerName;
-	}
-	
 	public void setController(WelcomeScreenController mc){
 		myController = mc;
 	}
@@ -63,14 +58,19 @@ public class WelcomeScreen extends JFrame implements java.io.Serializable{
 		return nameField;
 	}
 	
+	public void setName(String s){
+		player.setName(s);;
+	}
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				WelcomeScreenController myController = new WelcomeScreenController();
+				/*WelcomeScreenController myController = new WelcomeScreenController();
 				WelcomeScreen myScreen = new WelcomeScreen(1);
 				myController.setScreen(myScreen);
 				myScreen.setController(myController);
 				myScreen.setupGUI();
+				*/
 			}
 		});
 	}
