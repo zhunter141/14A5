@@ -2,7 +2,6 @@ package cs414.a5.distro;
 
 import java.io.*;
 import java.net.*;
-import cs414.a5.*;
 
 public class GameClient {
 	public static void main(String args[]) throws IOException, ClassNotFoundException{
@@ -27,11 +26,12 @@ public class GameClient {
 	    	myScreen.setVisible(false);
 	    	myScreen.setVisible(true);
 	    	
-	    	//close everything 
-	    	tcpSocket.close();
-	    	outToServer.close();
-	    	inFromServer.close();
-	    	
+	    	// send WelcomeScreen back to 
+	    	while(myScreen.getName().compareTo("")== 0){
+	    		// wait here until player name is not empty string
+	    	}
+	    	myScreen.dispose();
+	    	outToServer.writeObject(myScreen.getName());
 		}catch(UnknownHostException e){
 			System.err.println("Unknown host: "+ addr);
 			System.exit(-1);
@@ -41,5 +41,10 @@ public class GameClient {
 			System.exit(-1);
 		}
 		
+		//close everything 
+    	tcpSocket.close();
+    	outToServer.close();
+    	inFromServer.close();
+    	System.out.println("here in gc");
 	}
 }

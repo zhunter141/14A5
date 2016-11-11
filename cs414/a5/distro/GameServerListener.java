@@ -26,10 +26,11 @@ public class GameServerListener {
 		// Successful able to listen on port 5678
 		// start listening for incoming connections
 		try{
-			while(true){
+			//while(true){
 				new PlayerThread(tcpServerSocket.accept(),count).start();
 				count++;
-			}
+				new PlayerThread(tcpServerSocket.accept(),count).start();
+			//}
 		}catch(IOException e){
 			System.err.println("Accept failed.");
 			tcpServerSocket.close();

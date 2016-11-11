@@ -24,7 +24,7 @@ public class WelcomeScreenController implements java.io.Serializable{
 				  System.out.println("Go button pressed!");
 				  System.out.println("This is the name entered: "+myScreen.getNameField().getText());
 				  myScreen.setName(myScreen.getNameField().getText());
-				  myScreen.setVisible(false);
+				  //myScreen.dispose();
 			  } 
 		  });
 		return goButton;

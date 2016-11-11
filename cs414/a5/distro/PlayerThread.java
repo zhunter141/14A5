@@ -2,6 +2,7 @@ package cs414.a5.distro;
 
 import java.io.*;
 import java.net.*;
+import java.sql.Date;
 
 import javax.swing.JOptionPane;
 
@@ -10,14 +11,13 @@ public class PlayerThread extends Thread{
 	private int playerNum;
 	
 	public PlayerThread(Socket tcpSocket,int playerNum){
+		System.out.println("I'm a new Player thread!");
 		this.tcpSocket = tcpSocket;
 		this.playerNum = playerNum;
 	}
 	
 	public void run(){
-	    //Date today = new Date();
-	    //msg("Connection to client established.");
-	    //msg("Today " + today);
+	    msg("Connection to client established.");
 	    ObjectOutputStream outToClient = null;
 		ObjectInputStream inFromClient = null;
 	    
@@ -27,18 +27,20 @@ public class PlayerThread extends Thread{
 	    	
 	    	// Need to send the welcome screen to the player and the controller for it
 			WelcomeScreenController myController = new WelcomeScreenController();
-			WelcomeScreen myScreen = new WelcomeScreen(1);
+			WelcomeScreen myScreen = new WelcomeScreen(playerNum);
 			//myController.setScreen(myScreen);
 			//myScreen.setController(myController);
 			
 	    	outToClient.writeObject(myController);
 	    	outToClient.writeObject(myScreen);
 	    	
+	    	String playerName = (String) inFromClient.readObject();
+	    	msg("This is the player I got: "+playerName);
 	    	// Close everything
 		    outToClient.close();
 		    inFromClient.close();
 		    
-	    }catch(IOException e){
+	    }catch(IOException | ClassNotFoundException e){
 	    	e.printStackTrace();
 	    }
 	}
