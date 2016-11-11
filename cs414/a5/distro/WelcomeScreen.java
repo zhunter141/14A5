@@ -8,18 +8,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import cs414.a5.Player;
-
 public class WelcomeScreen extends JFrame implements java.io.Serializable{
 	private static final long serialVersionUID = 1L;
 	private int playerNum;
 	private static final int DEFAULT_WIDTH = 500;
 	private static final int DEFAULT_HEIGHT = 100;
-	private Player player;
+	private PlayerDummy player;
 	private WelcomeScreenController myController;
 	private JTextField nameField;
 	
-	public WelcomeScreen(int playerNum,Player player){
+	public WelcomeScreen(int playerNum,PlayerDummy player){
 		this.player = player;
 		this.playerNum = playerNum;
 		this.setTitle("Player "+this.playerNum);

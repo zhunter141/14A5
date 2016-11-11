@@ -8,10 +8,10 @@ public class Player {
 	private HashSet<Square> myDeeds;
 	private Token token;
 	
-	public Player(int id, String name) {
+	public Player(int id, String name,Token token) {
 		this.id = id;
 		this.name = name;
-		//this.token = token;
+		this.token = token;
 		myDeeds = new HashSet<Square>();
 	}
 	
@@ -46,9 +46,5 @@ public class Player {
 		}
 		return listOfDeeds;
 		
-	}
-	
-	public void setName(String s){
-		name = s;
 	}
 }

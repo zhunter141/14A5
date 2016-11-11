@@ -44,7 +44,7 @@ public class View extends JFrame {
 	}
 	
 	public void setUpGUI(){
-		startMenu();
+		//startMenu();
 		addMsgPanel();
 		addButtonPanel();
 		setupBoard();
@@ -100,7 +100,7 @@ public class View extends JFrame {
 		// Add button panel to gameMsgPanel
 		gameMsgPanel.add(buttonPanel);
 	}
-	
+	/*
 	private void startMenu(){
 		int numPlayers = 0;
 		// Ensure the user enter the correct amount of players
@@ -122,7 +122,7 @@ public class View extends JFrame {
 			model.addPlayer(players[i]);
 	    }
 	}
-	
+	*/
 	private void setUpTimer(){
 		timer = new Timer(10, new ActionListener(){
 			@Override

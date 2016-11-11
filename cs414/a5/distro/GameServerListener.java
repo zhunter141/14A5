@@ -7,6 +7,12 @@ package cs414.a5.distro;
 import java.io.*;
 import java.net.*;
 
+import javax.swing.JFrame;
+
+import cs414.a5.Controller;
+import cs414.a5.Model;
+import cs414.a5.View;
+
 public class GameServerListener {
 	public static void main(String args[]) throws IOException{
 		ServerSocket tcpServerSocket = null;
@@ -27,9 +33,26 @@ public class GameServerListener {
 		// start listening for incoming connections
 		try{
 			//while(true){
-				new PlayerThread(tcpServerSocket.accept(),count).start();
+				Controller ctrl = new Controller();
+				Model model = new Model();
+				View view = new View();
+	
+				view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				view.setLocationByPlatform(true);
+				
+				// link everything
+				view.addModel(model);
+				view.addController(ctrl);
+				ctrl.addModel(model);
+				ctrl.addView(view);
+				model.addView(view);
+	
+				// initialize view
+				//view.setUpGUI();
+				//view.setVisible(true);
+				new PlayerThread(tcpServerSocket.accept(),count,model,view,ctrl).start();
 				count++;
-				new PlayerThread(tcpServerSocket.accept(),count).start();
+				new PlayerThread(tcpServerSocket.accept(),count,model,view,ctrl).start();
 			//}
 		}catch(IOException e){
 			System.err.println("Accept failed.");

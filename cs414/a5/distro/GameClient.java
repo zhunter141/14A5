@@ -2,7 +2,6 @@ package cs414.a5.distro;
 
 import java.io.*;
 import java.net.*;
-import cs414.a5.Player;
 
 public class GameClient {
 	public static void main(String args[]) throws IOException, ClassNotFoundException{
@@ -24,7 +23,7 @@ public class GameClient {
 	    	System.out.println("This is the player num I have: "+playerNum);
 	    	
 	    	//We need to get the player name
-	    	Player player = new Player(playerNum,"");
+	    	PlayerDummy player = new PlayerDummy();
 	    	WelcomeScreenController myController = new WelcomeScreenController();
 	    	WelcomeScreen myScreen = new WelcomeScreen(playerNum,player);
 	    	
@@ -35,21 +34,11 @@ public class GameClient {
 	    	myScreen.setVisible(false);
 	    	myScreen.setVisible(true);
 	    	while(myScreen.getName().compareTo("")==0){
-	    		System.out.println("Player name has not been entered.");
-	    		//System.out.println(""+myScreen.getName());
+	    		//System.out.println("Player name has not been entered.");
+	    		System.out.println("");
 	    	}
 	    	System.out.println("From GC this is the name to give the PlayerThread: "+player.getName());
-	    	//myScreen.dispose();
-	    	
-	    	/*
-	    	// send WelcomeScreen back to 
-	    	while(myScreen.getName().compareTo("")== 0){
-	    		// wait here until player name is not empty string
-	    		System.out.println("Waiting for player to enter name.");
-	    	}
-	    	outToServer.writeObject(myScreen.getName());
-	    	myScreen.dispose();
-	    	*/
+	    	outToServer.writeObject(player.getName());
 		}catch(UnknownHostException e){
 			System.err.println("Unknown host: "+ addr);
 			System.exit(-1);
