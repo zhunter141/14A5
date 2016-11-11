@@ -62,6 +62,9 @@ public class WelcomeScreen extends JFrame implements java.io.Serializable{
 		player.setName(s);;
 	}
 	
+	public String getName(){
+		return player.getName();
+	}
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

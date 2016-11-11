@@ -6,7 +6,7 @@ public class Player {
 	private int id;
 	private String name;
 	private HashSet<Square> myDeeds;
-	//private Token token;
+	private Token token;
 	
 	public Player(int id, String name) {
 		this.id = id;

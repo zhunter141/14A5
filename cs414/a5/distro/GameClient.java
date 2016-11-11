@@ -34,8 +34,8 @@ public class GameClient {
 	    	myScreen.setupGUI();
 	    	myScreen.setVisible(false);
 	    	myScreen.setVisible(true);
-	    	while(myScreen.getName().compareTo("untitled")==0){
-	    		//System.out.println("Player name has not been entered.");
+	    	while(myScreen.getName().compareTo("")==0){
+	    		System.out.println("Player name has not been entered.");
 	    		//System.out.println(""+myScreen.getName());
 	    	}
 	    	System.out.println("From GC this is the name to give the PlayerThread: "+player.getName());
