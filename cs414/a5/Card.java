@@ -6,11 +6,15 @@ public class Card {
 	private String action;
 	private int val;
 	private Bank bank;
+	private Board board;
+	private Model model;
 	
 	public Card(String description, String action, int val) {
 		this.description = description;
 		this.action = action;
 		this.val = val;
+		bank = new Bank();
+		board = new Board();
 	}
 	
 	
@@ -41,20 +45,16 @@ public class Card {
 			
 		}else if (getAction().equals("move")){
 			int distance = getVal();
+			board.move(distance, currentPlayer.getToken());
 			
 		}else if (getAction().equals("toJail")){
-			int amount = getVal();
+			
+			model.goToJail();
 			
 		}else if (getAction().equals("outJail")){
-			int amount = getVal();
+			System.out.println("Out of jail");
 			
 		}else if (getAction().equals("loc")){
-			int amount = getVal();
-			
-		}else if (getAction().equals("utility")){
-			int amount = getVal();
-			
-		}else if (getAction().equals("railroad")){
 			int amount = getVal();
 			
 		}
