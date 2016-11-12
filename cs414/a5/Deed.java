@@ -6,17 +6,25 @@ public class Deed extends Square {
 	private int cost;
 	private int houseCost;
 	private int hotelCost;
+	private int houseIndex ;
+	private int hotelIndex ;
+
 	private Player owner;
 	private int rentCost;
 	private boolean hasBuilding;
 	private boolean hasHouse;
 	private boolean hasHotel;
 	private boolean isMortgaged;
+	private Object[] houseContainer= new Object[4];
+	private Object[] hotelContainer= new Object[1];
 
 
 	
 	public Deed(Color color, String name,int cost,int houseCost,int hotelCost, int rentCost) {
 		super(color,name);
+		this.houseIndex = 0;
+		this.hotelIndex = 0;
+
 		this.cost = cost;
 		this.houseCost = houseCost;
 		this.hotelCost = hotelCost;
@@ -58,6 +66,13 @@ public class Deed extends Square {
 		return owner;
 	}
 	
+	public int getHouseNum(){
+		return houseIndex;
+	}
+	public int getHotelNum(){
+		return hotelIndex;
+	}
+	
 	public void setExistanceOfHouseHotel(boolean b){
 		hasBuilding = b;
 	}
@@ -84,9 +99,54 @@ public class Deed extends Square {
 	public boolean hasHotel(){
 		return hasHotel;
 	}
+	public boolean addHotel() {
+		
+		if(this.hotelIndex==1){
+			return false;
+		}
+		else{
+			//Arbitrary hotel;
+			Hotel h = new Hotel("H", 80, 80, Color.BLACK);
+		//1 means has hotel
+		this.hotelIndex += 1;
+		this.hotelContainer[hotelIndex-1]= h;
+		
+		//Destroy 4 houses
+		 Object[] houseNewContainer= new Object[4];
+		 houseContainer = houseNewContainer;
+		return true;
+		}		
+	}
+	public boolean addHouse() {
+		if(this.houseIndex ==4){
+			return false;
+		}
+		else{
+			//Arbitrary house;
+			House h = new House("H", 80, 80);
+		//1 means has house
+		this.houseIndex += 1;
+		this.houseContainer[houseIndex-1]= h;
 
+		return true;
+		}
+
+		
+	}
 	public boolean isMortgagable() {
 		return isMortgaged;
 	}
+
+	public void updateRent() {
+		this.rentCost += 90;
+		
+	}
+
+	public void updateRentHotel() {
+		this.rentCost = (int) (rentCost*2);
+		
+	}
+
+	
 	
 }

@@ -5,6 +5,8 @@ import java.util.HashMap;
 public class Bank {
 
 	private HashMap<Integer, Account> accounts;
+	private Model monopolyModel;
+
 	public Bank(){
 		accounts = new HashMap<Integer,Account>();
 	}
@@ -55,6 +57,76 @@ public class Bank {
 		return accounts.get(p.getId()).getBalance();
 
 	}
+	public String auction(Object o, int[] bits, Player[] players) {
+		String msg = "";
+		
+		if(o instanceof Card){
+			Card card = (Card)o;
+			//no check of owner cuz given card has to be owned
+			//to be continued
+
+		}
+		else if(o instanceof Deed){
+			Deed deed = (Deed)o;
+			//has owner	& no owner
+			
+				int[] indexAndMax =getMax(bits);
+				if(indexAndMax[1] == 0){
+					msg = "Nobody want this deed"+'\n';
+
+				}
+				else{
+					Player winner = players[indexAndMax[0]];
+
+					int bitAmount =  indexAndMax[1];
+					if(this.payDue(winner, bitAmount) == true){
+						if(deed.getOwner() != null){
+							deed.getOwner().removeDeed(deed);
+							deposit(deed.getOwner(), bitAmount);
+							System.out.println("Hello"+deed.getOwner().getName()+bitAmount);
+							
+							}
+						deed.setOwner(winner);
+						deed.setPurchasable(false);
+						winner.addDeed(deed);
+		
+
+						msg = "Congraduations! Deed "+deed.getName()+" goes to "+deed.getOwner().getName()+'\n';
+
+					}
+					else{
+						msg = "No enough money"+'\n';
+
+					}
+				}
+			
+			
+			
+
+			
+		}
+		
+		return msg;
+		
+
+		
+	}
+	private int[] getMax(int[] bits) {
+		int max = -1;
+		int[] res = {0,0};
+
+		for (int i = 0; i < bits.length; i++) {
+		    if (bits[i] > max) {
+		      max = bits[i];
+		      res[0] = i;
+		      res[1] = max;
+
+		    }
+		}
+		return res;
+		
+	}
+	
 	
 	
 }

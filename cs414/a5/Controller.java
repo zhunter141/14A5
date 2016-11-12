@@ -77,4 +77,19 @@ public class Controller {
 		});
 		return endGameButton;
 	}
+	public void auctionMenu(Square s){		
+		int numPlayers = model.getNumPlayer();// get number of players
+		int []bits = new int [numPlayers];
+		//System.out.println(s.getName());
+	    String[] bit = new String [numPlayers];	    
+	    for(int i = 0; i < numPlayers; i++){	    	
+	    	bit[i] = JOptionPane.showInputDialog(model.getPlayers()[i].getName()
+	    			+ "! Enter your bit for : "+ s.getName());
+			//Send model the name of each player 
+			bits[i] = Integer.parseInt(bit[i]);	
+			//System.out.println(bits[i]);
+	    }
+	    
+		model.auction(s,bits);
+	}
 }

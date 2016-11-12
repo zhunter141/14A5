@@ -32,7 +32,7 @@ public class View extends JFrame {
 	
 	private Timer timer;
 	private long startTime = -1;
-	private static final long DURATION = 5000*120;//10 min
+	private static final long DURATION = 5000000*120;//10 min
 	private JLabel countDown;
 	
 	// Game objects
@@ -197,7 +197,7 @@ public class View extends JFrame {
 	}
 	
 	public void modifyDeed(Square myDeed){
-		String options[] = {"Sell","Build House","Build Hotel","Mortgage","Unmortgage"};
+		String options[] = {"Sell","Build House","Build Hotel","Mortgage","Unmortgage","Auction"};
 		String decision = (String) JOptionPane.showInputDialog(null, "What would you like to do with your property?",
 		        "The Choice of a Lifetime", JOptionPane.QUESTION_MESSAGE, null, // Use
 		                                                                        // default
@@ -217,6 +217,8 @@ public class View extends JFrame {
 		    		model.mortgage(myDeed);break;
 		    	case "Unmortgage":
 		    		model.umMortgage(myDeed);break;
+		    	case "Auction":
+		    		ctrl.auctionMenu(myDeed);break;
 		    	default:
 		    		throw new IllegalArgumentException("You have to pick one!");
 		    }  
