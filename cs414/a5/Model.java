@@ -163,7 +163,11 @@ public class Model {
 				
 		}
 		else if(newSqr.getName().equals("COMMUNITY CHEST") || newSqr.getName().equals("CHANCE")){
-			//Card c = 
+			Card c = board.comDeck.drawCard();
+			if(c.getDescription().equals("Get out of jail free")){
+				currPlayer.setHasCard(true);
+			}
+			c.processCard(this);
 			
 		}
 		else{
@@ -215,10 +219,7 @@ public class Model {
 		view.update();
 	}
 	
-	//continued
-	public void useCard(Card c){
-		
-	}
+	
 	
 	
 	
