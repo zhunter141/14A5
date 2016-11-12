@@ -20,9 +20,6 @@ public class GameThread extends Thread{
 	}
 	
 	public void run(){
-		/*
-		 * 
-		 */
 		// Instantiate MVC
 		ctrl = new Controller();
 		model = new Model();
@@ -52,6 +49,11 @@ public class GameThread extends Thread{
 		p1.start();
 		p2.start();
 		
-		// 
+		while(p1.ready == false && p2.ready == false){
+			//System.out.println("Not ready to start game.");
+		}
+		
+		System.out.println("Ready to start game.");
+		model.startGame();
 	}
 }

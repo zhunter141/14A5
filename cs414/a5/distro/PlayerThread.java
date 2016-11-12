@@ -6,16 +6,14 @@ import cs414.a5.*;
 
 public class PlayerThread extends Thread{
 	private Socket tcpSocket = null;
-	private int playerNum;
 	private Model model;
 	private View view;
 	private Controller ctrl;
-	private boolean ready;
+	public boolean ready;
 	
 	public PlayerThread(Socket tcpSocket,int playerNum){
 		System.out.println("I'm a new Player thread!");
 		this.tcpSocket = tcpSocket;
-		this.playerNum = playerNum;
 		ready = false;
 	}
 	
@@ -29,15 +27,13 @@ public class PlayerThread extends Thread{
 	    	inFromClient = new ObjectInputStream(tcpSocket.getInputStream());
 	    	
 	    	// Send the GameClient its player number
-	    	outToClient.writeObject(playerNum);
+	    	//outToClient.writeObject(playerNum);
 	    	
 	    	String playerName = (String) inFromClient.readObject();
 	    	msg("This is the player I got: "+playerName);
 	    	
 	    	// Add this player to the model
 	    	model.addPlayer(playerName);
-	    	
-	    	System.out.println("This is the player in model: "+model.getPlayers()[playerNum-1].getName());
 	    	ready = true;
 	    	
 	    	// Close everything
@@ -47,6 +43,10 @@ public class PlayerThread extends Thread{
 	    }catch(IOException | ClassNotFoundException e){
 	    	e.printStackTrace();
 	    }
+	}
+	
+	public void startGame(){
+		System.out.println("I can now start the game!");
 	}
 	
 	private void msg(String s){
