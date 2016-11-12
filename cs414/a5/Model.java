@@ -86,7 +86,7 @@ public class Model {
 	
 	private void move(int steps){
 		// Tell the board to Move the player's token 
-			board.move(steps,currPlayer.getToken());
+			board.move(1,currPlayer.getToken());
 			Square currLoc = currPlayer.getToken().getLoc();
 			msg+=""+currPlayer.getName()+" is now on: "+currLoc.getName()+"\n";
 			view.updateBoard();
@@ -161,6 +161,10 @@ public class Model {
 			endTurn();
 				
 		}
+		else if(newSqr.getName().equals("COMMUNITY CHEST") || newSqr.getName().equals("CHANCE")){
+			
+			
+		}
 		else{
 			//Two more case for Luxury and income tax squares
 			if(newSqr.getName().equals("INCOME TAX")){
@@ -194,67 +198,28 @@ public class Model {
 	}
 	
 	public void buildHouse(Square s){
-		if(s instanceof Deed ){
-			Deed currDeed = (Deed)s;
-			if(currDeed.hasBuilding() == true){
-				msg += "No more buildings."+'\n' ;
-			}
-			else{
-				
-				if(monopolyBank.payDue(currPlayer, currDeed.getHouseCost()) == false ){
-					msg += "Not enough money to build a house."+'\n' ;
-				}
-				else{
-					//Build it 
-					currDeed.setExistanceOfHouseHotel(true);
-					currDeed.setExistanceOfHotel(true);
-					currDeed.updateRent();
-					msg+= "Removing $"+currDeed.getHouseCost()+"from "+currPlayer.getName()+"\n";
-					msg += "Succesfully build a house on "+currDeed.getName()+"\n" ;
-				}
-			}
-		}
-		else{
-			msg += "Can't build house here."+'\n' ;
-		}
+		msg += s.buildHouse( currPlayer,  monopolyBank);
 		msg +="My money: $"+ monopolyBank.getBalance(currPlayer)+"\n";
 		
 		view.update();
 	}
 	
 	public void buildHotel(Square s){
-		if(s instanceof Deed ){
-			Deed currDeed = (Deed)s;
-			if(currDeed.hasBuilding() == true){
-				msg += "No more buildings."+'\n' ;
-			}
-			else{
-				
-				if(monopolyBank.payDue(currPlayer, currDeed.getHotelCost()) == false ){
-					msg += "Not enough money to build a hotel."+'\n' ;
-				}
-				else{
-					//Build it 
-					currDeed.setExistanceOfHouseHotel(true);
-					currDeed.setExistanceOfHouse(true);
-					currDeed.updateRentHotel();
-					msg += "Succesfully build a house."+'\n' ;
-				}
-				
-				
-				
-			}
-		}
-		else{
-			msg += "Can't build hotel here."+'\n' ;
-		}
+		msg += s.buildHotel( currPlayer,  monopolyBank,s);
+
 		msg +=""+currPlayer.getName()+" is now on: "+currPlayer.getToken().getLoc().getName()
 				+'\n'+"My properties: "+ currPlayer.toString()+'\n'
 				+"My money: "+ monopolyBank.getBalance(currPlayer)+'\n';
-		view.update();
 
+		view.update();
+	}
+	
+	//continued
+	public void useCard(Card c){
 		
 	}
+	
+	
 	
 	public void endTurn(){
 		iterator++;
