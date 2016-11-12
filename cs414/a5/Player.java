@@ -7,6 +7,7 @@ public class Player {
 	private String name;
 	private HashSet<Square> myDeeds;
 	private Token token;
+	private boolean hasCard;
 	
 	//private Model monopolyModel;
 	//private Bank monopolyBank;
@@ -16,6 +17,7 @@ public class Player {
 		this.id = id;
 		this.name = name;
 		this.token = token;
+		this.hasCard = false;
 		myDeeds = new HashSet<Square>();
 	}
 	
@@ -127,5 +129,12 @@ public class Player {
 		}
 		return listOfDeeds;
 		
+	}
+
+	public boolean hasCard() {
+		return this.hasCard;
+	}
+	public void setHasCard(boolean b) {
+	    this.hasCard = b;
 	}
 }
