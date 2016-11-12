@@ -100,26 +100,11 @@ public class View extends JFrame {
 		gameMsgPanel.add(buttonPanel);
 	}
 	
-	private void startMenu(){
-		int numPlayers = 0;
-		// Ensure the user enter the correct amount of players
-		do {
-			String str1 = JOptionPane.showInputDialog("Enter number of players (2 to 4)");
-			try{
-				numPlayers = Integer.parseInt(str1);				
-			}catch(NumberFormatException e){
-				JOptionPane.showMessageDialog(null, "Please enter an integer value.");
-			}
-		}while((numPlayers < 2) || (numPlayers > 4));
-		
-		Token[] allTokens = model.getTokens();
-	    String[] players = new String [numPlayers];
-	    
-	    for(int i = 0; i < numPlayers; i++){
-			players[i] = JOptionPane.showInputDialog("Enter the owner of "+allTokens[i].getDescription());
+	private void startMenu(){	
+			String playerName = JOptionPane.showInputDialog("Enter your name ");
+			System.out.println("Adding: "+playerName+" to the game.");
 			//Send model the name of each player 
-			model.addPlayer(players[i]);
-	    }
+			//model.addPlayer(players[i]);
 	}
 	
 	private void setUpTimer(){
