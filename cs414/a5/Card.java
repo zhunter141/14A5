@@ -57,6 +57,8 @@ public class Card {
 			
 		}else if (getAction().equals("outJail")){
 			System.out.println("Out of jail");
+			//currentPlayer.removeCard();
+			//player.addCard();
 			
 		}else if (getAction().equals("GO")){
 			Object sqtmp = board.getSquares().get("GO");

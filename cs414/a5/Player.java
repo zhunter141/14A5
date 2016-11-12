@@ -6,6 +6,7 @@ public class Player {
 	private int id;
 	private String name;
 	private HashSet<Square> myDeeds;
+	private HashSet<Card> myCards;
 	private Token token;
 	
 	//private Model monopolyModel;
@@ -17,6 +18,7 @@ public class Player {
 		this.name = name;
 		this.token = token;
 		myDeeds = new HashSet<Square>();
+		myCards = new HashSet<Card>();
 	}
 	
 	public int getId(){
@@ -43,6 +45,13 @@ public class Player {
 		myDeeds.remove(d);
 	}
 	
+	public void addCard(Card c){
+		myCards.add(c);
+	}
+	
+	public void removeCard(Card c){
+		myDeeds.remove(c);
+	}
 	
 	public String selldeed(Square d,Bank monopolyBank){
 				String msg = "";
