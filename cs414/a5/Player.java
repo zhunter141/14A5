@@ -49,10 +49,12 @@ public class Player {
 	
 	public void addCard(Card c){
 		myCards.add(c);
+		setHasCard(true);
 	}
 	
-	public void removeCard(Card c){
-		myDeeds.remove(c);
+	public void removeCard(){
+		myDeeds.remove(myCards.iterator().next());
+		setHasCard(false);
 	}
 	
 	public String selldeed(Square d,Bank monopolyBank){
