@@ -22,6 +22,7 @@ public class Model {
 		dice = new Dice();
 		monopolyBank = new Bank();
 		board.initialize();
+		board.initCards();
 		msg = "";
 		players = new Player[4];
 		allTokens = new Token[4];
@@ -186,7 +187,7 @@ public class Model {
 	}
 	
 	
-	private void goToJail(){
+	void goToJail(){
 		//move to jail -> may be refactor later
 		board.move(20,currPlayer.getToken());
 		Square currLoc = currPlayer.getToken().getLoc();

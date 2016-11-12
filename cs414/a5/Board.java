@@ -6,13 +6,64 @@ package cs414.a5;
 import java.awt.Color;
 import java.util.ArrayList;
 
+
 public class Board {
 	private Square start;
 	private ArrayList<Square> mySquares;
+	DeckOfCards chanceDeck;
+	DeckOfCards comDeck;
 	
 	public Board(){
 		mySquares = new ArrayList<Square>();
+		
 	}
+	
+	public void initCards(){
+		Card[] chanceCards = new Card[16];
+
+		// We can create our own rules here to make it simpler
+		chanceCards[0] = new Card("Advance to Go.","GO",0); // get the number of moved needed to go to GO
+		chanceCards[1] = new Card("Advance to Mayfair.","MAYFAIR",0);
+		chanceCards[2] = new Card("You are assessed for street sepairs.","pay",100);
+		chanceCards[3] = new Card("Go to Jail.","toJail",0);
+		chanceCards[4] = new Card("Bank pays you Dividend of $50.","collect",50);
+		chanceCards[5] = new Card("Go back 3 spaces.","move",40-3); //we don't have move back
+		chanceCards[6] = new Card("Pay school fees of $150.","pay",150);
+		chanceCards[7] = new Card("Make general repairs","pay",50);
+		chanceCards[8] = new Card("Speeding fine $15.","pay",15);
+		chanceCards[9] = new Card("You have won a Crossword Competition, Collect $100.","collect",100);
+		chanceCards[10] = new Card("Your building and loan matures, Collect $150.","collect",150);
+		chanceCards[11] = new Card("Get out of jail free","outJail",0);
+		chanceCards[12] = new Card("Advance to Traflgar Square","TRAFLGAR SQUARE",0);
+		chanceCards[13] = new Card("Take a trip to Marylebone Station.","MARYLEBONE STATION",0);
+		chanceCards[14] = new Card("Advance to Pall Mall.","PALL MALL",0);
+		chanceCards[15] = new Card("\"Drunk in Charge\", Fine $20.","pay",20);
+		
+		chanceDeck = new DeckOfCards(chanceCards);
+
+		Card[] comCards = new Card[16];
+		
+		comCards[0] = new Card("Income tax refund, Collect $20","collect",20);
+		comCards[1] = new Card("From sale of stock you get $50.","collect",50);
+		comCards[2] = new Card("It is your birthday, Collect $20","collect",20);
+		comCards[3] = new Card("Receive interest on 7% preference shares, Collect $25.","collect",25);
+		comCards[4] = new Card("Get out of Jail free","outJail",0);
+		comCards[5] = new Card("Advance to Go.","GO",0);
+		comCards[6] = new Card("Pay hospital $100","pay",100);
+		comCards[7] = new Card("You have won second prize in a beauty contest, Collect $10","collect",10);
+		comCards[8] = new Card("Bank error in your favor, Collect $200","collect",200);
+		comCards[9] = new Card("You inherit $100","collect",100);
+		comCards[10] = new Card("Go to Jail.","toJail",0);
+		comCards[11] = new Card("Pay your insurance premium $50","pay",50);
+		comCards[12] = new Card("Pay a $10 Fine","pay",10);
+		comCards[13] = new Card("Doctor's fee pay, $50 ","pay",50);
+		comCards[14] = new Card("Go to Old Kent Road","OLD KENT ROAD",0);
+		comCards[15] = new Card("Annuity Matures, Collect $100","collect",100);
+
+		comDeck = new DeckOfCards(comCards);
+		
+	}
+	
 	public Square initialize(){
 		/*
 		 *  Board layout is based on traditional Monopoly Game US version
