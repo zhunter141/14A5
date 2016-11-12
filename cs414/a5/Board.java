@@ -5,23 +5,25 @@ package cs414.a5;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class Board {
 	private Square start;
-	private ArrayList<Square> mySquares;
+	private String SqKey;
+	private HashMap<String, Square> mySquares;
+
 	DeckOfCards chanceDeck;
 	DeckOfCards comDeck;
 	
 	public Board(){
-		mySquares = new ArrayList<Square>();
+		mySquares = new HashMap();
 		
 	}
 	
 	public void initCards(){
 		Card[] chanceCards = new Card[16];
 
-		// We can create our own rules here to make it simpler
 		chanceCards[0] = new Card("Advance to Go.","GO",0); // get the number of moved needed to go to GO
 		chanceCards[1] = new Card("Advance to Mayfair.","MAYFAIR",0);
 		chanceCards[2] = new Card("You are assessed for street sepairs.","pay",100);
@@ -87,107 +89,107 @@ public class Board {
 		Square ja = new Square(Color.GRAY,"JAIL");
 		
 		// Adding first 11 squares to list
-		add(start);
-		add(kr);
-		add(cc1);
-		add(wr);
-		add(it);
-		add(kc);
-		add(ai);
-		add(ch1);
-		add(er);
-		add(pr);
-		add(ja);
+		add("GO", start);
+		add("OLD KENT ROAD",kr);
+		add("COMMUNITY CHEST 1",cc1);
+		add("WHITECHAPEL ROAD",wr);
+		add("INCOME TAX",it);
+		add("KINGS CROSS STATION",kc);
+		add("THE ANGEL ISLINGTON",ai);
+		add("CHANCE 1",ch1);
+		add("EUSTON ROAD",er);
+		add("PENTONVILLE ROAD",pr);
+		add("JAIL",ja);
 		
 		//****************** row 2 **********************
 		Deed mr = new Deed(Color.GREEN,"MAYFAIR",400,50,50,50);
-		add(mr);
+		add("MAYFAIR",mr);
 		// Dummy squares
 		for(int i=0;i<9;i++){
-			mySquares.add(new Square(Color.LIGHT_GRAY,""));
+			mySquares.put("dummy",new Square(Color.LIGHT_GRAY,""));
 		}
 		Deed pm = new Deed(Color.MAGENTA,"PALL MALL",140,50,50,50);
-		add(pm);
+		add("PALL MALL",pm);
 		
 		// **************** row 3 ********************
 		Square lt = new Square(Color.GRAY,"LUXURY TAX");
-		add(lt);
+		add("LUXURY TAX",lt);
 		// Dummy squares
 		for(int i=0;i<9;i++){
-			mySquares.add(new Square(Color.LIGHT_GRAY,""));
+			mySquares.put("dummy",new Square(Color.LIGHT_GRAY,""));
 		}
 		Utility ec = new Utility(Color.GRAY, "ELECTRIC COMPANY", 150, 25);
-		add(ec);
+		add("ELECTRIC COMPANY",ec);
 		
 		// ****************** row 4 ********************
 		Deed pl = new Deed(Color.GREEN,"PARK LANE",350,50,50,50);
-		add(pl);
+		add("PARK LANE",pl);
 		// Dummy squares
 		for(int i=0;i<9;i++){
-			mySquares.add(new Square(Color.LIGHT_GRAY,""));
+			mySquares.put("dummy",new Square(Color.LIGHT_GRAY,""));
 		}
 		Deed wh = new Deed(Color.MAGENTA,"WHITEHALL",140,50,50,50);
-		add(wh);
+		add("WHITEHALL",wh);
 		
 		// ****************** row 5 ********************
 		Square ch3 = new Square(Color.GRAY,"CHANCE");
-		add(ch3);
+		add("CHANCE 3",ch3);
 		// Dummy squares
 		for(int i=0;i<9;i++){
-			mySquares.add(new Square(Color.LIGHT_GRAY,""));
+			mySquares.put("dummy",new Square(Color.LIGHT_GRAY,""));
 		}
 		Deed na = new Deed(Color.MAGENTA,"NORTHUMRLD AVENUE",160,50,50,50);
-		add(na);
+		add("NORTHUMRLD AVENUE",na);
 		
 		// row 6
 		RailRoad lsr = new RailRoad(Color.GRAY,"LIVERPOOL ST. STATION",200,50);
-		add(lsr);
+		add("LIVERPOOL ST. STATION",lsr);
 		// Dummy squares
 		for(int i=0;i<9;i++){
-			mySquares.add(new Square(Color.LIGHT_GRAY,""));
+			mySquares.put("dummy",new Square(Color.LIGHT_GRAY,""));
 		}
 		RailRoad ms = new RailRoad(Color.GRAY,"MARYLEBONE STATION",200,50);
-		add(ms);
+		add("MARYLEBONE STATION",ms);
 		
 		// row 7
 		Deed bn = new Deed(Color.GREEN,"BOND STREET",320,50,50,50);
-		add(bn);
+		add("BOND STREET",bn);
 		// Dummy squares
 		for(int i=0;i<9;i++){
-			mySquares.add(new Square(Color.LIGHT_GRAY,""));
+			mySquares.put("dummy",new Square(Color.LIGHT_GRAY,""));
 		}	
 		Deed bs = new Deed(Color.ORANGE,"BOW STREET",180,50,50,50);
-		add(bs);
+		add("BOW STREET",bs);
 		
 		// row 8
 		Square cc3 = new Square(Color.GRAY,"COMMUNITY CHEST");
-		add(cc3);
+		add("COMMUNITY CHEST 3",cc3);
 		// Dummy squares
 		for(int i=0;i<9;i++){
-			mySquares.add(new Square(Color.LIGHT_GRAY,""));
+			mySquares.put("dummy",new Square(Color.LIGHT_GRAY,""));
 		}
 		Square cc2 = new Square(Color.GRAY,"COMMUNITY CHEST");
-		add(cc2);
+		add("COMMUNITY CHEST",cc2);
 		
 		// ******************** row 9 *****************
 		Deed os = new Deed(Color.GREEN,"OXFORD STREET",300,50,50,50);
-		add(os);
+		add("OXFORD STREET",os);
 		// Dummy squares
 		for(int i=0;i<9;i++){
-			mySquares.add(new Square(Color.LIGHT_GRAY,""));
+			mySquares.put("dummy",new Square(Color.LIGHT_GRAY,""));
 		}
 		Deed mso = new Deed(Color.ORANGE,"MARLBOROUGH STREET",180,50,50,50);
-		add(mso);
+		add("MARLBOROUGH STREET",mso);
 		
 		// **************** row 10 **********************
 		Deed rs = new Deed(Color.GREEN,"REGENT STREET",300,50,50,50);
-		add(rs);
+		add("REGENT STREET",rs);
 		// Dummy squares
 		for(int i=0;i<9;i++){
-			mySquares.add(new Square(Color.LIGHT_GRAY,""));
+			mySquares.put("dummy",new Square(Color.LIGHT_GRAY,""));
 		}
 		Deed vs = new Deed(Color.ORANGE,"VINE STREET",200,50,50,50);
-		add(vs);
+		add("VINE STREET",vs);
 		
 		// **************** row 11 ********************
 		Square gj = new Square(Color.GRAY,"GO TO JAIL");
@@ -202,17 +204,17 @@ public class Board {
 		Deed sr = new Deed(Color.RED,"STRAND",220,50,50,50);
 		Square fp = new Square(Color.GRAY,"FREE PARKING");
 		
-		add(gj);
-		add(py);
-		add(ww);
-		add(cs);
-		add(ls);
-		add(fsr);
-		add(ts);
-		add(fs);
-		add(ch2);
-		add(sr);
-		add(fp);
+		add("GO TO JAIL",gj);
+		add("PICCADILLY",py);
+		add("WATER WORKS",ww);
+		add("CONVENTRY STREET",cs);
+		add("LEICESTER SQUARE",ls);
+		add("FENCHURCH ST. STATION",fsr);
+		add("TRAFLGAR SQUARE",ts);
+		add("FLEET STREET",fs);
+		add("CHANCE 2",ch2);
+		add("STRAND",sr);
+		add("FREE PARKING",fp);
 		
 		// Connection of first 10 squares
 		start.setNext(kr);
@@ -276,11 +278,11 @@ public class Board {
 		return start;
 	}
 	
-	public ArrayList<Square> getSquares(){
+	public HashMap getSquares(){
 		return mySquares;
 	}
 	
-	private void add(Square s){
-		mySquares.add(s);
+	private void add(String key, Square s){
+		mySquares.put(key, s);
 	}
 }

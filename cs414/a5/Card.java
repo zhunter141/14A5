@@ -8,6 +8,8 @@ public class Card {
 	private Bank bank;
 	private Board board;
 	private Model model;
+	private Token token;
+
 	
 	public Card(String description, String action, int val) {
 		this.description = description;
@@ -15,6 +17,8 @@ public class Card {
 		this.val = val;
 		bank = new Bank();
 		board = new Board();
+		board.initialize();
+		board.initCards();
 	}
 	
 	
@@ -54,10 +58,27 @@ public class Card {
 		}else if (getAction().equals("outJail")){
 			System.out.println("Out of jail");
 			
-		}else if (getAction().equals("loc")){
-			int amount = getVal();
-			
+		}else if (getAction().equals("GO")){
+			Object sqtmp = board.getSquares().get("GO");
+			token.setLoc((Square) sqtmp);	
 		}
+		else if (getAction().equals("MAYFAIR")){
+			Object sqtmp = board.getSquares().get("MAYFAIR");
+			token.setLoc((Square) sqtmp);	
+		}else if (getAction().equals("TRAFLGAR SQUARE")){
+			Object sqtmp = board.getSquares().get("TRAFLGAR SQUARE");
+			token.setLoc((Square) sqtmp);	
+		}else if (getAction().equals("MARYLEBONE STATION")){
+			Object sqtmp = board.getSquares().get("MARYLEBONE STATION");
+			token.setLoc((Square) sqtmp);	
+		}else if (getAction().equals("PALL MALL")){
+			Object sqtmp = board.getSquares().get("PALL MALL");
+			token.setLoc((Square) sqtmp);	
+		}else if (getAction().equals("OLD KENT ROAD")){
+			Object sqtmp = board.getSquares().get("OLD KENT ROAD");
+			token.setLoc((Square) sqtmp);	
+		}
+
 	}
 	
 	
