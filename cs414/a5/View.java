@@ -159,7 +159,7 @@ public class View extends JFrame {
 		boardPanel = new JPanel();
 		boardPanel.setLayout(new GridLayout(11,11));
 		
-		ArrayList<Square> listOfSquares = model.getBoard().getSquares();
+		HashMap<String, Square> listOfSquares = model.getBoard().getSquares();
 		
 		for(int i=0;i<listOfSquares.size();i++){
 			Square s = listOfSquares.get(i);
