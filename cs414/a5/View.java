@@ -104,7 +104,7 @@ public class View extends JFrame {
 			String playerName = JOptionPane.showInputDialog("Enter your name ");
 			System.out.println("Adding: "+playerName+" to the game.");
 			//Send model the name of each player 
-			//model.addPlayer(players[i]);
+			model.addPlayer(playerName);
 	}
 	
 	private void setUpTimer(){
