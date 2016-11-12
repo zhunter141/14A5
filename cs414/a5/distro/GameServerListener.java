@@ -26,6 +26,15 @@ public class GameServerListener {
 		// Successful able to listen on port 5678
 		// start listening for incoming connections
 		try{
+			Socket player1 = tcpServerSocket.accept();
+			ObjectInputStream fromPlayer = new ObjectInputStream(player1.getInputStream());
+			
+			String name = (String) fromPlayer.readObject();
+			
+			System.out.println("This p1 name: "+name);
+			// The first thing sent by the player should be the name
+			/*
+			 * 
 			PlayerThread p1 = new PlayerThread(tcpServerSocket.accept(),count);
 			count++;
 			PlayerThread p2 =new PlayerThread(tcpServerSocket.accept(),count);
@@ -33,7 +42,8 @@ public class GameServerListener {
 			// Start GameThread with current players
 			GameThread gt = new GameThread(p1,p2);
 			gt.start();
-		}catch(IOException e){
+			 */
+		}catch(IOException | ClassNotFoundException e){
 			System.err.println("Accept failed.");
 			tcpServerSocket.close();
 			System.exit(1);
