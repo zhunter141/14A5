@@ -29,6 +29,7 @@ public class Model {
 		counter = 0;
 		createTokens();
 		hasRolled = false;
+		
 	}
 	private void createTokens(){
 		Token t1 =new Token("Horse");
@@ -155,14 +156,13 @@ public class Model {
 			//May breakup here
 			monopolyBank.payDue(currPlayer, 200);
 			msg += "Oh, no!";
-
 			//move to jail
 			goToJail();
 			endTurn();
 				
 		}
 		else if(newSqr.getName().equals("COMMUNITY CHEST") || newSqr.getName().equals("CHANCE")){
-			
+			//Card c = 
 			
 		}
 		else{
