@@ -64,7 +64,7 @@ public class Bank {
 			Card card = (Card)o;
 			//no check of owner cuz given card has to be owned
 			//to be continued
-			
+
 		}
 		else if(o instanceof Deed){
 			Deed deed = (Deed)o;
@@ -73,27 +73,30 @@ public class Bank {
 				int[] indexAndMax =getMax(bits);
 				if(indexAndMax[1] == 0){
 					msg = "Nobody want this deed"+'\n';
+
 				}
 				else{
-					System.out.println(players);
-
 					Player winner = players[indexAndMax[0]];
 
 					int bitAmount =  indexAndMax[1];
 					if(this.payDue(winner, bitAmount) == true){
 						if(deed.getOwner() != null){
 							deed.getOwner().removeDeed(deed);
-							this.deposit(deed.getOwner(), bitAmount);
+							deposit(deed.getOwner(), bitAmount);
+							System.out.println("Hello"+deed.getOwner().getName()+bitAmount);
+							
 							}
 						deed.setOwner(winner);
 						deed.setPurchasable(false);
 						winner.addDeed(deed);
 		
 
-						msg = "Congraduations! Deed "+deed.getName()+" goes to "+deed.getOwner()+'\n';
+						msg = "Congraduations! Deed "+deed.getName()+" goes to "+deed.getOwner().getName()+'\n';
+
 					}
 					else{
 						msg = "No enough money"+'\n';
+
 					}
 				}
 			
@@ -102,19 +105,17 @@ public class Bank {
 
 			
 		}
-		else {
-			
-		}
+		
 		return msg;
 		
 
 		
 	}
 	private int[] getMax(int[] bits) {
-		int max = bits[0];
+		int max = -1;
 		int[] res = {0,0};
 
-		for (int i = 1; i < bits.length; i++) {
+		for (int i = 0; i < bits.length; i++) {
 		    if (bits[i] > max) {
 		      max = bits[i];
 		      res[0] = i;

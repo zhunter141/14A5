@@ -8,8 +8,8 @@ public class Player {
 	private HashSet<Square> myDeeds;
 	private Token token;
 	
-	private Model monopolyModel;
-	private Bank monopolyBank;
+	//private Model monopolyModel;
+	//private Bank monopolyBank;
 
 	
 	public Player(int id, String name, Token token) {
@@ -44,13 +44,12 @@ public class Player {
 	}
 	
 	
-	public String selldeed(Square d){
+	public String selldeed(Square d,Bank monopolyBank){
 				String msg = "";
-				Player currPlayer = monopolyModel.getCurrPlayer();
 				// In this method, deed is a utility, railroad, deed
 				//Pay attention on choose deed
 				//removeDeeds()
-				currPlayer.removeDeed(d);
+				this.removeDeed(d);
 				int cost = 0;
 				if(d instanceof Utility){
 					Utility utility =  (Utility)d;
@@ -88,12 +87,38 @@ public class Player {
 					railRoad.setOwner(null);
 				}
 				// Update player account
-				monopolyBank.deposit(currPlayer,cost);
-				msg ="Adding: $"+cost+" to "+currPlayer.getName()+" account!";
-				msg +="My properties: "+ currPlayer.toString()+'\n';
-				msg +="Account: "+ monopolyBank.getBalance(currPlayer)+"\n";
+				monopolyBank.deposit(this,cost);
+				msg ="Adding: $"+cost+" to "+this.getName()+" account!";
+				msg +="My properties: "+ this.toString()+'\n';
+				msg +="Account: $"+ monopolyBank.getBalance(this)+"\n";
 				return msg;
 	}
+
+	public int buyDeed(Bank monopolyBank,Square myLoc){
+		int costOfDeed;
+		// The square is purchasable because it is not own by anyone
+		// determine the cost of the square
+		// Implied 'else'
+		if(myLoc instanceof Utility){
+			Utility util =  (Utility)myLoc;
+			costOfDeed = util.getCost();
+		}
+		else if(myLoc instanceof Deed){
+			Deed deed =  (Deed)myLoc;
+			costOfDeed = deed.getCost();
+		}
+		// Square MUST be RailRoad
+		else{
+			RailRoad railRoad =  (RailRoad)myLoc;
+			costOfDeed = railRoad.getCost();
+		}
+		return costOfDeed;
+		
+	}
+	
+	
+	
+	
 	@Override
 	public String toString(){
 		String listOfDeeds = ""; 

@@ -32,7 +32,7 @@ public class View extends JFrame {
 	
 	private Timer timer;
 	private long startTime = -1;
-	private static final long DURATION = 5000*120;//10 min
+	private static final long DURATION = 5000000*120;//10 min
 	private JLabel countDown;
 	
 	// Game objects
