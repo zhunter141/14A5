@@ -61,15 +61,23 @@ public class Square {
 		}
 		else{
 			if(checkColorGroup(s,currPlayer,myDeeds) == 3){
-				//build hotel
+				
 				Deed d = (Deed)s;
+				if(monopolyBank.payDue(currPlayer, d.getHotelCost()) == false ){
+					msg += "No enough money to build a house."+'\n' ;
+				}
+				else{
+				//build hotel
+
 				d.addHotel();
 				d.updateRentHotel();
+				
 				msg = "Succesfully build a Hotel."+'\n';
-						
+				}
 		
 			} 
 			else{
+				System.out.println(checkColorGroup(s,currPlayer,myDeeds));
 				msg = "No enough deeds to build hotel."+'\n';
 
 			}
@@ -82,13 +90,10 @@ public class Square {
 		Color sqrOriginal = ((Deed)s2).getColor();
 		Iterator<Square> i = myDeeds.iterator();
 		int c = 0;
-		
-	
 		if(checkHouseHotelNumber((Deed)s2) == false){
 			c = 0;
 		}
 		else{
-			c=1;
 			while (i.hasNext() == true){
 			Square s = i.next();
 			if(s instanceof Deed ){
@@ -96,8 +101,7 @@ public class Square {
 				if(sqrOriginal.equals(d.getColor())){
 					if(checkHouseHotelNumber(d) == true ){}
 					c += 1;
-				}
-				
+				}				
 			}
 		}
 		

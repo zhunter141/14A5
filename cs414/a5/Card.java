@@ -52,9 +52,15 @@ public class Card {
 			board.move(distance, currentPlayer.getToken());
 			
 		}else if (getAction().equals("toJail")){
-			
-			model.goToJail();
-			
+			Object sqtmp = board.getSquares().get("GO TO JAIL");
+			currentPlayer.getToken().setLoc((Square)sqtmp);
+			if(currentPlayer.hasCard() == true){
+				
+			}
+			else{
+				theModel.endTurn();
+			}
+
 		}else if (getAction().equals("outJail")){
 			System.out.println("Out of jail");
 			//currentPlayer.removeCard();
