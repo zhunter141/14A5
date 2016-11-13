@@ -14,7 +14,7 @@ public class Player {
 	//private Bank monopolyBank;
 
 	
-	public Player(int id, String name, Token token) {
+	public Player(int id, String name,Token token) {
 		this.id = id;
 		this.name = name;
 		this.token = token;
