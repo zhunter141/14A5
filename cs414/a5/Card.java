@@ -69,7 +69,8 @@ public class Card {
 			}
 
 		}else if (getAction().equals("outJail")){
-			System.out.println("Out of jail");
+			String msg = "You used your Get out of jail free card.";
+			currentPlayer.removeCard();
 			
 		}else if (getAction().equals("GO")){
 			Object sqtmp = board.getSquares().get("GO");
