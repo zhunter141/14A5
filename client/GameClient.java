@@ -4,15 +4,22 @@ import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.net.MalformedURLException;
 import java.rmi.NotBoundException;
+
+import common.ModelInterface;
 import common.ViewInterface;
 
 public class GameClient {
 	public static void main(String args[]){
-		ViewInterface v;
+		ViewInterface view;
+		ModelInterface model;
 		try {
-			v = (ViewInterface) Naming.lookup("rmi://localhost:2500/GameServer");
-			System.out.println("I have the remote view.");
-			v.setUpGUI();
+			view = (ViewInterface) Naming.lookup("rmi://localhost:2500/GameServer");
+			System.out.println("I have a view.");
+			
+			model = (ModelInterface) Naming.lookup("rmi://localhost:2500/model");
+			//System.out.println("I have a model.");
+			
+			view.setUpGUI();
 		} catch (MalformedURLException murle) {
 			System.out.println("MalformedURLException");
 			System.out.println(murle);

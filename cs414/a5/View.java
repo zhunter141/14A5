@@ -12,8 +12,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import javax.swing.*;
 
-@SuppressWarnings("serial")
-public class View extends JFrame {
+public class View extends JFrame{
 	public static final int DEFAULT_WIDTH = 900;
 	public static final int DEFAULT_HEIGHT = 900;
 
@@ -246,6 +245,7 @@ public class View extends JFrame {
 
 				view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				view.setLocationByPlatform(true);
+				
 				// link everything
 				view.addModel(model);
 				view.addController(ctrl);

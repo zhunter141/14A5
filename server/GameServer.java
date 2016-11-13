@@ -1,9 +1,8 @@
 package server;
 
 import java.rmi.Naming;
+import common.ModelInterface;
 import common.ViewInterface;
-import cs414.a5.Controller;
-import cs414.a5.Model;
 
 public class GameServer {
 	private String url;
@@ -11,19 +10,20 @@ public class GameServer {
 		this.url = url;
 		try{
 			ViewInterface view = new ViewImpl();
-			Model model = new Model();
-			Controller ctrl = new Controller();
+			ModelInterface model = new ModelImpl();
+			//Controller ctrl = new Controller();
 			
 			// link everything
-			view.addModel(model);
-			view.addController(ctrl);
-			ctrl.addModel(model);
-			ctrl.addView(view.getView());
+			view.addModel(model.getModel());
+			//view.addController(ctrl);
+			//ctrl.addModel(model);
+			//ctrl.addView(view);
 			model.addView(view.getView());
 			
 			// Binding
-			Naming.bind(this.url, view);
-			
+			Naming.rebind(this.url, view);
+			Naming.rebind("rmi://localhost:2500/model",model);
+		
 			System.out.println("Game server running...");
 		}catch(Exception e){
 			System.out.println("Trouble: " + e );
