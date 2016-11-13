@@ -6,12 +6,14 @@ package cs414.a5;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 
 public class Board {
 	private Square start;
 	private String SqKey;
 	private HashMap<String, Square> mySquares;
+	
 
 	DeckOfCards chanceDeck;
 	DeckOfCards comDeck;
@@ -21,6 +23,9 @@ public class Board {
 		
 	}
 	
+	
+	
+
 	public void initCards(){
 		Card[] chanceCards = new Card[16];
 
@@ -41,7 +46,7 @@ public class Board {
 		chanceCards[14] = new Card("Advance to Pall Mall.","PALL MALL",0);
 		chanceCards[15] = new Card("\"Drunk in Charge\", Fine $20.","pay",20);
 		
-		chanceDeck = new DeckOfCards(chanceCards);
+		this.chanceDeck = new DeckOfCards(chanceCards);
 
 		Card[] comCards = new Card[16];
 		
@@ -62,7 +67,7 @@ public class Board {
 		comCards[14] = new Card("Go to Old Kent Road","OLD KENT ROAD",0);
 		comCards[15] = new Card("Annuity Matures, Collect $100","collect",100);
 
-		comDeck = new DeckOfCards(comCards);
+		this.comDeck = new DeckOfCards(comCards);
 		
 	}
 	

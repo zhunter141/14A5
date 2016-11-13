@@ -166,6 +166,7 @@ public class Model {
 			Card c = board.comDeck.drawCard();
 			if(c.getDescription().equals("Get out of jail free")){
 				currPlayer.setHasCard(true);
+				
 			}
 			c.processCard(this);
 			
@@ -334,7 +335,7 @@ public class Model {
 	}
 	
 	 public void auction(Object o,int[] bits){
-		 msg = monopolyBank.auction(o,bits,players);
+		 msg = monopolyBank.auction(o,bits,players,currPlayer);
 		 msg += currPlayer.getName()+", Location: " + currPlayer.getToken().getLoc().getName()+'\n';
 		 msg += "Account: $"+monopolyBank.getBalance(currPlayer)+'\n';
 		 view.update();

@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 public class DeckOfCards {
 	
-	private LinkedList<Card> cards;
+	LinkedList<Card> cards;
 	private Card firstCard;
 	//private int curCardCt;
 
@@ -26,7 +26,11 @@ public class DeckOfCards {
 	public Card drawCard() {
 		firstCard = cards.getFirst();
 		cards.removeFirst();
-		cards.addLast(firstCard);
+		if(firstCard.getDescription().equals("Get out of Jail free")){
+			//do nothing 
+		}
+		else{cards.addLast(firstCard);}
+		
 		return firstCard;
 	}
 	

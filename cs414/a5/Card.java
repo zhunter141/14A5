@@ -9,6 +9,7 @@ public class Card {
 	private Board board;
 	private Model model;
 	private Token token;
+	private Player owner;
 
 	
 	public Card(String description, String action, int val) {
@@ -31,24 +32,30 @@ public class Card {
 	}
 	
 	public int getVal() {
-		return val;
+		return this.val;
 	}
 	
+	public Player getOwner() {
+		return this.owner;
+	}
+	public void setOwner(Player p) {
+		this.owner = p;
+	}
 	public void processCard(Model theModel){
 		Board theBoard = theModel.getBoard();
 		Player currentPlayer = theModel.getCurrPlayer();
 		
 		String despMsg = getDescription();
 		if (getAction().equals("collect")){
-			int amount = getVal();
+			int amount = this.getVal();
 			bank.deposit(currentPlayer, amount);
 			
 		}else if (getAction().equals("pay")){
-			int amount = getVal();
+			int amount = this.getVal();
 			bank.payDue(currentPlayer, amount);
 			
 		}else if (getAction().equals("move")){
-			int distance = getVal();
+			int distance = this.getVal();
 			board.move(distance, currentPlayer.getToken());
 			
 		}else if (getAction().equals("toJail")){
