@@ -162,10 +162,20 @@ public class Model {
 			endTurn();
 				
 		}
-		else if(newSqr.getName().equals("COMMUNITY CHEST") || newSqr.getName().equals("CHANCE")){
+		else if(newSqr.getName().equals("COMMUNITY CHEST") ){
 			Card c = board.comDeck.drawCard();
 			if(c.getDescription().equals("Get out of jail free")){
 				currPlayer.setHasCard(true);
+				
+			}
+			c.processCard(this);
+			
+		}
+		else if(newSqr.getName().equals("CHANCE")){
+			Card c = board.chanceDeck.drawCard();
+			if(c.getDescription().equals("Get out of jail free")){
+				currPlayer.setHasCard(true);
+				
 			}
 			c.processCard(this);
 			
@@ -221,7 +231,12 @@ public class Model {
 	
 	
 	
-	
+	public void deposit(Player p, int a){
+		monopolyBank.deposit(p, a);
+	}
+	public void payDue(Player p, int a){
+		monopolyBank.payDue(p, a);
+	}
 	
 	public void endTurn(){
 		iterator++;
@@ -334,7 +349,7 @@ public class Model {
 	}
 	
 	 public void auction(Object o,int[] bits){
-		 msg = monopolyBank.auction(o,bits,players);
+		 msg = monopolyBank.auction(o,bits,players,currPlayer);
 		 msg += currPlayer.getName()+", Location: " + currPlayer.getToken().getLoc().getName()+'\n';
 		 msg += "Account: $"+monopolyBank.getBalance(currPlayer)+'\n';
 		 view.update();
