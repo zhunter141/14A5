@@ -49,7 +49,7 @@ public class Card {
 			int amount = this.getVal();
 
 			theModel.deposit(currentPlayer, amount);
-			System.out.println(this.description);
+			System.out.println(this.description+"1");
 
 
 			
@@ -57,17 +57,17 @@ public class Card {
 			int amount = this.getVal();
 			
 			theModel.payDue(currentPlayer, amount);
-			System.out.println(this.description);
+			System.out.println(this.description+"2");
 
 			
 		}else if (getAction().equals("move")){
 			int distance = this.getVal();
-			board.move(distance, currentPlayer.getToken());
-			System.out.println(this.description);
+			theModel.move(distance);
+			System.out.println(this.description+"3");
 
 			
 		}else if (getAction().equals("toJail")){//&
-			Square sqtmp = board.getSquares().get("GO TO JAIL");
+			Square sqtmp = theModel.board.getSquares().get("JAIL");
 			currentPlayer.getToken().setLoc((Square)sqtmp);
 			if(currentPlayer.hasCard() == true){
 				
@@ -75,49 +75,65 @@ public class Card {
 			else{
 				theModel.endTurn();
 			}
-			System.out.println(this.description);
+			System.out.println(this.description+"4");
 
 
 		}else if (getAction().equals("outJail")){
 			String msg = "You used your Get out of jail free card.";
 			currentPlayer.setHasCard(false);
-			System.out.println(this.description);
+			System.out.println(this.description+"5");
 
 			
 		}else if (getAction().equals("GO")){
-			Square sqtmp = (Square)(board.getSquares().get("GO"));
-			
-			theModel.getCurrPlayer().getToken().setLoc((Square) sqtmp);	
-			System.out.println(this.description);
+			Square sqtmp = (Square)(theModel.board.getSquares().get("GO"));
+			Token t = theModel.getCurrPlayer().getToken();
+			t.getLoc().removeToken(t);
+			t.setLoc((Square) sqtmp);
+			System.out.println(this.description+"6");
+			System.out.println(theModel.getCurrPlayer().getToken().getLoc().getName());
 
 		}
 		else if (getAction().equals("MAYFAIR")){
-			Square sqtmp = board.getSquares().get("MAYFAIR");
-
-			theModel.getCurrPlayer().getToken().setLoc((Square) sqtmp);
-			System.out.println(this.description);
+			Square sqtmp = theModel.board.getSquares().get("MAYFAIR");
+			Token t = theModel.getCurrPlayer().getToken();
+			t.getLoc().removeToken(t);
+			t.setLoc((Square) sqtmp);
+			System.out.println(this.description+"7");
+			System.out.println(theModel.getCurrPlayer().getToken().getLoc().getName());
 
 		}else if (getAction().equals("TRAFLGAR SQUARE")){
-			Square sqtmp = board.getSquares().get("TRAFLGAR SQUARE");
-			theModel.getCurrPlayer().getToken().setLoc((Square) sqtmp);	
-			System.out.println(this.description);
+			Square sqtmp = theModel.board.getSquares().get("TRAFLGAR SQUARE");
+			Token t = theModel.getCurrPlayer().getToken();
+			t.getLoc().removeToken(t);
+			t.setLoc((Square) sqtmp);			System.out.println(this.description+"8");
+			System.out.println(theModel.getCurrPlayer().getToken().getLoc().getName());
 
 		}else if (getAction().equals("MARYLEBONE STATION")){
-			Square sqtmp = board.getSquares().get("MARYLEBONE STATION");
-			theModel.getCurrPlayer().getToken().setLoc((Square) sqtmp);
-			System.out.println(this.description);
+			Square sqtmp = theModel.board.getSquares().get("MARYLEBONE STATION");
+			Token t = theModel.getCurrPlayer().getToken();
+			t.getLoc().removeToken(t);
+			t.setLoc((Square) sqtmp);			System.out.println(this.description+"9");
+			System.out.println(theModel.getCurrPlayer().getToken().getLoc().getName());
+
 
 		}else if (getAction().equals("PALL MALL")){
-			Square sqtmp = board.getSquares().get("PALL MALL");
-			theModel.getCurrPlayer().getToken().setLoc((Square) sqtmp);
-			System.out.println(this.description);
+			Square sqtmp = theModel.board.getSquares().get("PALL MALL");
+			Token t = theModel.getCurrPlayer().getToken();
+			t.getLoc().removeToken(t);
+			t.setLoc((Square) sqtmp);			System.out.println(this.description+"10");
+			System.out.println(theModel.getCurrPlayer().getToken().getLoc().getName());
 
 		}else if (getAction().equals("OLD KENT ROAD")){
-			Square sqtmp = board.getSquares().get("OLD KENT ROAD");
-			theModel.getCurrPlayer().getToken().setLoc((Square) sqtmp);	
-			System.out.println(this.description);
+			Square sqtmp = theModel.board.getSquares().get("OLD KENT ROAD");
+			Token t = theModel.getCurrPlayer().getToken();
+			t.getLoc().removeToken(t);
+			t.setLoc((Square) sqtmp);			System.out.println(this.description+"11");
+			System.out.println(theModel.getCurrPlayer().getToken().getLoc().getName());
+			
 
 		}
+		theModel.view.updateBoard();
+
 
 	}
 	
