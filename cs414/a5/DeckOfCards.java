@@ -23,7 +23,7 @@ public class DeckOfCards {
 
 	// Should cover both draw the top card and return it back in the bottom
 	public Card drawCard() {
-		firstCard = cards.get(5);//.getFirst();
+		firstCard = cards.getFirst();
 		cards.removeFirst();
 		if(firstCard.getDescription().equals("Get out of Jail free")){
 			//do nothing 
