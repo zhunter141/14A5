@@ -45,20 +45,29 @@ public class Card {
 		Player currentPlayer = theModel.getCurrPlayer();
 		
 		String despMsg = getDescription();
-		if (getAction().equals("collect")){
+		if (getAction().equals("collect")){//&
 			int amount = this.getVal();
-			bank.deposit(currentPlayer, amount);
+
+			theModel.deposit(currentPlayer, amount);
+			System.out.println(this.description);
+
+
 			
 		}else if (getAction().equals("pay")){
 			int amount = this.getVal();
-			bank.payDue(currentPlayer, amount);
+			
+			theModel.payDue(currentPlayer, amount);
+			System.out.println(this.description);
+
 			
 		}else if (getAction().equals("move")){
 			int distance = this.getVal();
 			board.move(distance, currentPlayer.getToken());
+			System.out.println(this.description);
+
 			
-		}else if (getAction().equals("toJail")){
-			Object sqtmp = board.getSquares().get("GO TO JAIL");
+		}else if (getAction().equals("toJail")){//&
+			Square sqtmp = board.getSquares().get("GO TO JAIL");
 			currentPlayer.getToken().setLoc((Square)sqtmp);
 			if(currentPlayer.hasCard() == true){
 				
@@ -66,30 +75,48 @@ public class Card {
 			else{
 				theModel.endTurn();
 			}
+			System.out.println(this.description);
+
 
 		}else if (getAction().equals("outJail")){
 			String msg = "You used your Get out of jail free card.";
-			currentPlayer.removeCard();
+			currentPlayer.setHasCard(false);
+			System.out.println(this.description);
+
 			
 		}else if (getAction().equals("GO")){
-			Object sqtmp = board.getSquares().get("GO");
-			token.setLoc((Square) sqtmp);	
+			Square sqtmp = (Square)(board.getSquares().get("GO"));
+			
+			theModel.getCurrPlayer().getToken().setLoc((Square) sqtmp);	
+			System.out.println(this.description);
+
 		}
 		else if (getAction().equals("MAYFAIR")){
-			Object sqtmp = board.getSquares().get("MAYFAIR");
-			token.setLoc((Square) sqtmp);	
+			Square sqtmp = board.getSquares().get("MAYFAIR");
+
+			theModel.getCurrPlayer().getToken().setLoc((Square) sqtmp);
+			System.out.println(this.description);
+
 		}else if (getAction().equals("TRAFLGAR SQUARE")){
-			Object sqtmp = board.getSquares().get("TRAFLGAR SQUARE");
-			token.setLoc((Square) sqtmp);	
+			Square sqtmp = board.getSquares().get("TRAFLGAR SQUARE");
+			theModel.getCurrPlayer().getToken().setLoc((Square) sqtmp);	
+			System.out.println(this.description);
+
 		}else if (getAction().equals("MARYLEBONE STATION")){
-			Object sqtmp = board.getSquares().get("MARYLEBONE STATION");
-			token.setLoc((Square) sqtmp);	
+			Square sqtmp = board.getSquares().get("MARYLEBONE STATION");
+			theModel.getCurrPlayer().getToken().setLoc((Square) sqtmp);
+			System.out.println(this.description);
+
 		}else if (getAction().equals("PALL MALL")){
-			Object sqtmp = board.getSquares().get("PALL MALL");
-			token.setLoc((Square) sqtmp);	
+			Square sqtmp = board.getSquares().get("PALL MALL");
+			theModel.getCurrPlayer().getToken().setLoc((Square) sqtmp);
+			System.out.println(this.description);
+
 		}else if (getAction().equals("OLD KENT ROAD")){
-			Object sqtmp = board.getSquares().get("OLD KENT ROAD");
-			token.setLoc((Square) sqtmp);	
+			Square sqtmp = board.getSquares().get("OLD KENT ROAD");
+			theModel.getCurrPlayer().getToken().setLoc((Square) sqtmp);	
+			System.out.println(this.description);
+
 		}
 
 	}
