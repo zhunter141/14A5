@@ -7,14 +7,14 @@ public class Model implements Serializable{
 	
 	private Player[] players;
 	private Token[] allTokens;
-	 Board board;
+	Board board;
 	private Bank monopolyBank;
 	private Dice dice;
 	private int counter;
 	private int iterator;
 	private Player currPlayer;
 	private String msg;
-	private View view;
+	View view;
 	private boolean hasRolled;
 	
 	public Model(){
