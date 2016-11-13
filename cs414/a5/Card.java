@@ -7,7 +7,7 @@ public class Card {
 	private int val;
 	private Bank bank;
 	private Board board;
-	private Model model;
+	//private Model model;
 	private Token token;
 
 	
@@ -18,7 +18,7 @@ public class Card {
 		bank = new Bank();
 		board = new Board();
 		board.initialize();
-		board.initCards();
+		//board.initCards();
 	}
 	
 	
