@@ -7,7 +7,7 @@ public class Model implements Serializable{
 	
 	private Player[] players;
 	private Token[] allTokens;
-	private Board board;
+	 Board board;
 	private Bank monopolyBank;
 	private Dice dice;
 	private int counter;
@@ -15,7 +15,7 @@ public class Model implements Serializable{
 	private Player currPlayer;
 	private String msg;
 	private View view;
-	private transient boolean hasRolled;
+	private boolean hasRolled;
 	
 	public Model(){
 		// initialize game objects
@@ -87,7 +87,7 @@ public class Model implements Serializable{
 		view.update();
 	}
 	
-	private void move(int steps){
+	public void move(int steps){
 		// Tell the board to Move the player's token 
 			board.move(1,currPlayer.getToken());
 			Square currLoc = currPlayer.getToken().getLoc();
@@ -163,12 +163,24 @@ public class Model implements Serializable{
 			endTurn();
 				
 		}
-		else if(newSqr.getName().equals("COMMUNITY CHEST") || newSqr.getName().equals("CHANCE")){
+		else if(newSqr.getName().equals("COMMUNITY CHEST") ){
 			Card c = board.comDeck.drawCard();
 			if(c.getDescription().equals("Get out of jail free")){
 				currPlayer.setHasCard(true);
+				
 			}
 			c.processCard(this);
+
+			
+		}
+		else if(newSqr.getName().equals("CHANCE")){
+			Card c = board.chanceDeck.drawCard();
+			if(c.getDescription().equals("Get out of jail free")){
+				currPlayer.setHasCard(true);
+				
+			}
+			c.processCard(this);
+
 			
 		}
 		else{
@@ -189,6 +201,7 @@ public class Model implements Serializable{
 		}
 		// If player was charged wait until now to display there balance
 		msg+=currPlayer.toString()+" Account: $"+monopolyBank.getBalance(currPlayer)+"\n";
+
 	}
 	
 	
@@ -222,7 +235,12 @@ public class Model implements Serializable{
 	
 	
 	
-	
+	public void deposit(Player p, int a){
+		monopolyBank.deposit(p, a);
+	}
+	public void payDue(Player p, int a){
+		monopolyBank.payDue(p, a);
+	}
 	
 	public void endTurn(){
 		iterator++;
@@ -336,7 +354,7 @@ public class Model implements Serializable{
 	}
 	
 	 public void auction(Object o,int[] bits){
-		 msg = monopolyBank.auction(o,bits,players);
+		 msg = monopolyBank.auction(o,bits,players,currPlayer);
 		 msg += currPlayer.getName()+", Location: " + currPlayer.getToken().getLoc().getName()+'\n';
 		 msg += "Account: $"+monopolyBank.getBalance(currPlayer)+'\n';
 		 view.update();

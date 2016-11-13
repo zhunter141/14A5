@@ -57,13 +57,28 @@ public class Bank {
 		return accounts.get(p.getId()).getBalance();
 
 	}
-	public String auction(Object o, int[] bits, Player[] players) {
+	
+	public String auction(Object o, int[] bits, Player[] players,Player curPlayerForCard) {
 		String msg = "";
 		
 		if(o instanceof Card){
 			Card card = (Card)o;
 			//no check of owner cuz given card has to be owned
 			//to be continued
+			int[] indexAndMax =getMax(bits);
+
+			Player winner = players[indexAndMax[0]];
+
+			int bitAmount =  indexAndMax[1];
+			if(this.payDue(winner, bitAmount) == true){
+				winner.setHasCard(true);
+				curPlayerForCard.setHasCard(false);
+				msg = "Congraduations! Jail-Free Card "+"goes to "+winner.getName()+'\n';
+			}
+			else{
+				msg = "No enough money"+'\n';
+
+			}
 
 		}
 		else if(o instanceof Deed){
