@@ -68,8 +68,7 @@ public class Card {
 		}else if (getAction().equals("GO")){
 			Object sqtmp = board.getSquares().get("GO");
 			token.setLoc((Square) sqtmp);	
-		}
-		else if (getAction().equals("MAYFAIR")){
+		}else if (getAction().equals("MAYFAIR")){
 			Object sqtmp = board.getSquares().get("MAYFAIR");
 			token.setLoc((Square) sqtmp);	
 		}else if (getAction().equals("TRAFLGAR SQUARE")){
