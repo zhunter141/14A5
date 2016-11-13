@@ -10,6 +10,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import javax.swing.*;
 
 public class View extends JFrame{
@@ -38,7 +41,7 @@ public class View extends JFrame{
 	private Controller ctrl;
 
 	public View() {
-		
+		setSize(DEFAULT_WIDTH,DEFAULT_HEIGHT);
 	}
 	
 	public void setUpGUI(){
@@ -141,10 +144,10 @@ public class View extends JFrame{
 		boardPanel = new JPanel();
 		boardPanel.setLayout(new GridLayout(11,11));
 		
-		HashMap<String, Square> listOfSquares = model.getBoard().getSquares();
+		LinkedHashMap<String, Square> listOfSquares = model.getBoard().getSquares();
 		
-		for(int i=0;i<listOfSquares.size();i++){
-			Square s = listOfSquares.get(i);
+		for(Map.Entry<String, Square> entry: listOfSquares.entrySet()){
+			Square s = entry.getValue();
 			SquareView aSquare = new SquareView(s);
 			boardPanel.add(aSquare);
 		}
