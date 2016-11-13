@@ -6,14 +6,14 @@ public class Model {
 	
 	private Player[] players;
 	private Token[] allTokens;
-	private Board board;
+	 Board board;
 	private Bank monopolyBank;
 	private Dice dice;
 	private int counter;
 	private int iterator;
 	private Player currPlayer;
 	private String msg;
-	private View view;
+	 View view;
 	private boolean hasRolled;
 	
 	public Model(){
@@ -86,7 +86,7 @@ public class Model {
 		view.update();
 	}
 	
-	private void move(int steps){
+	public void move(int steps){
 		// Tell the board to Move the player's token 
 			board.move(1,currPlayer.getToken());
 			Square currLoc = currPlayer.getToken().getLoc();
@@ -169,6 +169,7 @@ public class Model {
 				
 			}
 			c.processCard(this);
+
 			
 		}
 		else if(newSqr.getName().equals("CHANCE")){
@@ -178,6 +179,7 @@ public class Model {
 				
 			}
 			c.processCard(this);
+
 			
 		}
 		else{
@@ -198,6 +200,7 @@ public class Model {
 		}
 		// If player was charged wait until now to display there balance
 		msg+=currPlayer.toString()+" Account: $"+monopolyBank.getBalance(currPlayer)+"\n";
+
 	}
 	
 	

@@ -219,6 +219,7 @@ public class View extends JFrame{
 		boardPanel.setVisible(false);
 		setupBoard();
 		boardPanel.setVisible(true);
+		
 	}
 	
 	public void disableRoll(){
