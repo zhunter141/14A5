@@ -18,10 +18,9 @@ public class Card {
 		this.val = val;
 		bank = new Bank();
 		board = new Board();
-		board.initialize();
-		board.initCards();
+		//board.initialize();
+		//board.initCards();
 	}
-	
 	
 	public String getDescription() {
 		return description;

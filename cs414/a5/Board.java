@@ -6,7 +6,8 @@ package cs414.a5;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
+
+import java.util.LinkedHashMap;
 
 
 public class Board {
@@ -19,8 +20,7 @@ public class Board {
 	DeckOfCards comDeck;
 	
 	public Board(){
-		mySquares = new HashMap();
-		
+		mySquares = new LinkedHashMap<String,Square>();
 	}
 	
 	
@@ -111,7 +111,7 @@ public class Board {
 		add("MAYFAIR",mr);
 		// Dummy squares
 		for(int i=0;i<9;i++){
-			mySquares.put("dummy",new Square(Color.LIGHT_GRAY,""));
+			mySquares.put("dummy"+i,new Square(Color.LIGHT_GRAY,""));
 		}
 		Deed pm = new Deed(Color.MAGENTA,"PALL MALL",140,50,50,50);
 		add("PALL MALL",pm);
@@ -120,8 +120,8 @@ public class Board {
 		Square lt = new Square(Color.GRAY,"LUXURY TAX");
 		add("LUXURY TAX",lt);
 		// Dummy squares
-		for(int i=0;i<9;i++){
-			mySquares.put("dummy",new Square(Color.LIGHT_GRAY,""));
+		for(int i=9;i<18;i++){
+			mySquares.put("dummy"+i,new Square(Color.LIGHT_GRAY,""));
 		}
 		Utility ec = new Utility(Color.GRAY, "ELECTRIC COMPANY", 150, 25);
 		add("ELECTRIC COMPANY",ec);
@@ -130,8 +130,8 @@ public class Board {
 		Deed pl = new Deed(Color.GREEN,"PARK LANE",350,50,50,50);
 		add("PARK LANE",pl);
 		// Dummy squares
-		for(int i=0;i<9;i++){
-			mySquares.put("dummy",new Square(Color.LIGHT_GRAY,""));
+		for(int i=18;i<27;i++){
+			mySquares.put("dummy"+i,new Square(Color.LIGHT_GRAY,""));
 		}
 		Deed wh = new Deed(Color.MAGENTA,"WHITEHALL",140,50,50,50);
 		add("WHITEHALL",wh);
@@ -140,8 +140,8 @@ public class Board {
 		Square ch3 = new Square(Color.GRAY,"CHANCE");
 		add("CHANCE 3",ch3);
 		// Dummy squares
-		for(int i=0;i<9;i++){
-			mySquares.put("dummy",new Square(Color.LIGHT_GRAY,""));
+		for(int i=27;i<36;i++){
+			mySquares.put("dummy"+i,new Square(Color.LIGHT_GRAY,""));
 		}
 		Deed na = new Deed(Color.MAGENTA,"NORTHUMRLD AVENUE",160,50,50,50);
 		add("NORTHUMRLD AVENUE",na);
@@ -150,8 +150,8 @@ public class Board {
 		RailRoad lsr = new RailRoad(Color.GRAY,"LIVERPOOL ST. STATION",200,50);
 		add("LIVERPOOL ST. STATION",lsr);
 		// Dummy squares
-		for(int i=0;i<9;i++){
-			mySquares.put("dummy",new Square(Color.LIGHT_GRAY,""));
+		for(int i=36;i<45;i++){
+			mySquares.put("dummy"+i,new Square(Color.LIGHT_GRAY,""));
 		}
 		RailRoad ms = new RailRoad(Color.GRAY,"MARYLEBONE STATION",200,50);
 		add("MARYLEBONE STATION",ms);
@@ -160,8 +160,8 @@ public class Board {
 		Deed bn = new Deed(Color.GREEN,"BOND STREET",320,50,50,50);
 		add("BOND STREET",bn);
 		// Dummy squares
-		for(int i=0;i<9;i++){
-			mySquares.put("dummy",new Square(Color.LIGHT_GRAY,""));
+		for(int i=45;i<54;i++){
+			mySquares.put("dummy"+i,new Square(Color.LIGHT_GRAY,""));
 		}	
 		Deed bs = new Deed(Color.ORANGE,"BOW STREET",180,50,50,50);
 		add("BOW STREET",bs);
@@ -170,8 +170,8 @@ public class Board {
 		Square cc3 = new Square(Color.GRAY,"COMMUNITY CHEST");
 		add("COMMUNITY CHEST 3",cc3);
 		// Dummy squares
-		for(int i=0;i<9;i++){
-			mySquares.put("dummy",new Square(Color.LIGHT_GRAY,""));
+		for(int i=54;i<63;i++){
+			mySquares.put("dummy"+i,new Square(Color.LIGHT_GRAY,""));
 		}
 		Square cc2 = new Square(Color.GRAY,"COMMUNITY CHEST");
 		add("COMMUNITY CHEST",cc2);
@@ -180,8 +180,8 @@ public class Board {
 		Deed os = new Deed(Color.GREEN,"OXFORD STREET",300,50,50,50);
 		add("OXFORD STREET",os);
 		// Dummy squares
-		for(int i=0;i<9;i++){
-			mySquares.put("dummy",new Square(Color.LIGHT_GRAY,""));
+		for(int i=63;i<72;i++){
+			mySquares.put("dummy"+i,new Square(Color.LIGHT_GRAY,""));
 		}
 		Deed mso = new Deed(Color.ORANGE,"MARLBOROUGH STREET",180,50,50,50);
 		add("MARLBOROUGH STREET",mso);
@@ -190,8 +190,8 @@ public class Board {
 		Deed rs = new Deed(Color.GREEN,"REGENT STREET",300,50,50,50);
 		add("REGENT STREET",rs);
 		// Dummy squares
-		for(int i=0;i<9;i++){
-			mySquares.put("dummy",new Square(Color.LIGHT_GRAY,""));
+		for(int i=72;i<81;i++){
+			add("dummy"+i,new Square(Color.LIGHT_GRAY,""));
 		}
 		Deed vs = new Deed(Color.ORANGE,"VINE STREET",200,50,50,50);
 		add("VINE STREET",vs);
@@ -283,8 +283,8 @@ public class Board {
 		return start;
 	}
 	
-	public HashMap getSquares(){
-		return mySquares;
+	public LinkedHashMap<String, Square> getSquares(){
+		return (LinkedHashMap<String, Square>) mySquares;
 	}
 	
 	private void add(String key, Square s){
