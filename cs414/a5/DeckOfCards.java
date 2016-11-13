@@ -7,7 +7,6 @@ public class DeckOfCards {
 	
 	LinkedList<Card> cards;
 	private Card firstCard;
-	//private int curCardCt;
 
 	public DeckOfCards(Card[] card) 
 	{
@@ -18,8 +17,8 @@ public class DeckOfCards {
 			cards.add(card[x]);
 		}
 		
-		//Collections.shuffle(cards);
-		//curCardCt = 0;
+
+		Collections.shuffle(cards);
 	}
 
 	// Should cover both draw the top card and return it back in the bottom
@@ -34,17 +33,5 @@ public class DeckOfCards {
 		return firstCard;
 	}
 	
-	//public void returnCard() {
-	//	cards.addLast(firstCard);
-	//}
-/*
-	public void resetDeck() {
-		// increment the card counter. If it reached the end, reset to zero
-		curCardCt++;
-		if (curCardCt == cards.size()) {
-			curCardCt = 0;
-		}
-		firstCard = cards.get(curCardCt);
-	}
-*/
+
 }

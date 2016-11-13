@@ -1,19 +1,20 @@
 package cs414.a5;
 
+import java.io.Serializable;
 import java.util.HashSet;
 
-public class Model {
+public class Model implements Serializable{
 	
 	private Player[] players;
 	private Token[] allTokens;
-	 Board board;
+	Board board;
 	private Bank monopolyBank;
 	private Dice dice;
 	private int counter;
 	private int iterator;
 	private Player currPlayer;
 	private String msg;
-	 View view;
+	View view;
 	private boolean hasRolled;
 	
 	public Model(){
@@ -253,6 +254,7 @@ public class Model {
 	
 	public void addPlayer(String name){
 		// Add player to game
+		System.out.println("cs414.a5.Model: Adding: "+name+" to the game.");
 		Player p = new Player(counter,name,allTokens[counter]);
 		allTokens[counter].setLoc(board.getStart());
 		players[counter] = p;
