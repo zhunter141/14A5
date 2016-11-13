@@ -5,10 +5,7 @@ public class Card {
 	private String description;
 	private String action;
 	private int val;
-	private Bank bank;
 	private Board board;
-	private Model model;
-	private Token token;
 	private Player owner;
 
 	
@@ -16,8 +13,6 @@ public class Card {
 		this.description = description;
 		this.action = action;
 		this.val = val;
-		bank = new Bank();
-		board = new Board();
 		//board.initialize();
 		//board.initCards();
 	}
@@ -83,7 +78,6 @@ public class Card {
 			currentPlayer.setHasCard(false);
 			System.out.println(this.description);
 
-			
 		}else if (getAction().equals("GO")){
 			Square sqtmp = (Square)(board.getSquares().get("GO"));
 			
@@ -92,7 +86,7 @@ public class Card {
 
 		}
 		else if (getAction().equals("MAYFAIR")){
-			Square sqtmp = board.getSquares().get("MAYFAIR");
+			Square sqtmp = (Square)(board.getSquares().get("MAYFAIR"));
 
 			theModel.getCurrPlayer().getToken().setLoc((Square) sqtmp);
 			System.out.println(this.description);
