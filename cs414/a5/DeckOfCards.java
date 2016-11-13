@@ -18,13 +18,13 @@ public class DeckOfCards {
 			cards.add(card[x]);
 		}
 		
-		Collections.shuffle(cards);
+		//Collections.shuffle(cards);
 		//curCardCt = 0;
 	}
 
 	// Should cover both draw the top card and return it back in the bottom
 	public Card drawCard() {
-		firstCard = cards.getFirst();
+		firstCard = cards.get(5);//.getFirst();
 		cards.removeFirst();
 		if(firstCard.getDescription().equals("Get out of Jail free")){
 			//do nothing 

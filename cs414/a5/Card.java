@@ -49,7 +49,6 @@ public class Card {
 			int amount = this.getVal();
 
 			theModel.deposit(currentPlayer, amount);
-			System.out.println(this.description+"1");
 
 
 			
@@ -57,31 +56,29 @@ public class Card {
 			int amount = this.getVal();
 			
 			theModel.payDue(currentPlayer, amount);
-			System.out.println(this.description+"2");
 
 			
 		}else if (getAction().equals("move")){
 			int distance = this.getVal();
 			theModel.move(distance);
-			System.out.println(this.description+"3");
 
 			
 		}else if (getAction().equals("toJail")){//&
 			Square sqtmp = theModel.board.getSquares().get("JAIL");
-			currentPlayer.getToken().setLoc((Square)sqtmp);
+			Token t = theModel.getCurrPlayer().getToken();
+			t.setLoc((Square)sqtmp);
+			t.getLoc().removeToken(t);
 			if(currentPlayer.hasCard() == true){
 				
 			}
 			else{
 				theModel.endTurn();
 			}
-			System.out.println(this.description+"4");
 
 
 		}else if (getAction().equals("outJail")){
 			String msg = "You used your Get out of jail free card.";
 			currentPlayer.setHasCard(false);
-			System.out.println(this.description+"5");
 
 			
 		}else if (getAction().equals("GO")){
@@ -89,8 +86,6 @@ public class Card {
 			Token t = theModel.getCurrPlayer().getToken();
 			t.getLoc().removeToken(t);
 			t.setLoc((Square) sqtmp);
-			System.out.println(this.description+"6");
-			System.out.println(theModel.getCurrPlayer().getToken().getLoc().getName());
 
 		}
 		else if (getAction().equals("MAYFAIR")){
@@ -98,22 +93,18 @@ public class Card {
 			Token t = theModel.getCurrPlayer().getToken();
 			t.getLoc().removeToken(t);
 			t.setLoc((Square) sqtmp);
-			System.out.println(this.description+"7");
-			System.out.println(theModel.getCurrPlayer().getToken().getLoc().getName());
 
 		}else if (getAction().equals("TRAFLGAR SQUARE")){
 			Square sqtmp = theModel.board.getSquares().get("TRAFLGAR SQUARE");
 			Token t = theModel.getCurrPlayer().getToken();
 			t.getLoc().removeToken(t);
 			t.setLoc((Square) sqtmp);			System.out.println(this.description+"8");
-			System.out.println(theModel.getCurrPlayer().getToken().getLoc().getName());
 
 		}else if (getAction().equals("MARYLEBONE STATION")){
 			Square sqtmp = theModel.board.getSquares().get("MARYLEBONE STATION");
 			Token t = theModel.getCurrPlayer().getToken();
 			t.getLoc().removeToken(t);
 			t.setLoc((Square) sqtmp);			System.out.println(this.description+"9");
-			System.out.println(theModel.getCurrPlayer().getToken().getLoc().getName());
 
 
 		}else if (getAction().equals("PALL MALL")){
@@ -121,14 +112,12 @@ public class Card {
 			Token t = theModel.getCurrPlayer().getToken();
 			t.getLoc().removeToken(t);
 			t.setLoc((Square) sqtmp);			System.out.println(this.description+"10");
-			System.out.println(theModel.getCurrPlayer().getToken().getLoc().getName());
 
 		}else if (getAction().equals("OLD KENT ROAD")){
 			Square sqtmp = theModel.board.getSquares().get("OLD KENT ROAD");
 			Token t = theModel.getCurrPlayer().getToken();
 			t.getLoc().removeToken(t);
 			t.setLoc((Square) sqtmp);			System.out.println(this.description+"11");
-			System.out.println(theModel.getCurrPlayer().getToken().getLoc().getName());
 			
 
 		}
