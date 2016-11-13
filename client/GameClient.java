@@ -17,7 +17,7 @@ public class GameClient {
 			System.out.println("I have a view.");
 			
 			model = (ModelInterface) Naming.lookup("rmi://localhost:2500/model");
-			//System.out.println("I have a model.");
+			System.out.println("I have a model.");
 			
 			view.setUpGUI();
 		} catch (MalformedURLException murle) {

@@ -18,9 +18,9 @@ public class Card {
 		bank = new Bank();
 		board = new Board();
 		board.initialize();
+
 		//board.initCards();
 	}
-	
 	
 	public String getDescription() {
 		return description;
