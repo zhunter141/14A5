@@ -1,7 +1,7 @@
 package server;
 
 import java.rmi.Naming;
-import common.ModelInterface;
+//import common.ModelInterface;
 import common.ViewInterface;
 
 public class GameServer {
@@ -9,12 +9,12 @@ public class GameServer {
 	public GameServer(){
 		try{
 			ViewInterface view = new ViewImpl();
-			ModelInterface model = new ModelImpl();
+			//ModelInterface model = new ModelImpl();
 			//Controller ctrl = new Controller();
 			
 			// Binding
 			Naming.rebind("rmi://localhost:2500/view", view);
-			Naming.rebind("rmi://localhost:2500/model",model);
+			//Naming.rebind("rmi://localhost:2500/model",model);
 		
 			System.out.println("Game server running...");
 		}catch(Exception e){

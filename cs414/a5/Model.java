@@ -1,8 +1,9 @@
 package cs414.a5;
 
+import java.io.Serializable;
 import java.util.HashSet;
 
-public class Model {
+public class Model implements Serializable{
 	
 	private Player[] players;
 	private Token[] allTokens;
@@ -14,7 +15,7 @@ public class Model {
 	private Player currPlayer;
 	private String msg;
 	private View view;
-	private boolean hasRolled;
+	private transient boolean hasRolled;
 	
 	public Model(){
 		// initialize game objects
