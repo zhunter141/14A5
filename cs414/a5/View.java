@@ -12,8 +12,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import javax.swing.*;
 
-@SuppressWarnings("serial")
-public class View extends JFrame {
+public class View extends JFrame{
 	public static final int DEFAULT_WIDTH = 900;
 	public static final int DEFAULT_HEIGHT = 900;
 
@@ -23,7 +22,6 @@ public class View extends JFrame {
 	private JButton rollButton;
 	private JButton buildButton;
 	private JButton endGameButton;
-
 
 	private JPanel buttonPanel;
 	private JPanel gameMsgPanel;
@@ -40,8 +38,7 @@ public class View extends JFrame {
 	private Controller ctrl;
 
 	public View() {
-		setTitle("Monopoly Game");
-		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+		
 	}
 	
 	public void setUpGUI(){
@@ -102,26 +99,11 @@ public class View extends JFrame {
 		gameMsgPanel.add(buttonPanel);
 	}
 	
-	private void startMenu(){
-		int numPlayers = 0;
-		// Ensure the user enter the correct amount of players
-		do {
-			String str1 = JOptionPane.showInputDialog("Enter number of players (2 to 4)");
-			try{
-				numPlayers = Integer.parseInt(str1);				
-			}catch(NumberFormatException e){
-				JOptionPane.showMessageDialog(null, "Please enter an integer value.");
-			}
-		}while((numPlayers < 2) || (numPlayers > 4));
-		
-		Token[] allTokens = model.getTokens();
-	    String[] players = new String [numPlayers];
-	    
-	    for(int i = 0; i < numPlayers; i++){
-			players[i] = JOptionPane.showInputDialog("Enter the owner of "+allTokens[i].getDescription());
+	private void startMenu(){	
+			String playerName = JOptionPane.showInputDialog("Enter your name ");
+			System.out.println("Adding: "+playerName+" to the game.");
 			//Send model the name of each player 
-			model.addPlayer(players[i]);
-	    }
+			model.addPlayer(playerName);
 	}
 	
 	private void setUpTimer(){
@@ -265,8 +247,7 @@ public class View extends JFrame {
 
 				view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				view.setLocationByPlatform(true);
-				view.setSize(800, 600);
-
+				
 				// link everything
 				view.addModel(model);
 				view.addController(ctrl);
