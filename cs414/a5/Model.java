@@ -235,6 +235,7 @@ public class Model {
 	
 	public void addPlayer(String name){
 		// Add player to game
+		System.out.println("cs414.a5.Model: Adding: "+name+" to the game.");
 		Player p = new Player(counter,name,allTokens[counter]);
 		allTokens[counter].setLoc(board.getStart());
 		players[counter] = p;

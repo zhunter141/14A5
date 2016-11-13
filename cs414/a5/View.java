@@ -45,6 +45,7 @@ public class View extends JFrame{
 	}
 	
 	public void setUpGUI(){
+		System.out.println("cs414.a5.View: Setting up GUI.");
 		startMenu();
 		addMsgPanel();
 		addButtonPanel();
@@ -52,7 +53,14 @@ public class View extends JFrame{
 		model.startGame();
 		setUpTimer();
 	}
-
+	
+	private void startMenu(){	
+			String playerName = JOptionPane.showInputDialog("Enter your name ");
+			
+			//Send model the name of each player 
+			model.addPlayer(playerName);
+	}
+	
 	private void addMsgPanel() {
 		// initialization
 		gameMsgPanel = new JPanel();
@@ -70,7 +78,6 @@ public class View extends JFrame{
 		// add gameMsgPanel to MonopolyGameFrame
 		add(gameMsgPanel, BorderLayout.EAST);
 	}
-
 	
 	private void addButtonPanel() {
 		// setup button panel
@@ -100,13 +107,6 @@ public class View extends JFrame{
 		
 		// Add button panel to gameMsgPanel
 		gameMsgPanel.add(buttonPanel);
-	}
-	
-	private void startMenu(){	
-			String playerName = JOptionPane.showInputDialog("Enter your name ");
-			System.out.println("Adding: "+playerName+" to the game.");
-			//Send model the name of each player 
-			model.addPlayer(playerName);
 	}
 	
 	private void setUpTimer(){

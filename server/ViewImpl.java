@@ -19,7 +19,6 @@ public class ViewImpl extends UnicastRemoteObject implements ViewInterface {
 
 	@Override
 	public void setUpGUI() throws RemoteException {
-		System.out.println("Setting up GUI.");
 		view.setUpGUI();
 	}
 	
