@@ -162,7 +162,8 @@ public class Model {
 			endTurn();
 				
 		}
-		else if(newSqr.getName().equals("COMMUNITY CHEST") || newSqr.getName().equals("CHANCE")){
+		//else if(newSqr.getName().equals("COMMUNITY CHEST") || newSqr.getName().equals("CHANCE")){
+		else if(newSqr.getName().equals("COMMUNITY CHEST")) {
 			Card c = board.comDeck.drawCard();
 			if(c.getDescription().equals("Get out of jail free")){
 				currPlayer.setHasCard(true);
@@ -170,6 +171,15 @@ public class Model {
 			c.processCard(this);
 			
 		}
+		
+		else if(newSqr.getName().equals("CHANCE")){
+			Card c = board.chanceDeck.drawCard();
+			if(c.getDescription().equals("Get out of jail free")){
+				currPlayer.setHasCard(true);
+			}
+			c.processCard(this);
+		}
+		
 		else{
 			//Two more case for Luxury and income tax squares
 			if(newSqr.getName().equals("INCOME TAX")){
@@ -178,13 +188,15 @@ public class Model {
 			else if(newSqr.getName().equals("LUXURY TAX")){
 				monopolyBank.payDue(currPlayer, 300);
 			}
+			/*
 			else if(newSqr.getName().equals("GO TO JAIL")){
 				//May breakup here
 				monopolyBank.payDue(currPlayer, 200);
 				//move to jail
 				goToJail();
 				endTurn();		
-			}	
+			}
+			*/
 		}
 		// If player was charged wait until now to display there balance
 		msg+=currPlayer.toString()+" Account: $"+monopolyBank.getBalance(currPlayer)+"\n";
