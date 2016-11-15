@@ -23,6 +23,7 @@ public class GameClient {
 			view.addModel(model);
 			model.addView(view);
 			view.setUpGUI();
+			view.rollDice();
 			
 		} catch (MalformedURLException murle) {
 			System.out.println("MalformedURLException");

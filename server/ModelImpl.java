@@ -18,7 +18,6 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	@Override
 	public void addView(ViewInterface v) throws RemoteException {
 		observers.add(v);
-		
 	}
 
 	@Override
@@ -26,5 +25,11 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		for(ViewInterface v : observers){
 			v.update();
 		}
+	}
+	
+	@Override
+	public void rollDice() throws RemoteException{
+		System.out.println("From model, player has rolled dice.");
+		notifyAllObservers();
 	}
 }

@@ -19,7 +19,5 @@ public class GameServer {
 	
 	public static void main(String args[]) {
 		new GameServer();
-		System.out.println("number of player = "+ args[1]);//client takes two argument port # and number
-
 	}
 }

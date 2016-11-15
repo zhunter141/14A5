@@ -51,4 +51,10 @@ public class ViewImpl extends UnicastRemoteObject implements ViewInterface{
 	public void update() throws RemoteException {
 		System.out.println("I need to update the board!");
 	}
+	
+	@Override
+	public void rollDice() throws RemoteException{
+		System.out.println("Rolling dice :)");
+		model.rollDice();
+	}
 }
