@@ -28,7 +28,7 @@ public class Board {
 
 	public void initCards(){
 		Card[] chanceCards = new Card[16];
-
+		
 		chanceCards[0] = new Card("Advance to Go.","GO",0); // get the number of moved needed to go to GO
 		chanceCards[1] = new Card("Advance to Mayfair.","MAYFAIR",0);
 		chanceCards[2] = new Card("You are assessed for street sepairs.","pay",100);
