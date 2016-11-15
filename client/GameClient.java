@@ -1,14 +1,11 @@
 package client;
 
 import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
-
 import common.ModelInterface;
 import common.ViewInterface;
-import server.ModelImpl;
 
 public class GameClient {
 	public static void main(String args[]){
@@ -18,21 +15,13 @@ public class GameClient {
 		try {
 			view = new ViewImpl();
 			// Let a view receive incoming calls using port 0
-			UnicastRemoteObject.exportObject(view, 0);
+			//UnicastRemoteObject.exportObject(view, 0);
 			
-			model = (ModelImpl) Naming.lookup("rmi://localhost:2500/model");
+			model = (ModelInterface) Naming.lookup("rmi://localhost:2501/model");
 			System.out.println("I have a model.");
 			
 			view.addModel(model);
 			model.addView(view);
-			/*
-			
-			 * 
-			// link everything
-			//view.addController(ctrl);
-			//ctrl.addModel(model);
-			//ctrl.addView(view);
-			 */
 			view.setUpGUI();
 			
 		} catch (MalformedURLException murle) {

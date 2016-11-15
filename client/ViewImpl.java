@@ -40,8 +40,6 @@ public class ViewImpl extends UnicastRemoteObject implements ViewInterface{
 	public void setUpGUI() throws RemoteException{
 		System.out.println("Setting up GUI.");
 		myFrame.setVisible(true);
-		JOptionPane.showInputDialog("This is your view. ");
-
 	}
 	
 	@Override
