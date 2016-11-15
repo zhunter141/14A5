@@ -1,20 +1,19 @@
-package cs414.a5;
+package cs414.a4;
 
-import java.io.Serializable;
 import java.util.HashSet;
 
-public class Model implements Serializable{
+public class Model {
 	
 	private Player[] players;
 	private Token[] allTokens;
-	Board board;
+	private Board board;
 	private Bank monopolyBank;
 	private Dice dice;
 	private int counter;
 	private int iterator;
 	private Player currPlayer;
 	private String msg;
-	View view;
+	private View view;
 	private boolean hasRolled;
 	
 	public Model(){
@@ -23,7 +22,6 @@ public class Model implements Serializable{
 		dice = new Dice();
 		monopolyBank = new Bank();
 		board.initialize();
-		board.initCards();
 		msg = "";
 		players = new Player[4];
 		allTokens = new Token[4];
@@ -31,7 +29,6 @@ public class Model implements Serializable{
 		counter = 0;
 		createTokens();
 		hasRolled = false;
-		
 	}
 	private void createTokens(){
 		Token t1 =new Token("Horse");
@@ -51,9 +48,6 @@ public class Model implements Serializable{
 	public Player getCurrPlayer(){
 		return currPlayer;
 	}
-	public int getNumPlayer(){
-		return counter;
-	}
 	
 	// Respond to Controller button presses
 	
@@ -72,7 +66,7 @@ public class Model implements Serializable{
 			msg = "You cannot roll more than once per turn!\n";
 		}
 		else{
-			// A player can roll dice
+			// A player can roll
 			// Determine who is the current Player
 			currPlayer = players[iterator%counter];
 			int steps = dice.roll();
@@ -87,9 +81,9 @@ public class Model implements Serializable{
 		view.update();
 	}
 	
-	public void move(int steps){
+	private void move(int steps){
 		// Tell the board to Move the player's token 
-			board.move(1,currPlayer.getToken());
+			board.move(steps,currPlayer.getToken());
 			Square currLoc = currPlayer.getToken().getLoc();
 			msg+=""+currPlayer.getName()+" is now on: "+currLoc.getName()+"\n";
 			view.updateBoard();
@@ -158,30 +152,11 @@ public class Model implements Serializable{
 			//May breakup here
 			monopolyBank.payDue(currPlayer, 200);
 			msg += "Oh, no!";
+
 			//move to jail
 			goToJail();
 			endTurn();
 				
-		}
-		else if(newSqr.getName().equals("COMMUNITY CHEST") ){
-			Card c = board.comDeck.drawCard();
-			if(c.getDescription().equals("Get out of jail free")){
-				currPlayer.setHasCard(true);
-				
-			}
-			c.processCard(this);
-
-			
-		}
-		else if(newSqr.getName().equals("CHANCE")){
-			Card c = board.chanceDeck.drawCard();
-			if(c.getDescription().equals("Get out of jail free")){
-				currPlayer.setHasCard(true);
-				
-			}
-			c.processCard(this);
-
-			
 		}
 		else{
 			//Two more case for Luxury and income tax squares
@@ -201,11 +176,10 @@ public class Model implements Serializable{
 		}
 		// If player was charged wait until now to display there balance
 		msg+=currPlayer.toString()+" Account: $"+monopolyBank.getBalance(currPlayer)+"\n";
-
 	}
 	
 	
-	void goToJail(){
+	private void goToJail(){
 		//move to jail -> may be refactor later
 		board.move(20,currPlayer.getToken());
 		Square currLoc = currPlayer.getToken().getLoc();
@@ -217,29 +191,63 @@ public class Model implements Serializable{
 	}
 	
 	public void buildHouse(Square s){
-		msg += s.buildHouse( currPlayer,  monopolyBank);
+		if(s instanceof Deed ){
+			Deed currDeed = (Deed)s;
+			if(currDeed.hasBuilding() == true){
+				msg += "No more buildings."+'\n' ;
+			}
+			else{
+				
+				if(monopolyBank.payDue(currPlayer, currDeed.getHouseCost()) == false ){
+					msg += "Not enough money to build a house."+'\n' ;
+				}
+				else{
+					//Build it 
+					currDeed.setExistanceOfHouseHotel(true);
+					currDeed.setExistanceOfHotel(true);
+					msg+= "Removing $"+currDeed.getHouseCost()+"from "+currPlayer.getName()+"\n";
+					msg += "Succesfully build a house on "+currDeed.getName()+"\n" ;
+				}
+			}
+		}
+		else{
+			msg += "Can't build house here."+'\n' ;
+		}
 		msg +="My money: $"+ monopolyBank.getBalance(currPlayer)+"\n";
-		
 		view.update();
 	}
 	
 	public void buildHotel(Square s){
-		msg += s.buildHotel( currPlayer,  monopolyBank,s);
-
+		if(s instanceof Deed ){
+			Deed currDeed = (Deed)s;
+			if(currDeed.hasBuilding() == true){
+				msg += "No more buildings."+'\n' ;
+			}
+			else{
+				
+				if(monopolyBank.payDue(currPlayer, currDeed.getHotelCost()) == false ){
+					msg += "Not enough money to build a hotel."+'\n' ;
+				}
+				else{
+					//Build it 
+					currDeed.setExistanceOfHouseHotel(true);
+					currDeed.setExistanceOfHouse(true);
+					msg += "Succesfully build a house."+'\n' ;
+				}
+				
+				
+				
+			}
+		}
+		else{
+			msg += "Can't build hotel here."+'\n' ;
+		}
 		msg +=""+currPlayer.getName()+" is now on: "+currPlayer.getToken().getLoc().getName()
 				+'\n'+"My properties: "+ currPlayer.toString()+'\n'
 				+"My money: "+ monopolyBank.getBalance(currPlayer)+'\n';
-
 		view.update();
-	}
-	
-	
-	
-	public void deposit(Player p, int a){
-		monopolyBank.deposit(p, a);
-	}
-	public void payDue(Player p, int a){
-		monopolyBank.payDue(p, a);
+
+		
 	}
 	
 	public void endTurn(){
@@ -254,7 +262,6 @@ public class Model implements Serializable{
 	
 	public void addPlayer(String name){
 		// Add player to game
-		System.out.println("cs414.a5.Model: Adding: "+name+" to the game.");
 		Player p = new Player(counter,name,allTokens[counter]);
 		allTokens[counter].setLoc(board.getStart());
 		players[counter] = p;
@@ -262,12 +269,53 @@ public class Model implements Serializable{
 		monopolyBank.addClient(p);
 	}
 	
-	
 	public void sellDeed(Square d){
-		msg += currPlayer.selldeed(d, monopolyBank);
-		view.update();
+		// In this method, deed is a utility, railroad, deed
+		//Pay attention on choose deed
+		//removeDeeds()
+		currPlayer.removeDeed(d);
+		int cost = 0;
+		if(d instanceof Utility){
+			Utility utility =  (Utility)d;
+			d =  (Utility)d;
+			cost = utility.getCost();
+			//Just in case
+			utility.setOwner(null);
+		}
+		else if(d instanceof Deed){
+			Deed deed =  (Deed)d;
+			d =  (Deed)d;
+			cost = deed.getCost();
+			//Just in case
+			deed.setOwner(null);
+			
+			if(deed.hasBuilding() == true){
+				deed.setExistanceOfHouseHotel(false);
+				deed.setExistanceOfHotel(false);
+				deed.setExistanceOfHouse(false);
 
-		
+				if(deed.hasHotel() == true){
+					cost += deed.getHotelCost();
+				}
+				else{
+					cost += deed.getHouseCost();
+				}	
+			}
+		}
+		// Square must be a RailRoad
+		else{
+			RailRoad railRoad =  (RailRoad)d;
+			d =  (RailRoad)d;
+			cost = railRoad.getCost();
+			//Just in case
+			railRoad.setOwner(null);
+		}
+		// Update player account
+		monopolyBank.deposit(currPlayer,cost);
+		msg ="Adding: $"+cost+" to "+currPlayer.getName()+" account!";
+		msg +="My properties: "+ currPlayer.toString()+'\n';
+		msg +="Account: "+ monopolyBank.getBalance(currPlayer)+"\n";
+		view.update();
 	}
 	
 	public void buyDeed(){
@@ -279,7 +327,22 @@ public class Model implements Serializable{
 			view.update();
 			return;
 		}
-		costOfDeed = currPlayer.buyDeed(monopolyBank, myLoc);
+		// The square is purchasable because it is not own by anyone
+		// determine the cost of the square
+		// Implied 'else'
+		if(myLoc instanceof Utility){
+			Utility util =  (Utility)myLoc;
+			costOfDeed = util.getCost();
+		}
+		else if(myLoc instanceof Deed){
+			Deed deed =  (Deed)myLoc;
+			costOfDeed = deed.getCost();
+		}
+		// Square MUST be RailRoad
+		else{
+			RailRoad railRoad =  (RailRoad)myLoc;
+			costOfDeed = railRoad.getCost();
+		}
 		// CHECK THE PLAYER CAN AFFORD TO PURCHASE DEED
 		msg = "This is the price of "+myLoc.getName()+" $"+costOfDeed+"\n";
 		
@@ -353,16 +416,10 @@ public class Model implements Serializable{
 		view.update();
 	}
 	
-	 public void auction(Object o,int[] bits){
-		 msg = monopolyBank.auction(o,bits,players,currPlayer);
-		 msg += currPlayer.getName()+", Location: " + currPlayer.getToken().getLoc().getName()+'\n';
-		 msg += "Account: $"+monopolyBank.getBalance(currPlayer)+'\n';
-		 view.update();
-	 }
-	 
-	 public Player[] getPlayers(){
-		 return players;
-	 }
+	public Player[] getPlayers(){
+
+	 return players;
+	}
 	 public Token[] getTokens(){
 		 return allTokens;
 	 }

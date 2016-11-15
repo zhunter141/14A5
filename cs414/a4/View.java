@@ -1,41 +1,29 @@
-package server;
+package cs414.a4;
 
-import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
-
-/*
- * 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.Serializable;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.Map;
- */
-
 import javax.swing.*;
 
-import common.ViewInterface;
-
-public class ViewImpl implements ViewInterface{
-	private static final long serialVersionUID = 1L;
+@SuppressWarnings("serial")
+public class View extends JFrame {
 	public static final int DEFAULT_WIDTH = 900;
 	public static final int DEFAULT_HEIGHT = 900;
-	private JFrame myFrame;
-	/*
-	 * 
+
 	// Window objects
 	private JButton buyButton;
 	private JButton endTurnButton;
 	private JButton rollButton;
 	private JButton buildButton;
 	private JButton endGameButton;
+
 
 	private JPanel buttonPanel;
 	private JPanel gameMsgPanel;
@@ -44,40 +32,27 @@ public class ViewImpl implements ViewInterface{
 	
 	private Timer timer;
 	private long startTime = -1;
-	private static final long DURATION = 5000000*120;//10 min
+	private static final long DURATION = 5000*120;//10 min
 	private JLabel countDown;
 	
 	// Game objects
-	private ModelImpl model;
-	//private Controller ctrl;
-	 */
+	private Model model;
+	private Controller ctrl;
 
-	public ViewImpl(){
-		myFrame = new JFrame("MonopolyGame");
-		myFrame.setSize(DEFAULT_WIDTH,DEFAULT_HEIGHT);
+	public View() {
+		setTitle("Monopoly Game");
+		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 	}
 	
 	public void setUpGUI(){
-		System.out.println("Setting up GUI.");
 		startMenu();
-		//addMsgPanel();
-		//addButtonPanel();
-		//setupBoard();
-		//model.startGame();
-		//setUpTimer();
-		myFrame.setVisible(true);
-		JOptionPane.showInputDialog("This is your view. ");
+		addMsgPanel();
+		addButtonPanel();
+		setupBoard();
+		model.startGame();
+		setUpTimer();
+	}
 
-	}
-	
-	private void startMenu(){	
-			String playerName = JOptionPane.showInputDialog("Enter your name ");
-			System.out.println("This is the name entered: "+playerName);
-			//Send model the name of each player 
-			//model.addPlayer(playerName);
-	}
-	
-	/*
 	private void addMsgPanel() {
 		// initialization
 		gameMsgPanel = new JPanel();
@@ -95,7 +70,8 @@ public class ViewImpl implements ViewInterface{
 		// add gameMsgPanel to MonopolyGameFrame
 		add(gameMsgPanel, BorderLayout.EAST);
 	}
-	 * 
+
+	
 	private void addButtonPanel() {
 		// setup button panel
 		buttonPanel = new JPanel();
@@ -126,6 +102,28 @@ public class ViewImpl implements ViewInterface{
 		gameMsgPanel.add(buttonPanel);
 	}
 	
+	private void startMenu(){
+		int numPlayers = 0;
+		// Ensure the user enter the correct amount of players
+		do {
+			String str1 = JOptionPane.showInputDialog("Enter number of players (2 to 4)");
+			try{
+				numPlayers = Integer.parseInt(str1);				
+			}catch(NumberFormatException e){
+				JOptionPane.showMessageDialog(null, "Please enter an integer value.");
+			}
+		}while((numPlayers < 2) || (numPlayers > 4));
+		
+		Token[] allTokens = model.getTokens();
+	    String[] players = new String [numPlayers];
+	    
+	    for(int i = 0; i < numPlayers; i++){
+			players[i] = JOptionPane.showInputDialog("Enter the owner of "+allTokens[i].getDescription());
+			//Send model the name of each player 
+			model.addPlayer(players[i]);
+	    }
+	}
+	
 	private void setUpTimer(){
 		timer = new Timer(10, new ActionListener(){
 			@Override
@@ -148,11 +146,11 @@ public class ViewImpl implements ViewInterface{
 		});
 		timer.start();
 	}
+	
 	public void addModel(Model model) {
 		this.model = model;
 	}
-	
-	 * 
+
 	public void addController(Controller ctrl) {
 		this.ctrl = ctrl;
 	}
@@ -161,10 +159,10 @@ public class ViewImpl implements ViewInterface{
 		boardPanel = new JPanel();
 		boardPanel.setLayout(new GridLayout(11,11));
 		
-		LinkedHashMap<String, Square> listOfSquares = model.getBoard().getSquares();
+		ArrayList<Square> listOfSquares = model.getBoard().getSquares();
 		
-		for(Map.Entry<String, Square> entry: listOfSquares.entrySet()){
-			Square s = entry.getValue();
+		for(int i=0;i<listOfSquares.size();i++){
+			Square s = listOfSquares.get(i);
 			SquareView aSquare = new SquareView(s);
 			boardPanel.add(aSquare);
 		}
@@ -199,7 +197,7 @@ public class ViewImpl implements ViewInterface{
 	}
 	
 	public void modifyDeed(Square myDeed){
-		String options[] = {"Sell","Build House","Build Hotel","Mortgage","Unmortgage","Auction"};
+		String options[] = {"Sell","Build House","Build Hotel","Mortgage","Unmortgage"};
 		String decision = (String) JOptionPane.showInputDialog(null, "What would you like to do with your property?",
 		        "The Choice of a Lifetime", JOptionPane.QUESTION_MESSAGE, null, // Use
 		                                                                        // default
@@ -219,8 +217,6 @@ public class ViewImpl implements ViewInterface{
 		    		model.mortgage(myDeed);break;
 		    	case "Unmortgage":
 		    		model.umMortgage(myDeed);break;
-		    	case "Auction":
-		    		ctrl.auctionMenu(myDeed);break;
 		    	default:
 		    		throw new IllegalArgumentException("You have to pick one!");
 		    }  
@@ -263,11 +259,12 @@ public class ViewImpl implements ViewInterface{
 			public void run() {
 				Controller ctrl = new Controller();
 				Model model = new Model();
-				ViewImpl view = new ViewImpl();
+				View view = new View();
 
 				view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				view.setLocationByPlatform(true);
-				
+				view.setSize(800, 600);
+
 				// link everything
 				view.addModel(model);
 				view.addController(ctrl);
@@ -281,5 +278,5 @@ public class ViewImpl implements ViewInterface{
 			}
 		});
 	}
-	 */
+
 }
