@@ -121,7 +121,7 @@ public class Card {
 			
 
 		}
-		theModel.view.updateBoard();
+		//theModel.view.updateBoard();
 
 
 	}
