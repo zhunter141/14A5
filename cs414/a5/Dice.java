@@ -15,8 +15,7 @@ public class Dice {
 		die1FaceValue = (int) (Math.random() * 6 + 1);
 		die2FaceValue = (int) (Math.random() * 6 + 1);
 		totalFaceValue = die1FaceValue + die2FaceValue;
-		//return totalFaceValue;
-		return 1;
+		return totalFaceValue;
 	}
 
 	public int getDie1() {
