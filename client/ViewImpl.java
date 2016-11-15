@@ -10,7 +10,7 @@ import java.util.LinkedHashMap;
 import javax.swing.*;
 import common.ModelInterface;
 import common.ViewInterface;
-import cs414.a4.SquareView;
+import cs414.a5.SquareView;
 import cs414.a5.Square;
 
 public class ViewImpl extends UnicastRemoteObject implements ViewInterface{
