@@ -90,6 +90,9 @@ public class Bank {
 					msg = "Nobody want this deed"+'\n';
 
 				}
+				else if(deed.hasHotel() || deed.addHouse()){
+					msg = "Can not sell a deed with house/hotel";
+				}
 				else{
 					Player winner = players[indexAndMax[0]];
 

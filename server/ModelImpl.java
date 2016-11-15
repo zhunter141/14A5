@@ -221,7 +221,8 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	}
 	
 	 public void auction(Object o,int[] bits){
-		 msg = monopolyBank.auction(o,bits,players,currPlayer);
+
+		 msg = monopolyBank.auction(o,bits,players, currPlayer);
 		 msg += currPlayer.getName()+", Location: " + currPlayer.getToken().getLoc().getName()+'\n';
 		 msg += "Account: $"+monopolyBank.getBalance(currPlayer)+'\n';
 		 view.update();
