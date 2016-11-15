@@ -4,16 +4,19 @@ import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.net.MalformedURLException;
 import java.rmi.NotBoundException;
+
+import common.ModelInterface;
 //import common.ModelInterface;
 import common.ViewInterface;
+import server.ViewImpl;
 
 public class GameClient {
 	public static void main(String args[]){
-		ViewInterface view;
-		//ModelInterface model;
+		ViewInterface view = new ViewImpl();
+		ModelInterface model;
 		
 		try {
-			view = (ViewInterface) Naming.lookup("rmi://localhost:2500/view");
+			model = (ModelInterface) Naming.lookup("rmi://localhost:2500/model");
 			System.out.println("I have a view.");
 			
 			/*

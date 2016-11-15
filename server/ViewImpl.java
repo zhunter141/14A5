@@ -23,7 +23,7 @@ import javax.swing.*;
 
 import common.ViewInterface;
 
-public class ViewImpl extends UnicastRemoteObject implements ViewInterface{
+public class ViewImpl implements ViewInterface{
 	private static final long serialVersionUID = 1L;
 	public static final int DEFAULT_WIDTH = 900;
 	public static final int DEFAULT_HEIGHT = 900;
@@ -52,13 +52,12 @@ public class ViewImpl extends UnicastRemoteObject implements ViewInterface{
 	//private Controller ctrl;
 	 */
 
-	public ViewImpl() throws RemoteException{
-		super();
+	public ViewImpl(){
 		myFrame = new JFrame("MonopolyGame");
 		myFrame.setSize(DEFAULT_WIDTH,DEFAULT_HEIGHT);
 	}
 	
-	public void setUpGUI() throws RemoteException{
+	public void setUpGUI(){
 		System.out.println("Setting up GUI.");
 		startMenu();
 		//addMsgPanel();
