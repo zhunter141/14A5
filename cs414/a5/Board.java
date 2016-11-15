@@ -33,7 +33,7 @@ public class Board {
 		chanceCards[2] = new Card("You are assessed for street sepairs.","pay",100);
 		chanceCards[3] = new Card("Go to Jail.","toJail",0);
 		chanceCards[4] = new Card("Bank pays you Dividend of $50.","collect",50);
-		chanceCards[5] = new Card("Go back 3 spaces.","move",40-3); //we don't have move back
+		chanceCards[5] = new Card("Go back 3 spaces.","move",37); //we don't have move back
 		chanceCards[6] = new Card("Pay school fees of $150.","pay",150);
 		chanceCards[7] = new Card("Make general repairs","pay",50);
 		chanceCards[8] = new Card("Speeding fine $15.","pay",15);

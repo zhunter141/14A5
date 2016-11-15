@@ -5,23 +5,15 @@ import common.ModelInterface;
 import common.ViewInterface;
 
 public class GameServer {
-	private String url;
-	public GameServer(String url){
-		this.url = url;
+	
+	public GameServer(){
 		try{
-			ViewInterface view = new ViewImpl();
+			//ViewInterface view = new ViewImpl();
 			ModelInterface model = new ModelImpl();
 			//Controller ctrl = new Controller();
 			
-			// link everything
-			view.addModel(model.getModel());
-			//view.addController(ctrl);
-			//ctrl.addModel(model);
-			//ctrl.addView(view);
-			model.addView(view.getView());
-			
 			// Binding
-			Naming.rebind(this.url, view);
+			//Naming.rebind("rmi://localhost:2500/view", view);
 			Naming.rebind("rmi://localhost:2500/model",model);
 		
 			System.out.println("Game server running...");
@@ -31,7 +23,8 @@ public class GameServer {
 	}
 	
 	public static void main(String args[]) {
-		String url = new String("rmi://localhost:2500/GameServer");
-		new GameServer(url);
+		new GameServer();
+		System.out.println("number of player = "+ args[1]);//client takes two argument port # and number
+
 	}
 }

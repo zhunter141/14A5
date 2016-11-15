@@ -6,18 +6,31 @@ import java.net.MalformedURLException;
 import java.rmi.NotBoundException;
 
 import common.ModelInterface;
+//import common.ModelInterface;
 import common.ViewInterface;
+import server.ViewImpl;
 
 public class GameClient {
 	public static void main(String args[]){
-		ViewInterface view;
+		ViewInterface view = new ViewImpl();
 		ModelInterface model;
+		
 		try {
-			view = (ViewInterface) Naming.lookup("rmi://localhost:2500/GameServer");
+			model = (ModelInterface) Naming.lookup("rmi://localhost:2500/model");
 			System.out.println("I have a view.");
 			
+			/*
 			model = (ModelInterface) Naming.lookup("rmi://localhost:2500/model");
 			System.out.println("I have a model.");
+			
+			 * 
+			// link everything
+			view.addModel(model);
+			//view.addController(ctrl);
+			//ctrl.addModel(model);
+			//ctrl.addView(view);
+			model.addView(view.getView());
+			 */
 			
 			view.setUpGUI();
 		} catch (MalformedURLException murle) {
