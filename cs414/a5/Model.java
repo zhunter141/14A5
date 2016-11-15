@@ -169,7 +169,9 @@ public class Model implements Serializable{
 				currPlayer.setHasCard(true);
 				
 			}
-			c.processCard(this);
+
+			msg += c.processCard(this);
+			view.update();
 
 			
 		}
@@ -179,7 +181,9 @@ public class Model implements Serializable{
 				currPlayer.setHasCard(true);
 				
 			}
-			c.processCard(this);
+
+			msg += c.processCard(this);
+			view.update();
 
 			
 		}
