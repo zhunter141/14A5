@@ -362,10 +362,7 @@ public class Model implements Serializable{
 		 msg += currPlayer.getName()+", Location: " + currPlayer.getToken().getLoc().getName()+'\n';
 		 msg += "Account: $"+monopolyBank.getBalance(currPlayer)+'\n';
 		 view.update();
-
-
 	 }
-	 
 	 
 	 public Player[] getPlayers(){
 		 return players;

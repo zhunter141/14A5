@@ -124,8 +124,10 @@ public class Card {
 			
 
 		}
+
 		theModel.view.updateBoard();
 		return despMsg;
+
 
 	}
 	
