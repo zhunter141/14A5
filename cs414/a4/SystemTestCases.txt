@@ -1,0 +1,197 @@
+System Test Cases
+
+Test Case 1: Player is able to buy a deed/railroad/utility.
+Procedure
+	Precondition
+		1. Two to four players initialize the game by entering their name to the pop up windows
+		2. The players pick their own token for the game
+	Procedure 
+		1. Player A clicks on the "Roll" button
+		2. The message panel displays the values rolled
+		3. Player token is moved to the corresponding square (a colored square)
+		4. Player clicks on the "Buy" button
+		5. The message panel displays "Successfully purchased: name of square"
+		6. The message panel displays the balance of the player account
+	
+Expected Result
+		The player sees message on the top right panel showing that a deed/railroad/utility 
+		is added to player's property and the player pays the bank accordingly.
+
+Actual Result
+		Same as the expected result
+		
+--------------------------------------------------------------------------------------
+Test Case 2: Player is able to sell a deed.
+Procedure
+	Precondition
+		1. Two to four players initialize the game by entering their name to the pop up windows
+		2. The players pick their own token for the game
+		3. Player A clicks on the "Roll" button
+		4. The message panel displays the values rolled
+		5. Player A token is moved to the corresponding square (a colored square)
+		6. Player A clicks on the "Buy" button
+		7. Player A clicks on the "End Turn" button
+		8. Player B repeats steps 3 to 7
+	Procedure 
+		1. Player A clicks on the "Roll" button
+		2. Player A clicks on the "My Deeds" button
+		3. A drop down menu displays "Choose a deed" 
+		4. Player A selects a deed and click on the OK button
+		5. A drop down menu displays "What would you like to do with your property?"
+		6. Player A selects "Sell" option and click on the OK button 
+	
+Expected Result
+		The player sees message on the top right panel showing that a selected deed
+		is sold and the player gets money from the bank accordingly.
+
+Actual Result
+		Same as the expected result
+----------------------------------------------------------------------------------------
+Test Case 3: Player is able to build a house on his own deed. 
+Procedure
+	Precondition
+		1. Two to four players initialize the game by entering their name to the pop up windows
+		2. The players pick their own token for the game
+		3. Player A clicks on the "Roll" button
+		4. The message panel displays the values rolled
+		5. Player A token is moved to the corresponding square (a colored square)
+		6. Player A clicks on the "Buy" button
+		7. Player A clicks on the "End Turn" button
+		8. Player B repeats steps 3 to 7
+	Procedure 
+		1. Player A clicks on the "Roll" button
+		2. Player A clicks on the "My Deeds" button
+		3. A drop down menu displays "Choose a deed" 
+		4. Player A selects a deed and click on the OK button
+		5. A drop down menu displays "What would you like to do with your property?"
+		6. Player A selects "Build house" option and click on the OK button 
+	
+Expected Result
+		The player sees message on the top right panel showing that a selected deed
+		is build and the player pays the bank accordingly. 
+
+Actual Result
+		Same as the expected result
+--------------------------------------------------------------------------------------
+Test Case 4: Player is able to build a hotel on his own deed. 
+Procedure
+	Precondition
+		1. Two to four players initialize the game by entering their name to the pop up windows
+		2. The players pick their own token for the game
+		3. Player A clicks on the "Roll" button
+		4. The message panel displays the values rolled
+		5. Player A token is moved to the corresponding square (a colored square)
+		6. Player A clicks on the "Buy" button
+		7. Player A clicks on the "End Turn" button
+		8. Player B repeats steps 3 to 7
+	Procedure 
+		1. Player A clicks on the "Roll" button
+		2. Player A clicks on the "My Deeds" button
+		3. A drop down menu displays "Choose a deed" 
+		4. Player A selects a deed and click on the OK button
+		5. A drop down menu displays "What would you like to do with your property?"
+		6. Player A selects "Build hotel" option and click on the OK button 
+	
+Expected Result
+		The player sees message on the top right panel showing that a selected deed
+		is build and the player pays the bank accordingly. 
+
+Actual Result
+		Same as the expected result
+
+------------------------------------------------------------------------------------
+Test Case 5: Player is able to mortgage a house on his own deed. 
+ 
+Procedure
+	Precondition
+		1. Two to four players initialize the game by entering their name to the pop up windows
+		2. The players pick their own token for the game
+		3. Player A clicks on the "Roll" button
+		4. The message panel displays the values rolled
+		5. Player A token is moved to the corresponding square (a colored square)
+		6. Player A clicks on the "Buy" button
+		7. Player A clicks on the "End Turn" button
+		8. Player B repeats steps 3 to 7
+	Procedure 
+		1. Player A clicks on the "Roll" button
+		2. Player A clicks on the "My Deeds" button
+		3. A drop down menu displays "Choose a deed" 
+		4. Player A selects a deed and click on the OK button
+		5. A drop down menu displays "What would you like to do with your property?"
+		6. Player A selects "Mortgage" option and click on the OK button 
+		7. The message panel shows "Successfully mortgage:"
+	
+Expected Result
+		The player sees message on the top right panel showing that a selected deed
+		is mortgage and the player gets money from the bank accordingly. 
+
+Actual Result
+		Same as the expected result
+		
+------------------------------------------------------------------------------------
+Test Case 6: Player pays rent when lands on other player's property. 
+ 
+Procedure
+	Precondition
+		1. Two to four players initialize the game by entering their name to the pop up windows
+		2. The players pick their own token for the game
+		3. Player A clicks on the "Roll" button
+		4. The message panel displays the values rolled
+		5. Player A token is moved to the corresponding square (a colored square)
+		6. Player A clicks on the "Buy" button
+		7. Player A clicks on the "End Turn" button
+		8. Player B repeats steps 3 to 7
+	Procedure 
+		1. Player A clicks on the "Roll" button
+		2. Player A lands on Player B's property 
+		3. Player A pays Player B the rent and the message panel displays "A pays rent $xx to B"
+	
+Expected Result
+		The player sees message on the top right panel showing that a rent is paid
+		and Player B gets money from Player A accordingly. 
+
+Actual Result
+		Same as the expected result
+		
+------------------------------------------------------------------------------------
+
+Test Case 7: Player can not purchase community chest/go.
+
+Procedure
+	Precondition
+		1. Two to four players initialize the game by entering their name to the pop up windows
+		2. The players pick their own token for the game
+	Procedure 
+		1. Player A clicks on the "Roll" button
+		2. The message panel displays the values rolled
+		3. Player token is moved to community chest/go
+		4. Player clicks on the "Buy" button
+		5. The message panel displays "community chest/go cannot be purchased"
+	
+Expected Result
+		The player sees message on the top right panel showing that community chest/go/jail 
+		cannot be purchased and no money is withdraw by the bank.
+
+Actual Result
+		Same as the expected result
+
+------------------------------------------------------------------------------------
+		
+Test Case 8: Player will go to jail if lands on "go to jail" square. 
+Procedure
+	Precondition
+		1. Two to four players initialize the game by entering their name to the pop up windows
+		2. The players pick their own token for the game
+	Procedure 
+		1. Player A clicks on the "Roll" button
+		2. The message panel displays the values rolled
+		3. Player token is moved jail
+		4. The message panel displays "Oh no"
+	
+Expected Result
+		The jailed player stays in jail for one turn and the system evoke the next player.
+
+Actual Result
+		Same as the expected result
+
+

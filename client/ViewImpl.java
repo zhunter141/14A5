@@ -1,28 +1,17 @@
 package client;
 
+import java.awt.Color;
+import java.awt.GridLayout;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-
-/*
- * 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.Map;
- */
 
 import javax.swing.*;
-
 import common.ModelInterface;
 import common.ViewInterface;
+import cs414.a4.SquareView;
+import cs414.a5.Square;
 
 public class ViewImpl extends UnicastRemoteObject implements ViewInterface{
 	private static final long serialVersionUID = 1L;
@@ -30,6 +19,9 @@ public class ViewImpl extends UnicastRemoteObject implements ViewInterface{
 	public static final int DEFAULT_HEIGHT = 900;
 	private JFrame myFrame;
 	private ModelInterface model;
+	
+	// GUI Objects
+	private JPanel boardPanel;
 	
 	public ViewImpl() throws RemoteException{
 		super();
@@ -39,6 +31,7 @@ public class ViewImpl extends UnicastRemoteObject implements ViewInterface{
 	
 	public void setUpGUI() throws RemoteException{
 		System.out.println("Setting up GUI.");
+		setupBoard();
 		myFrame.setVisible(true);
 	}
 	
@@ -52,9 +45,21 @@ public class ViewImpl extends UnicastRemoteObject implements ViewInterface{
 		System.out.println("I need to update the board!");
 	}
 	
-	@Override
-	public void rollDice() throws RemoteException{
-		System.out.println("Rolling dice :)");
-		model.rollDice();
+	// HELPER METHODS
+	private void setupBoard() throws RemoteException {
+		boardPanel = new JPanel();
+		boardPanel.setLayout(new GridLayout(11,11));
+		
+		LinkedHashMap<String, Square> listOfSquares = model.getBoard().getSquares();
+		/*
+		 * 
+		for(int i=0;i<listOfSquares.size();i++){
+			Square s = listOfSquares.get(i);
+			SquareView aSquare = new SquareView(s);
+			boardPanel.add(aSquare);
+		}
+		 */
+		// add boardPanel to JFrame
+		myFrame.add(boardPanel);
 	}
 }
