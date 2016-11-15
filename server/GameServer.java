@@ -8,10 +8,8 @@ public class GameServer {
 	public GameServer(){
 		try{
 			ModelInterface model = new ModelImpl();
-			
 			// Binding
 			Naming.rebind("rmi://localhost:2501/model",model);
-		
 			System.out.println("Game server running...");
 		}catch(Exception e){
 			System.out.println("Trouble: " + e );
@@ -21,5 +19,7 @@ public class GameServer {
 	
 	public static void main(String args[]) {
 		new GameServer();
+		System.out.println("number of player = "+ args[1]);//client takes two argument port # and number
+
 	}
 }
