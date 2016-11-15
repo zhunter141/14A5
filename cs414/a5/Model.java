@@ -88,7 +88,7 @@ public class Model {
 	
 	public void move(int steps){
 		// Tell the board to Move the player's token 
-			board.move(1,currPlayer.getToken());
+			board.move(steps,currPlayer.getToken());
 			Square currLoc = currPlayer.getToken().getLoc();
 			msg+=""+currPlayer.getName()+" is now on: "+currLoc.getName()+"\n";
 			view.updateBoard();

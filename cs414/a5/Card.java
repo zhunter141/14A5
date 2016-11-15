@@ -6,6 +6,7 @@ public class Card {
 	private String action;
 	private int val;
 	private Player owner;
+	private Model theModel;
 
 	
 	public Card(String description, String action, int val) {
@@ -54,6 +55,7 @@ public class Card {
 			
 		}else if (getAction().equals("move")){
 			int distance = this.getVal();
+			System.out.println(distance);
 			theModel.move(distance);
 			System.out.println(this.description+".3");
 
