@@ -14,7 +14,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	public ModelImpl() throws RemoteException {
 		super();	
 	}
-
+	
 	@Override
 	public void addView(ViewInterface v) throws RemoteException {
 		observers.add(v);
