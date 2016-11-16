@@ -13,7 +13,7 @@ import common.ViewInterface;
 import cs414.a5.SquareView;
 import cs414.a5.Square;
 
-public class ViewImpl extends UnicastRemoteObject implements ViewInterface{
+public class ViewImpl extends UnicastRemoteObject implements ViewInterface{ // ??
 	private static final long serialVersionUID = 1L;
 	public static final int DEFAULT_WIDTH = 900;
 	public static final int DEFAULT_HEIGHT = 900;
@@ -32,18 +32,23 @@ public class ViewImpl extends UnicastRemoteObject implements ViewInterface{
 	private JTextArea msgTextArea;
 
 	
-	public ViewImpl() throws RemoteException{
-		super();
+	public ViewImpl() throws RemoteException{ // remove remoteException
+		//super();
 		myFrame = new JFrame("MonopolyGame");
 		myFrame.setSize(DEFAULT_WIDTH,DEFAULT_HEIGHT);
 	}
-	
+	/*private void startMenu() throws RemoteException{	
+		String playerName = JOptionPane.showInputDialog("Enter your name ");
+		//Send model the name of each player 
+		model.addPlayer(playerName);
+}*/
 	public void setUpGUI() throws RemoteException{
 		System.out.println("Setting up GUI.");
 		startMenu();
+ 
 		addMsgPanel();
 		addButtonPanel();
-		setupBoard();
+ 		setupBoard();
 		myFrame.setVisible(true);
 	}
 	
@@ -53,7 +58,7 @@ public class ViewImpl extends UnicastRemoteObject implements ViewInterface{
 	}
 
 	@Override
-	public void update() throws RemoteException {
+	public void update() throws RemoteException {   // needs to be move to its own class?
 		System.out.println("I need to update the board!");
 	}
 	
@@ -124,5 +129,18 @@ public class ViewImpl extends UnicastRemoteObject implements ViewInterface{
 		}
 		// add boardPanel to JFrame
 		myFrame.add(boardPanel);
+	}
+	
+	
+	//HJ: Feel free to del after checking
+	@Override
+	public void chooseDeeds(Object deeds) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void dispose() {
+		// TODO Auto-generated method stub
+		
 	}
 }

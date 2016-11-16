@@ -7,10 +7,15 @@ import common.ModelInterface;
 
 public class GameServer {
 	
-	public GameServer(){
+	public GameServer(String numPlayer){
 		try{
 			ModelInterface model = new ModelImpl();
-			ControllerInterface controller = new ControllerImpl();
+			
+ 			ControllerInterface controller = new ControllerImpl();
+
+			int expectedNumPlayer = Integer.parseInt(numPlayer);
+			model.setExpectedPlayer(expectedNumPlayer);
+
 			// Binding
 			Naming.rebind("rmi://localhost:2501/model",model);
 			System.out.println("Game server running...");
@@ -21,6 +26,9 @@ public class GameServer {
 	}
 	
 	public static void main(String args[]) {
-		new GameServer();
+		new GameServer(args[1]);
+		System.out.println(args[1]);
+
+		
 	}
 }

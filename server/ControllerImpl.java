@@ -1,9 +1,11 @@
 package server;
 
+import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -17,13 +19,13 @@ import cs414.a5.View;
 
 @SuppressWarnings("serial")
 public class ControllerImpl extends UnicastRemoteObject implements ControllerInterface{
+		 
+		public ControllerImpl() throws RemoteException {
+			super();
+		}
 		private ModelInterface model;
 		private ViewInterface view;
-		//private Arraylist<ViewInterface>
-		//public ControllerImpl() throws RemoteException {
-			//super();
-		//}
-
+		private ArrayList<ViewInterface> viewList;
 		
 
 		public void addModel(ModelInterface m) throws RemoteException{
@@ -41,7 +43,13 @@ public class ControllerImpl extends UnicastRemoteObject implements ControllerInt
 			  buyButton.addActionListener(new ActionListener() {
 				  public void actionPerformed(ActionEvent e){
 					  //System.out.println("Debug-Controller: " + "Buy button pressed");
-					  model.buyDeed();
+					  //try catch by HJ
+					  try {
+						model.buyDeed();
+					} catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					  } 
 			  });
 			  return buyButton;
@@ -53,7 +61,13 @@ public class ControllerImpl extends UnicastRemoteObject implements ControllerInt
 			  rollButton.addActionListener(new ActionListener() {
 				  public void actionPerformed(ActionEvent e){
 					  ////System.out.println("Debug-Controller: " + "Roll Dice button pressed");
-					  model.rollDice();
+						//try catch by HJ
+					  try {
+						model.rollDice();
+					} catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					  } 
 			  });
 			  
@@ -66,7 +80,13 @@ public class ControllerImpl extends UnicastRemoteObject implements ControllerInt
 			endTurnButton.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){
 					//System.out.println("Debug-Controller: "+ "End turn button pressed");
-					model.endTurn();
+					//try catch by HJ
+					try {
+						model.endTurn();
+					} catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 			});
 			return endTurnButton;
@@ -77,7 +97,13 @@ public class ControllerImpl extends UnicastRemoteObject implements ControllerInt
 			myPropertiesButton.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){
 					//System.out.println("My Deeds button pressed!");
-					view.chooseDeeds(model.getDeeds());
+					//try catch by HJ
+					try {
+						view.chooseDeeds(model.getDeeds());
+					} catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 			});
 			return myPropertiesButton;
@@ -88,7 +114,14 @@ public class ControllerImpl extends UnicastRemoteObject implements ControllerInt
 			endGameButton.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){
 					//System.out.println("End Game button pressed!");
-					JOptionPane.showMessageDialog(null, model.endGame());
+					
+					//try catch by HJ
+					try {
+						JOptionPane.showMessageDialog(null, model.endGame());
+					} catch (HeadlessException | RemoteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					view.dispose();
 				}
 			});
