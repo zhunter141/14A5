@@ -33,11 +33,14 @@ public class Card {
 	public void setOwner(Player p) {
 		this.owner = p;
 	}
-	public void processCard(Model theModel){
+	
+	// should return a msg to view
+	public String processCard(Model theModel){
 		Board theBoard = theModel.getBoard();
 		Player currentPlayer = theModel.getCurrPlayer();
+		String despMsg = "";
+		despMsg = "Player "+ currentPlayer.getName() + " got card: " + "\"" + getDescription()+ "\"\n";
 		
-		String despMsg = getDescription();
 		if (getAction().equals("collect")){
 			int amount = this.getVal();
 
@@ -73,7 +76,7 @@ public class Card {
 
 
 		}else if (getAction().equals("outJail")){
-			String msg = "You used your Get out of jail free card.";
+			String msgj = "You used your Get out of jail free card.";
 			currentPlayer.setHasCard(false);
 
 
@@ -121,7 +124,9 @@ public class Card {
 			
 
 		}
-		//theModel.view.updateBoard();
+
+		theModel.view.updateBoard();
+		return despMsg;
 
 
 	}
