@@ -1,9 +1,10 @@
 package cs414.a5;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.LinkedList;
 
-public class DeckOfCards {
+public class DeckOfCards implements Serializable {
 	
 	LinkedList<Card> cards;
 	private Card firstCard;

@@ -54,7 +54,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		return this.board;
 	}
 	@Override
-	public Player[] getPlayers(){
+	public Player[] getPlayers()throws RemoteException{
 		 return players;
 	 }
 	@Override
@@ -68,9 +68,9 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		//view.update();
 	}
 	@Override
-	public void addPlayer(String name){
+	public void addPlayer(String name)throws RemoteException{
 		// Add player to game
-		
+		System.out.println("Adding "+name+" to game!");
 		System.out.println("cs414.a5.Model: Adding: "+name+" to the game.");
 		Player p = new Player(counter,name,allTokens[counter]);
 		allTokens[counter].setLoc(board.getStart());
@@ -85,6 +85,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	public void setExpectedPlayer(int num){
 		this.expectedPlayer = num;
 	}
-	
-	
+
+
+
 }

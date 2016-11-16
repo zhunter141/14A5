@@ -218,8 +218,7 @@ public class View extends JFrame implements Serializable{
 		System.out.println("Updating the board!");
 		boardPanel.setVisible(false);
 		setupBoard();
-		boardPanel.setVisible(true);
-		
+		boardPanel.setVisible(true);	
 	}
 	
 	public void disableRoll(){
