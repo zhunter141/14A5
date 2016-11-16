@@ -41,4 +41,9 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	public Board getBoard() throws RemoteException {
 		return this.board;
 	}
+
+	@Override
+	public void addPlayer(String playerName) throws RemoteException{
+		System.out.println("Adding "+playerName+" to game!");
+	}
 }

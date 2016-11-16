@@ -7,4 +7,5 @@ public interface ModelInterface extends java.rmi.Remote{
 	public void notifyAllObservers() throws java.rmi.RemoteException;
 	public void rollDice() throws java.rmi.RemoteException;
 	public Board getBoard() throws java.rmi.RemoteException;
+	public void addPlayer(String playerName) throws java.rmi.RemoteException;
 }

@@ -32,6 +32,7 @@ public class SquareView extends JPanel{
 			this.add(nameLabel);
 		}
 	}
+	
 	private void addPlayers(){
 		ArrayList<Token> myTokens = mySquare.getTokens();
 		for(int i=0;i<myTokens.size();i++){

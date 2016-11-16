@@ -4,12 +4,16 @@
 package cs414.a5;
 
 import java.awt.Color;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 
-public class Square {
+public class Square implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Color color;
 	private String name;
 	private boolean isPurchasable;

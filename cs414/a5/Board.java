@@ -4,15 +4,18 @@
 package cs414.a5;
 
 import java.awt.Color;
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.HashMap;
 
 import java.util.LinkedHashMap;
 
 
-public class Board {
+public class Board implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Square start;
-	private String SqKey;
 	private HashMap<String, Square> mySquares;
 	
 
@@ -23,9 +26,6 @@ public class Board {
 		mySquares = new LinkedHashMap<String,Square>();
 	}
 	
-	
-	
-
 	public void initCards(){
 		Card[] chanceCards = new Card[16];
 
@@ -71,8 +71,11 @@ public class Board {
 		
 	}
 	
+	/*
+	 */
 	public Square initialize(){
 		/*
+		 * 
 		 *  Board layout is based on traditional Monopoly Game US version
 		 *  From 'Start' Square go counter clockwise.
 		 *  As per the assignment: 
