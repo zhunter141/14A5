@@ -17,12 +17,12 @@ import cs414.a5.View;
 
 @SuppressWarnings("serial")
 public class ControllerImpl extends UnicastRemoteObject implements ControllerInterface{
-		private Model model;
-		private View view;
-		private Arraylist<ViewInterface>
-		public ControllerImpl() throws RemoteException {
-			super();
-		}
+		private ModelInterface model;
+		private ViewInterface view;
+		//private Arraylist<ViewInterface>
+		//public ControllerImpl() throws RemoteException {
+			//super();
+		//}
 
 		
 

@@ -1,6 +1,7 @@
 package common;
 
 import cs414.a5.Board;
+import cs414.a5.Square;
 
 public interface ModelInterface extends java.rmi.Remote{
 	public void addView(ViewInterface v)throws java.rmi.RemoteException;
