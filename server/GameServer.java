@@ -1,6 +1,8 @@
 package server;
 
 import java.rmi.Naming;
+
+import common.ControllerInterface;
 import common.ModelInterface;
 
 public class GameServer {
@@ -8,8 +10,12 @@ public class GameServer {
 	public GameServer(String numPlayer){
 		try{
 			ModelInterface model = new ModelImpl();
+			
+ 			ControllerInterface controller = new ControllerImpl();
+
 			int expectedNumPlayer = Integer.parseInt(numPlayer);
 			model.setExpectedPlayer(expectedNumPlayer);
+
 			// Binding
 			Naming.rebind("rmi://localhost:2501/model",model);
 			System.out.println("Game server running...");

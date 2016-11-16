@@ -37,20 +37,18 @@ public class ViewImpl extends UnicastRemoteObject implements ViewInterface{ // ?
 		myFrame = new JFrame("MonopolyGame");
 		myFrame.setSize(DEFAULT_WIDTH,DEFAULT_HEIGHT);
 	}
-	private void startMenu() throws RemoteException{	
+	/*private void startMenu() throws RemoteException{	
 		String playerName = JOptionPane.showInputDialog("Enter your name ");
 		//Send model the name of each player 
 		model.addPlayer(playerName);
-}
+}*/
 	public void setUpGUI() throws RemoteException{
 		System.out.println("Setting up GUI.");
 		startMenu();
-<<<<<<< HEAD
-=======
+ 
 		addMsgPanel();
 		addButtonPanel();
->>>>>>> master
-		setupBoard();
+ 		setupBoard();
 		myFrame.setVisible(true);
 	}
 	
@@ -131,5 +129,18 @@ public class ViewImpl extends UnicastRemoteObject implements ViewInterface{ // ?
 		}
 		// add boardPanel to JFrame
 		myFrame.add(boardPanel);
+	}
+	
+	
+	//HJ: Feel free to del after checking
+	@Override
+	public void chooseDeeds(Object deeds) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void dispose() {
+		// TODO Auto-generated method stub
+		
 	}
 }

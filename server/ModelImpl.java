@@ -10,6 +10,7 @@ import cs414.a5.Bank;
 import cs414.a5.Board;
 import cs414.a5.Dice;
 import cs414.a5.Player;
+import cs414.a5.Square;
 import cs414.a5.Token;
 
 @SuppressWarnings("serial")
@@ -84,6 +85,44 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	}
 	public void setExpectedPlayer(int num){
 		this.expectedPlayer = num;
+	}
+
+	
+	//HJ: Feel free to del after checking
+	@Override
+	public void buyDeed() throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void endTurn() throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Object getDeeds() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getNumPlayer() throws RemoteException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void auction(Square s, int[] bits) throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Object endGame() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
