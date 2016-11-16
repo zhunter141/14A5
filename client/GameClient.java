@@ -1,6 +1,7 @@
 package client;
 
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
@@ -21,7 +22,10 @@ public class GameClient {
 			System.out.println("I have a model.");
 			
 			view.addModel(model);//add observable to 
-			model.addView(view);
+			// export view to ensure update() can be used on the server side
+			ViewInterface viewStub = (ViewInterface) UnicastRemoteObject.exportObject(view,0);			
+			
+			model.addView(viewStub);
 		
 			view.setUpGUI();
 			

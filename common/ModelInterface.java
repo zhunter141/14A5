@@ -10,7 +10,7 @@ public interface ModelInterface extends java.rmi.Remote{
 	public Board getBoard() throws java.rmi.RemoteException;
 	public Player[] getPlayers() throws java.rmi.RemoteException;
 	public void setExpectedPlayer(int num) throws java.rmi.RemoteException;
-	public void startGame() throws java.rmi.RemoteException;
+	//public void startGame() throws java.rmi.RemoteException;
 	public void addPlayer(String playerName) throws java.rmi.RemoteException;
 
 }

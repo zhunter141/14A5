@@ -13,7 +13,9 @@ import common.ViewInterface;
 import cs414.a5.SquareView;
 import cs414.a5.Square;
 
-public class ViewImpl extends UnicastRemoteObject implements ViewInterface{ // ??
+public class ViewImpl 
+//extends UnicastRemoteObject should be commented otherwise we get exportException
+implements ViewInterface{ 
 	private static final long serialVersionUID = 1L;
 	public static final int DEFAULT_WIDTH = 900;
 	public static final int DEFAULT_HEIGHT = 900;
@@ -61,7 +63,7 @@ public class ViewImpl extends UnicastRemoteObject implements ViewInterface{ // ?
 	// HELPER METHODS
 	private void startMenu() throws RemoteException{	
 		String playerName = JOptionPane.showInputDialog("Enter your name "); 
-		model.addPlayer(playerName);
+		model.addPlayer(playerName);   // client side got stuck here......
 	}
 	
 	private void addMsgPanel() {

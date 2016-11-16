@@ -7,8 +7,9 @@ public class GameServer {
 	
 	public GameServer(String numPlayer){
 		try{
-			ModelInterface model = new ModelImpl();
+			
 			int expectedNumPlayer = Integer.parseInt(numPlayer);
+			ModelInterface model = new ModelImpl(expectedNumPlayer);
 			model.setExpectedPlayer(expectedNumPlayer);
 			// Binding
 			Naming.rebind("rmi://localhost:2501/model",model);

@@ -1,7 +1,10 @@
 package cs414.a5;
 
-public class Card {
+import java.io.Serializable;
+
+public class Card implements Serializable{
 	
+	private static final long serialVersionUID = 1L; // added by TJ 
 	private String description;
 	private String action;
 	private int val;
