@@ -26,7 +26,7 @@ public class ViewImpl implements ViewInterface{
 	private JButton buyButton;
 	private JButton endTurnButton;
 	private JButton rollButton;
-	private JButton buildButton;
+	private JButton myPropertiesButton;
 	private JButton endGameButton;
 	
 	private JPanel buttonPanel;
@@ -100,19 +100,22 @@ public class ViewImpl implements ViewInterface{
 		endTurnButton = ctrl.getEndTurnButton();
 		endTurnButton.setEnabled(false);
 
-		//buildButton = ctrl.getBuildButton();
+		myPropertiesButton = ctrl.getMyPropertiesButton();
+
 		endGameButton = ctrl.getEndGameButton();
 		
 		// Add buttons to buttonPanel & buttonArray
 		buttonPanel.add(buyButton);
 		buttonPanel.add(rollButton);
 		buttonPanel.add(endTurnButton);
-		//buttonPanel.add(buildButton);
+
+		buttonPanel.add(myPropertiesButton);
 		buttonPanel.add(endGameButton);
 		
 		buttonArray.add(buyButton);
 		buttonArray.add(rollButton);
-		//buttonArray.add(buildButton);
+		buttonArray.add(myPropertiesButton);
+
 		buttonArray.add(endGameButton);
 		
 		// Add button panel to gameMsgPanel
