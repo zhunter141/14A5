@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -20,6 +21,7 @@ public class ViewImpl implements ViewInterface{
 	private JFrame myFrame;
 	private ModelInterface model;
 	private ControllerInterface ctrl;
+	private ArrayList<JButton> buttonArray;
 	
 	// Window objects
 	private JButton buyButton;
@@ -27,6 +29,7 @@ public class ViewImpl implements ViewInterface{
 	private JButton rollButton;
 	private JButton buildButton;
 	private JButton endGameButton;
+	
 	private JPanel buttonPanel;
 	private JPanel gameMsgPanel;
 	private JPanel boardPanel;
@@ -36,6 +39,7 @@ public class ViewImpl implements ViewInterface{
 	public ViewImpl() throws RemoteException{ // remove remoteException
 		myFrame = new JFrame("MonopolyGame");
 		myFrame.setSize(DEFAULT_WIDTH,DEFAULT_HEIGHT);
+		buttonArray = new ArrayList<JButton>();
 	}
 
 	public void setUpGUI() throws RemoteException{
@@ -43,10 +47,18 @@ public class ViewImpl implements ViewInterface{
 		addMsgPanel();
 		addButtonPanel();
  		setupBoard();
+ 		setAllButtonsTo(false);
  		startMenu();
 		myFrame.setVisible(true);
 	}
 	
+	@Override
+	public void setAllButtonsTo(boolean state) throws RemoteException{
+		for(JButton b : buttonArray){
+			b.setEnabled(state);
+		}
+	}
+
 	@Override
 	public void addModel(ModelInterface model) throws RemoteException {
 		this.model = model;
@@ -80,6 +92,7 @@ public class ViewImpl implements ViewInterface{
 
 		// msgTextFiled initialization 
 		msgTextArea = new JTextArea(30,20);
+		msgTextArea.setText("Waiting for players to connect...");
 		msgTextArea.setEditable(false);
 		JScrollPane scroll = new JScrollPane (msgTextArea,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		
@@ -105,12 +118,17 @@ public class ViewImpl implements ViewInterface{
 		buildButton = ctrl.getBuildButton();
 		endGameButton = ctrl.getEndGameButton();
 		
-		// Add buttons to buttonPanel
+		// Add buttons to buttonPanel & buttonArray
 		buttonPanel.add(buyButton);
 		buttonPanel.add(rollButton);
 		buttonPanel.add(endTurnButton);
 		buttonPanel.add(buildButton);
 		buttonPanel.add(endGameButton);
+		
+		buttonArray.add(buyButton);
+		buttonArray.add(rollButton);
+		buttonArray.add(buildButton);
+		buttonArray.add(endGameButton);
 		
 		// Add button panel to gameMsgPanel
 		gameMsgPanel.add(buttonPanel);

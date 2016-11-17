@@ -128,10 +128,17 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		msg += "Account: $"+monopolyBank.getBalance(currPlayer)+'\n';
 		notifyAllObserversOfMsg();// Display who's turn it is
 		notifyAllObserversOfBoard();// all tokens should be on board.
+		enableControls();// enable controls for current player
+	}
+	
+	private void enableControls() throws java.rmi.RemoteException{
+		// Enable controls for a specific view
+		ViewInterface currInterface = observers.get(counter-1);
+		currInterface.setAllButtonsTo(true);
 	}
 	
 	@Override
-	public void addPlayer(String name) throws RemoteException{
+	public void addPlayer(String name) throws java.rmi.RemoteException{
 		// Add player to game
 		System.out.println("Adding "+name+" to game!");
 		System.out.println("cs414.a5.Model: Adding: "+name+" to the game.");

@@ -1,7 +1,6 @@
 package common;
 
 import java.util.HashSet;
-
 import cs414.a5.Square;
 
 public interface ViewInterface extends java.rmi.Remote{
@@ -15,4 +14,5 @@ public interface ViewInterface extends java.rmi.Remote{
 	public void dispose() throws java.rmi.RemoteException;
 	public void updateBoard() throws java.rmi.RemoteException;
 	public void addController(ControllerInterface controller) throws java.rmi.RemoteException;
+	public void setAllButtonsTo(boolean state) throws java.rmi.RemoteException;
 }
