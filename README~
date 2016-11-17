@@ -1,0 +1,17 @@
+1. None.
+
+2. Open one terminal window and cd to workspace/414_A5/bin, run command "rmiregistry 2500 &" ,
+   keep this terminal window open. 
+   In another terminal window, cd to workspace/414_A5/src, run
+   "javac server/*.java", and then run "java server.GameServer #_of_players", #_of_players is
+   an integer between 2 and 4.
+   Depend on the number of players entered eariler, open the corresponding number of terminal
+   windows, and in those windows cd to workspace/414_A5/src, and run "javac client/*.java", then
+   run "java client.GameClient". This will open the pop up window for each player to enter their
+   name, once they all do that, a Monopoly game board will appear and the game will start.
+
+3. discusses what is especially strong, weak, or missing from the assignment
+
+4. Model View Controller, and Broker pattern is used for the code design. 
+   Componentization, extract class, and extract method
+   were used to refactoring the old code.
