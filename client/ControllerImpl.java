@@ -70,15 +70,12 @@ public class ControllerImpl implements ControllerInterface{
 			endTurnButton.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){
 					System.out.println("Debug-Controller: "+ "End turn button pressed");
-					/*
-					 * 
 					//try catch by HJ
 					try {
 						model.endTurn();
 					} catch (RemoteException e1) {
 						e1.printStackTrace();
 					}
-					 */
 				}
 			});
 			return endTurnButton;

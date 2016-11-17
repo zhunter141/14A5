@@ -85,12 +85,6 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		notifyAllObserversOfBoard();
 	}
 
-	private void enableControls() throws java.rmi.RemoteException{
-		// Enable controls for a specific view
-		ViewInterface currInterface = observers.get(counter%expectedPlayer);
-		currInterface.setAllButtonsTo(true);
-	}
-	
 	/*
 	 * Manipulate Observers
 	 */
@@ -99,8 +93,18 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		observers.get(counter%expectedPlayer).disableRoll();
 	}
 	
+	private void disableCurrViewEndTurn() throws java.rmi.RemoteException{
+		observers.get(counter%expectedPlayer).disableEndTurn();
+	}
+	
 	private void enableCurrViewEndTurnButton() throws java.rmi.RemoteException{
 		observers.get(counter%expectedPlayer).enableEndTurn();
+	}
+	
+	private void setControlsTo(boolean state) throws java.rmi.RemoteException{
+		// Enable controls for a specific view
+		ViewInterface currInterface = observers.get(counter%expectedPlayer);
+		currInterface.setAllButtonsTo(state);
 	}
 	
 	@Override
@@ -145,7 +149,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		msg += "Account: $"+monopolyBank.getBalance(currPlayer)+'\n';
 		notifyAllObserversOfMsg();// Display who's turn it is
 		notifyAllObserversOfBoard();// all tokens should be on board.
-		enableControls();// enable controls for current player
+		setControlsTo(true);// enable controls for current player
 	}
 	
 	@Override
@@ -179,8 +183,17 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 
 	@Override
 	public void endTurn() throws RemoteException {
-		// TODO Auto-generated method stub
+		// disable current players control
+		setControlsTo(false);
+		disableCurrViewEndTurn();
 		
+		// Advance to next player
+		counter++;
+		currPlayer = players[counter%expectedPlayer];
+		msg="Turn: "+currPlayer.getName()+" Location: "+currPlayer.getToken().getLoc().getName()+'\n';
+		hasRolled = false;
+		setControlsTo(true);// enable the new players controls
+		notifyAllObserversOfMsg();// Display who's turn it is now
 	}
 
 	@Override
