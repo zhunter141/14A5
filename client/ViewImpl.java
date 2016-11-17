@@ -100,19 +100,19 @@ public class ViewImpl implements ViewInterface{
 		endTurnButton = ctrl.getEndTurnButton();
 		endTurnButton.setEnabled(false);
 
-		buildButton = ctrl.getBuildButton();
+		//buildButton = ctrl.getBuildButton();
 		endGameButton = ctrl.getEndGameButton();
 		
 		// Add buttons to buttonPanel & buttonArray
 		buttonPanel.add(buyButton);
 		buttonPanel.add(rollButton);
 		buttonPanel.add(endTurnButton);
-		buttonPanel.add(buildButton);
+		//buttonPanel.add(buildButton);
 		buttonPanel.add(endGameButton);
 		
 		buttonArray.add(buyButton);
 		buttonArray.add(rollButton);
-		buttonArray.add(buildButton);
+		//buttonArray.add(buildButton);
 		buttonArray.add(endGameButton);
 		
 		// Add button panel to gameMsgPanel
@@ -201,6 +201,7 @@ public class ViewImpl implements ViewInterface{
 	/*
 	 * Disable buttons
 	 */
+	
 	@Override
 	public void disableRoll() throws java.rmi.RemoteException{
 		rollButton.setEnabled(false);

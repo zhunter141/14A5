@@ -12,5 +12,4 @@ public interface ControllerInterface extends java.rmi.Remote{
 	public JButton getEndTurnButton()throws java.rmi.RemoteException;
 	public JButton getMyPropertiesButton()throws java.rmi.RemoteException;
 	public JButton getEndGameButton()throws java.rmi.RemoteException;
-	public JButton getBuildButton() throws java.rmi.RemoteException;
 }
