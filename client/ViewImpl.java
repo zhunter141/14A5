@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -35,16 +34,10 @@ public class ViewImpl implements ViewInterface{
 
 	
 	public ViewImpl() throws RemoteException{ // remove remoteException
-		//super();
 		myFrame = new JFrame("MonopolyGame");
 		myFrame.setSize(DEFAULT_WIDTH,DEFAULT_HEIGHT);
 	}
 
-	/*private void startMenu() throws RemoteException{	
-		String playerName = JOptionPane.showInputDialog("Enter your name ");
-		//Send model the name of each player 
-		model.addPlayer(playerName);
-}*/
 	public void setUpGUI() throws RemoteException{
 		System.out.println("Setting up GUI.");
 		addMsgPanel();
@@ -66,10 +59,10 @@ public class ViewImpl implements ViewInterface{
 	
 	//HJ add 
 	@Override
-	public void updateBoard() throws RemoteException{
+	public synchronized void updateBoard() throws RemoteException{
 		System.out.println("Updating the board!");
-		boardPanel.setVisible(false);
 		setupBoard();
+		boardPanel.setVisible(false);
 		boardPanel.setVisible(true);	
 	}
 	
@@ -97,20 +90,20 @@ public class ViewImpl implements ViewInterface{
 		myFrame.add(gameMsgPanel, BorderLayout.EAST);
 	}
 	
-	private void addButtonPanel() {
+	private void addButtonPanel() throws RemoteException {
 		// setup button panel
 		buttonPanel = new JPanel();
 		buttonPanel.setBackground(Color.blue);
 		buttonPanel.setLayout(new GridLayout(4,2));
 
 		// Buttons initialization
-		buyButton = new JButton("Buy");
-		rollButton = new JButton("Roll");
-		endTurnButton = new JButton("End Turn");
+		buyButton = ctrl.getBuyButton();
+		rollButton = ctrl.getRollDiceButton();
+		endTurnButton = ctrl.getEndTurnButton();
 		endTurnButton.setEnabled(false);
 
-		buildButton = new JButton("Build");
-		endGameButton = new JButton("End Game");
+		buildButton = ctrl.getBuildButton();
+		endGameButton = ctrl.getEndGameButton();
 		
 		// Add buttons to buttonPanel
 		buttonPanel.add(buyButton);
@@ -199,7 +192,8 @@ public class ViewImpl implements ViewInterface{
 		 }  
 	}
 
-	//
-	
-
+	@Override
+	public void addController(ControllerInterface controller) throws RemoteException{
+		this.ctrl = controller;
+	}
 }

@@ -14,5 +14,5 @@ public interface ViewInterface extends java.rmi.Remote{
 	public void chooseDeeds(HashSet<Square> myDeeds) throws java.rmi.RemoteException;
 	public void dispose() throws java.rmi.RemoteException;
 	public void updateBoard() throws java.rmi.RemoteException;
-
+	public void addController(ControllerInterface controller) throws java.rmi.RemoteException;
 }

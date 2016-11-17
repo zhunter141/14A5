@@ -1,10 +1,7 @@
 package common;
 
 import javax.swing.JButton;
-
-import cs414.a5.Model;
 import cs414.a5.Square;
-import cs414.a5.View;
 
 public interface ControllerInterface extends java.rmi.Remote{
 	public void addModel(ModelInterface m)throws java.rmi.RemoteException;
@@ -15,4 +12,5 @@ public interface ControllerInterface extends java.rmi.Remote{
 	public JButton getEndTurnButton()throws java.rmi.RemoteException;
 	public JButton getMyPropertiesButton()throws java.rmi.RemoteException;
 	public JButton getEndGameButton()throws java.rmi.RemoteException;
+	public JButton getBuildButton() throws java.rmi.RemoteException;
 }

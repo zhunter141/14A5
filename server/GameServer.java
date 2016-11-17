@@ -1,19 +1,16 @@
 package server;
 
 import java.rmi.Naming;
-
-import common.ControllerInterface;
 import common.ModelInterface;
 
 public class GameServer {
 	
 	public GameServer(String numPlayer){
 		try{
-			
- 			ControllerInterface controller = new ControllerImpl(); // by hj 
-
+			System.setProperty("java.rmi.server.hostname","localhost");// Fixes Connection refused on my machine - vf
 			int expectedNumPlayer = Integer.parseInt(numPlayer);
-			System.out.println("Expected number of players = "+expectedNumPlayer);
+			
+			//System.out.println("Expected number of players = "+expectedNumPlayer);
 			ModelInterface model = new ModelImpl(expectedNumPlayer);
 			model.setExpectedPlayer(expectedNumPlayer);
 

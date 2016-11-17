@@ -8,11 +8,14 @@ import common.ModelInterface;
 import common.ViewInterface;
 import cs414.a5.Bank;
 import cs414.a5.Board;
+import cs414.a5.Card;
+import cs414.a5.Deed;
 import cs414.a5.Dice;
 import cs414.a5.Player;
+import cs414.a5.RailRoad;
 import cs414.a5.Square;
 import cs414.a5.Token;
-import cs414.a5.View;
+import cs414.a5.Utility;
 
 @SuppressWarnings("serial")
 public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
@@ -78,17 +81,43 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	@Override
 	public void rollDice() throws RemoteException{
 		System.out.println("From model, player has rolled dice.");
+		if(!hasRolled){
+			hasRolled = true;
+	
+			// Determine who is the current Player
+			currPlayer = players[iterator%counter];
+			
+			int steps = dice.roll();
+			
+			msg = ""+currPlayer.getName()+" rolled: "+steps+'\n';
+			move(steps);
+			// The player has rolled disable the roll button!
+			//view.disableRoll();
+			// The player has rolled enable the end turn button
+			//view.enableEndTurn();
+		}
+		notifyAllObserversOfMsg();
 		notifyAllObserversOfBoard();
 	}
-
+	
+	@Override
+	public void move(int steps) throws RemoteException{
+		// Tell the board to Move the player's token 
+			board.move(steps,currPlayer.getToken());
+			Square currLoc = currPlayer.getToken().getLoc();
+			msg+=""+currPlayer.getName()+" is now on: "+currLoc.getName()+"\n";
+	}
+	
 	@Override
 	public Board getBoard() throws RemoteException {
 		return this.board;
 	}
+	
 	@Override
 	public Player[] getPlayers()throws RemoteException{
 		 return players;
-	 }
+	}
+	
 	@Override
 	public void startGame()throws RemoteException{
 		// Start the game by setting the current player
@@ -97,7 +126,8 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		currPlayer = players[0];
 		msg += currPlayer.getName()+", Location: " + currPlayer.getToken().getLoc().getName()+'\n';
 		msg += "Account: $"+monopolyBank.getBalance(currPlayer)+'\n';
-		notifyAllObserversOfMsg();
+		notifyAllObserversOfMsg();// Display who's turn it is
+		notifyAllObserversOfBoard();// all tokens should be on board.
 	}
 	
 	@Override
