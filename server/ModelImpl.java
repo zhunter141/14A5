@@ -168,6 +168,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	public void buyDeed() throws java.rmi.RemoteException{
 		/*
 		 * 
+		 */
 		Square myLoc = currPlayer.getToken().getLoc();
 		
 		if(!myLoc.isPurchasable()){
@@ -194,7 +195,6 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		}
 		notifyAllObserversOfMsg();
 		notifyAllObserversOfBoard();
-		 */
 	}
 	/*
 	 * Manipulate Observers
@@ -235,6 +235,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	
 	@Override
 	public Board getBoard() throws RemoteException {
+		System.out.println("Returning board.");
 		return this.board;
 	}
 	

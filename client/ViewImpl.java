@@ -123,8 +123,10 @@ public class ViewImpl implements ViewInterface{
 		System.out.println("Setting up board.");
 		boardPanel = new JPanel();
 		boardPanel.setLayout(new GridLayout(11,11));
-		
+		System.out.println("Here.");
+
 		LinkedHashMap<String, Square> listOfSquares = model.getBoard().getSquares();
+		System.out.println("I have a list of squares.");
 		/*
 		 * 
 		 */
