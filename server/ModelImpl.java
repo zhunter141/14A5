@@ -12,6 +12,7 @@ import cs414.a5.Dice;
 import cs414.a5.Player;
 import cs414.a5.Square;
 import cs414.a5.Token;
+import cs414.a5.View;
 
 @SuppressWarnings("serial")
 public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
@@ -21,15 +22,39 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	private int expectedPlayer;
 	private Bank monopolyBank;
 	private Dice dice;
-	private int counter;
+	private int counter = 0;
 	private int iterator;
 	private Player currPlayer;
 	private String msg;
 	private Token[] allTokens;
-	public ModelImpl() throws RemoteException {
+	private boolean hasRolled;
+
+	
+	public ModelImpl(int numPlayers) throws RemoteException {
 		super();	
 		board = new Board();
 		board.initialize();
+		allTokens = new Token[numPlayers];		
+		dice = new Dice();
+		monopolyBank = new Bank();
+		
+		//board.initCards();
+		msg = "";
+		players = new Player[numPlayers];
+		iterator = 0;
+		counter = 0;
+		createTokens();
+		hasRolled = false;
+	}
+	private void createTokens(){
+		Token t1 =new Token("Horse");
+		Token t2 =new Token("Car");
+		//Token t3 =new Token("Mouse");
+		//Token t4 =new Token("Hat");
+		allTokens[0] = t1;		
+		allTokens[1] = t2;
+		//allTokens[2] = t3;
+		//allTokens[3] = t4;
 	}
 	
 	@Override
@@ -59,21 +84,23 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		 return players;
 	 }
 	@Override
-	public void startGame(){
+	public void startGame()throws RemoteException{
 		// Start the game by setting the current player
 		msg = "Welcome to Monopoly Game!\n";
 		msg += "Turn: ";
 		currPlayer = players[0];
 		msg += currPlayer.getName()+", Location: " + currPlayer.getToken().getLoc().getName()+'\n';
 		msg += "Account: $"+monopolyBank.getBalance(currPlayer)+'\n';
-		//view.update();
+		//view.update();     // this is where it breaks!!!!!!!!!!!! Wed by tj
+		notifyAllObservers();
+		
 	}
 	@Override
 	public void addPlayer(String name)throws RemoteException{
 		// Add player to game
 		System.out.println("Adding "+name+" to game!");
 		System.out.println("cs414.a5.Model: Adding: "+name+" to the game.");
-		Player p = new Player(counter,name,allTokens[counter]);
+		Player p = new Player(counter,name,allTokens[counter]);  //nullPointer exception
 		allTokens[counter].setLoc(board.getStart());
 		players[counter] = p;
 		counter++;
@@ -124,6 +151,32 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public void sellDeed(Square myDeed) throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void buildHouse(Square myDeed) throws RemoteException{
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void buildHotel(Square myDeed) throws RemoteException{
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mortgage(Square myDeed) throws RemoteException{
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void umMortgage(Square myDeed) throws RemoteException{
+		// TODO Auto-generated method stub
+		
+	}
+	
 
 
 

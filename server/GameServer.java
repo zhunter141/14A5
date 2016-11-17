@@ -9,11 +9,11 @@ public class GameServer {
 	
 	public GameServer(String numPlayer){
 		try{
-			ModelInterface model = new ModelImpl();
 			
- 			ControllerInterface controller = new ControllerImpl();
+ 			ControllerInterface controller = new ControllerImpl(); // by hj 
 
 			int expectedNumPlayer = Integer.parseInt(numPlayer);
+			ModelInterface model = new ModelImpl(expectedNumPlayer);
 			model.setExpectedPlayer(expectedNumPlayer);
 
 			// Binding

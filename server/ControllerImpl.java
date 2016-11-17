@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -18,10 +19,12 @@ import cs414.a5.Square;
 import cs414.a5.View;
 
 @SuppressWarnings("serial")
-public class ControllerImpl extends UnicastRemoteObject implements ControllerInterface{
+public class ControllerImpl 
+//extends UnicastRemoteObject 
+implements ControllerInterface{
 		 
 		public ControllerImpl() throws RemoteException {
-			super();
+			//super();
 		}
 		private ModelInterface model;
 		private ViewInterface view;
@@ -97,9 +100,10 @@ public class ControllerImpl extends UnicastRemoteObject implements ControllerInt
 			myPropertiesButton.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){
 					//System.out.println("My Deeds button pressed!");
-					//try catch by HJ
+					//try catch by HJ 
+					// type cast model.getDeeds() by HJ
 					try {
-						view.chooseDeeds(model.getDeeds());
+						view.chooseDeeds((HashSet<Square>)model.getDeeds());
 					} catch (RemoteException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -122,7 +126,13 @@ public class ControllerImpl extends UnicastRemoteObject implements ControllerInt
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-					view.dispose();
+					// add try catch by tj
+					try {
+						view.dispose();
+					} catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 			});
 			return endGameButton;
