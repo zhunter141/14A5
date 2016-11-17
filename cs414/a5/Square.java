@@ -19,6 +19,8 @@ public class Square implements Serializable{
 	private boolean isPurchasable;
 	private Square next;
 	private ArrayList<Token> myTokens;
+	protected int rentCost;
+	protected int cost;
 	
 	public Square(Color color,String name){
 		this.color = color;
@@ -26,6 +28,8 @@ public class Square implements Serializable{
 		setPurchasable(false);
 		next = null;
 		myTokens = new ArrayList<Token>();
+		rentCost = 0;
+		cost = 0;
 	}
 	// Getters
 	public Color getColor(){
@@ -229,6 +233,13 @@ public class Square implements Serializable{
 	
 	public ArrayList<Token> getTokens(){
 		return myTokens;
+	}
+	public int getRentCost() {
+		return rentCost;
+	}
+	
+	public int getCost(){
+		return cost;
 	}
 	
 }

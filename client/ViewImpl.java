@@ -101,18 +101,21 @@ public class ViewImpl implements ViewInterface{
 		endTurnButton.setEnabled(false);
 
 		myPropertiesButton = ctrl.getMyPropertiesButton();
+
 		endGameButton = ctrl.getEndGameButton();
 		
 		// Add buttons to buttonPanel & buttonArray
 		buttonPanel.add(buyButton);
 		buttonPanel.add(rollButton);
 		buttonPanel.add(endTurnButton);
+
 		buttonPanel.add(myPropertiesButton);
 		buttonPanel.add(endGameButton);
 		
 		buttonArray.add(buyButton);
 		buttonArray.add(rollButton);
 		buttonArray.add(myPropertiesButton);
+
 		buttonArray.add(endGameButton);
 		
 		// Add button panel to gameMsgPanel
@@ -123,8 +126,10 @@ public class ViewImpl implements ViewInterface{
 		System.out.println("Setting up board.");
 		boardPanel = new JPanel();
 		boardPanel.setLayout(new GridLayout(11,11));
-		
+		System.out.println("Here.");
+
 		LinkedHashMap<String, Square> listOfSquares = model.getBoard().getSquares();
+		System.out.println("I have a list of squares.");
 		/*
 		 * 
 		 */
@@ -201,6 +206,7 @@ public class ViewImpl implements ViewInterface{
 	/*
 	 * Disable buttons
 	 */
+	
 	@Override
 	public void disableRoll() throws java.rmi.RemoteException{
 		rollButton.setEnabled(false);

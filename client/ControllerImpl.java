@@ -32,23 +32,19 @@ public class ControllerImpl implements ControllerInterface{
 		// Buttons and Action Listeners
 		@Override
 		public JButton getBuyButton() throws RemoteException{
-			  JButton buyButton = new JButton("Buy");
-			  
-			  buyButton.addActionListener(new ActionListener() {
-				  public void actionPerformed(ActionEvent e){
-					  System.out.println("Debug-Controller: " + "Buy button pressed");
-					  /*
-					   * 
-					  //try catch by HJ
-					  try {
+			JButton buyButton = new JButton("Buy");
+			buyButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e){
+					System.out.println("Debug-Controller: " + "Buy button pressed");
+					//try catch by HJ
+					try {
 						model.buyDeed();
 					} catch (RemoteException e1) {
 						e1.printStackTrace();
 					}
-					   */
-					  } 
-			  });
-			  return buyButton;
+				} 
+			});
+			return buyButton;
 		}
 		@Override
 		public JButton getRollDiceButton() throws RemoteException{

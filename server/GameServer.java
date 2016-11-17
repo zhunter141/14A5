@@ -10,7 +10,6 @@ public class GameServer {
 			System.setProperty("java.rmi.server.hostname","localhost");// Fixes Connection refused on my machine - vf
 			int expectedNumPlayer = Integer.parseInt(numPlayer);
 			
-			//System.out.println("Expected number of players = "+expectedNumPlayer);
 			ModelInterface model = new ModelImpl(expectedNumPlayer);
 			model.setExpectedPlayer(expectedNumPlayer);
 
