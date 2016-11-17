@@ -86,8 +86,8 @@ public class ControllerImpl implements ControllerInterface{
 			myPropertiesButton.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){
 					System.out.println("My Deeds button pressed!");
-					/*
-					 * 
+					
+					 
 					//try catch by HJ 
 					// type cast model.getDeeds() by HJ
 					try {
@@ -95,7 +95,7 @@ public class ControllerImpl implements ControllerInterface{
 					} catch (RemoteException e1) {
 						e1.printStackTrace();
 					}
-					 */
+					
 				}
 			});
 			return myPropertiesButton;
@@ -140,16 +140,5 @@ public class ControllerImpl implements ControllerInterface{
 		    }
 		    
 			model.auction(s,bits);
-		}
-
-		@Override
-		public JButton getBuildButton() throws RemoteException {
-			JButton buildButton = new JButton("Build");
-			buildButton.addActionListener(new ActionListener(){
-				public void actionPerformed(ActionEvent e){
-					System.out.println("build Game button pressed!");
-				}
-			});
-			return buildButton;
 		}
 }	
