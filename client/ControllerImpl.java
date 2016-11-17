@@ -4,6 +4,8 @@ package client;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
+import java.util.HashSet;
+
 //import java.util.HashSet;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -18,15 +20,17 @@ public class ControllerImpl implements ControllerInterface{
 		private ViewInterface view;
 		//private ArrayList<ViewInterface> viewList; not sure why we need a list of ViewInterfaces here - vf
 		
+		@Override		
 		public void addModel(ModelInterface m) throws RemoteException{
 			model = m;
 		}
-		 
+		@Override 
 		public void addView(ViewInterface v) throws RemoteException{
 			view = v;
 		}
 		
 		// Buttons and Action Listeners
+		@Override
 		public JButton getBuyButton() throws RemoteException{
 			  JButton buyButton = new JButton("Buy");
 			  
@@ -46,7 +50,7 @@ public class ControllerImpl implements ControllerInterface{
 			  });
 			  return buyButton;
 		}
-		
+		@Override
 		public JButton getRollDiceButton() throws RemoteException{
 			JButton rollButton = new JButton("Roll");
 			  
@@ -63,7 +67,7 @@ public class ControllerImpl implements ControllerInterface{
 			  });
 			  return rollButton;
 		}
-		
+		@Override
 		public JButton getEndTurnButton() throws RemoteException{
 			JButton endTurnButton = new JButton("End Turn");
 			
@@ -80,7 +84,7 @@ public class ControllerImpl implements ControllerInterface{
 			});
 			return endTurnButton;
 		}
-		
+		@Override
 		public JButton getMyPropertiesButton() throws RemoteException{
 			JButton myPropertiesButton = new JButton("My properties");
 			myPropertiesButton.addActionListener(new ActionListener(){
@@ -100,7 +104,7 @@ public class ControllerImpl implements ControllerInterface{
 			});
 			return myPropertiesButton;
 		}
-		
+		@Override
 		public JButton getEndGameButton() throws RemoteException{
 			JButton endGameButton = new JButton("End Game");
 			endGameButton.addActionListener(new ActionListener(){
@@ -125,7 +129,7 @@ public class ControllerImpl implements ControllerInterface{
 			});
 			return endGameButton;
 		}
-		
+		@Override
 		public void auctionMenu(Square s) throws RemoteException{	
 			int numPlayers = model.getNumPlayer();// get number of players
 			int []bits = new int [numPlayers];
