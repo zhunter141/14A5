@@ -28,26 +28,16 @@ public class GameClient {
 			// Let a view receive incoming calls using port 0
 			//UnicastRemoteObject.exportObject(view, 0);
 			
-			model = (ModelInterface) Naming.lookup("rmi://localhost:2501/model");
+			model = (ModelInterface) Naming.lookup("rmi://localhost:2500/model");
 			System.out.println("I have a model.");
 			
  
 			view.addModel(model);//add observable to 
-
-					
-			
 			model.addView(viewStub);
-
-		
-			view.setUpGUI();
-			
-
 			controller.addModel(model);
 			controller.addView(view);
 
-
-			
-			
+			view.setUpGUI();			
 		} catch (MalformedURLException murle) {
 			System.out.println("MalformedURLException");
 			System.out.println(murle);

@@ -8,20 +8,14 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
-
 import javax.swing.*;
-
 import common.ControllerInterface;
 import common.ModelInterface;
 import common.ViewInterface;
 import cs414.a5.SquareView;
-import cs414.a5.Controller;
 import cs414.a5.Square;
 
-public class ViewImpl 
-//extends UnicastRemoteObject should be commented otherwise we get exportException
-implements ViewInterface{ 
-	private static final long serialVersionUID = 1L;
+public class ViewImpl implements ViewInterface{ 
 	public static final int DEFAULT_WIDTH = 900;
 	public static final int DEFAULT_HEIGHT = 900;
 	private JFrame myFrame;
@@ -53,11 +47,10 @@ implements ViewInterface{
 }*/
 	public void setUpGUI() throws RemoteException{
 		System.out.println("Setting up GUI.");
-		startMenu();
- 
 		addMsgPanel();
 		addButtonPanel();
  		setupBoard();
+ 		startMenu();
 		myFrame.setVisible(true);
 	}
 	
@@ -67,8 +60,8 @@ implements ViewInterface{
 	}
 
 	@Override
-	public void update() throws RemoteException {   // needs to be move to its own class?
-		System.out.println("I need to update the board!");
+	public synchronized void update() throws RemoteException {   // needs to be move to its own class?
+		msgTextArea.append(model.getMsg());
 	}
 	
 	//HJ add 
@@ -79,11 +72,6 @@ implements ViewInterface{
 		setupBoard();
 		boardPanel.setVisible(true);	
 	}
-	
-	
-	
-	
-	
 	
 	// HELPER METHODS
 	private void startMenu() throws RemoteException{	

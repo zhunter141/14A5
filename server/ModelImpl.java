@@ -62,7 +62,14 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	}
 
 	@Override
-	public void notifyAllObservers() throws RemoteException {
+	public void notifyAllObserversOfBoard() throws RemoteException {
+		for(ViewInterface v : observers){
+			v.updateBoard();
+		}
+	}
+	
+	@Override
+	public void notifyAllObserversOfMsg() throws RemoteException{
 		for(ViewInterface v : observers){
 			v.update();
 		}
@@ -71,7 +78,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	@Override
 	public void rollDice() throws RemoteException{
 		System.out.println("From model, player has rolled dice.");
-		notifyAllObservers();
+		notifyAllObserversOfBoard();
 	}
 
 	@Override
@@ -90,10 +97,9 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		currPlayer = players[0];
 		msg += currPlayer.getName()+", Location: " + currPlayer.getToken().getLoc().getName()+'\n';
 		msg += "Account: $"+monopolyBank.getBalance(currPlayer)+'\n';
-		//view.update();     // this is where it breaks!!!!!!!!!!!! Wed by tj
-		notifyAllObservers();
-		
+		notifyAllObserversOfMsg();
 	}
+	
 	@Override
 	public void addPlayer(String name) throws RemoteException{
 		// Add player to game
@@ -104,17 +110,18 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		players[counter] = p;
 		counter++;
 		monopolyBank.addClient(p);
-		int currentPlayer= this.getPlayers().length;
+		int currentPlayer = counter;
 		if(currentPlayer == expectedPlayer){
+			System.out.println("All players added to game.");
 			this.startGame();
 		}
 	}
 	
 	public void setExpectedPlayer(int num){
 		this.expectedPlayer = num;
+		System.out.println("Setting expec p = "+expectedPlayer);
 	}
 
-	
 	//HJ: Feel free to del after checking
 	@Override
 	public void buyDeed() throws RemoteException {
@@ -142,8 +149,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 
 	@Override
 	public void auction(Square s, int[] bits) throws RemoteException {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
 	}
 
 	@Override
@@ -151,33 +157,38 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	@Override
 	public void sellDeed(Square myDeed) throws RemoteException {
 		// TODO Auto-generated method stub
 		
 	}
+	
 	@Override
 	public void buildHouse(Square myDeed) throws RemoteException{
 		// TODO Auto-generated method stub
 		
 	}
+	
 	@Override
 	public void buildHotel(Square myDeed) throws RemoteException{
 		// TODO Auto-generated method stub
 		
 	}
+	
 	@Override
 	public void mortgage(Square myDeed) throws RemoteException{
 		// TODO Auto-generated method stub
 		
 	}
+	
 	@Override
 	public void umMortgage(Square myDeed) throws RemoteException{
 		// TODO Auto-generated method stub
 		
 	}
-	
-
-
-
+	@Override
+	public String getMsg() throws RemoteException {
+		return msg;
+	}
 }

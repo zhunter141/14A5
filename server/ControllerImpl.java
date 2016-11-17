@@ -4,7 +4,6 @@ import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -14,23 +13,14 @@ import javax.swing.JOptionPane;
 import common.ControllerInterface;
 import common.ModelInterface;
 import common.ViewInterface;
-import cs414.a5.Model;
 import cs414.a5.Square;
-import cs414.a5.View;
 
-@SuppressWarnings("serial")
-public class ControllerImpl 
-//extends UnicastRemoteObject 
-implements ControllerInterface{
-		 
-		public ControllerImpl() throws RemoteException {
-			//super();
-		}
+public class ControllerImpl implements ControllerInterface{
+		
 		private ModelInterface model;
 		private ViewInterface view;
 		private ArrayList<ViewInterface> viewList;
 		
-
 		public void addModel(ModelInterface m) throws RemoteException{
 			model = m;
 		}
