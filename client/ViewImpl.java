@@ -3,7 +3,6 @@ package client;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -36,13 +35,13 @@ public class ViewImpl implements ViewInterface{
 	private JTextArea msgTextArea;
 
 	
-	public ViewImpl() throws RemoteException{ // remove remoteException
+	public ViewImpl() throws java.rmi.RemoteException{ // remove remoteException
 		myFrame = new JFrame("MonopolyGame");
 		myFrame.setSize(DEFAULT_WIDTH,DEFAULT_HEIGHT);
 		buttonArray = new ArrayList<JButton>();
 	}
 
-	public void setUpGUI() throws RemoteException{
+	public void setUpGUI() throws java.rmi.RemoteException{
 		System.out.println("Setting up GUI.");
 		addMsgPanel();
 		addButtonPanel();
@@ -53,33 +52,19 @@ public class ViewImpl implements ViewInterface{
 	}
 	
 	@Override
-	public void setAllButtonsTo(boolean state) throws RemoteException{
+	public void setAllButtonsTo(boolean state) throws java.rmi.RemoteException{
 		for(JButton b : buttonArray){
 			b.setEnabled(state);
 		}
 	}
 
 	@Override
-	public void addModel(ModelInterface model) throws RemoteException {
+	public void addModel(ModelInterface model) throws java.rmi.RemoteException {
 		this.model = model;
 	}
 
-	@Override
-	public synchronized void update() throws RemoteException {   // needs to be move to its own class?
-		msgTextArea.append(model.getMsg());
-	}
-	
-	//HJ add 
-	@Override
-	public synchronized void updateBoard() throws RemoteException{
-		System.out.println("Updating the board!");
-		setupBoard();
-		boardPanel.setVisible(false);
-		boardPanel.setVisible(true);	
-	}
-	
 	// HELPER METHODS
-	private void startMenu() throws RemoteException{	
+	private void startMenu() throws java.rmi.RemoteException{	
 		String playerName = JOptionPane.showInputDialog("Enter your name "); 
 		model.addPlayer(playerName);   // client side got stuck here......
 	}
@@ -103,7 +88,7 @@ public class ViewImpl implements ViewInterface{
 		myFrame.add(gameMsgPanel, BorderLayout.EAST);
 	}
 	
-	private void addButtonPanel() throws RemoteException {
+	private void addButtonPanel() throws java.rmi.RemoteException {
 		// setup button panel
 		buttonPanel = new JPanel();
 		buttonPanel.setBackground(Color.blue);
@@ -134,7 +119,7 @@ public class ViewImpl implements ViewInterface{
 		gameMsgPanel.add(buttonPanel);
 	}
 	
-	private void setupBoard() throws RemoteException {
+	private void setupBoard() throws java.rmi.RemoteException {
 		System.out.println("Setting up board.");
 		boardPanel = new JPanel();
 		boardPanel.setLayout(new GridLayout(11,11));
@@ -154,7 +139,7 @@ public class ViewImpl implements ViewInterface{
 	}
 	
 	
-	public void chooseDeeds(HashSet<Square> myDeeds) throws RemoteException {
+	public void chooseDeeds(HashSet<Square> myDeeds) throws java.rmi.RemoteException {
 		if(myDeeds.size()==0){			
 			JOptionPane.showMessageDialog( null, "You do not have any properties! \n "
 			,null, JOptionPane.INFORMATION_MESSAGE);
@@ -178,10 +163,8 @@ public class ViewImpl implements ViewInterface{
 		    modifyDeed(myMap.get(input));
 		}
 	}
-	public void dispose(){
-		System.exit(0);
-	}
-	public void modifyDeed(Square myDeed) throws RemoteException{
+	
+	public void modifyDeed(Square myDeed) throws java.rmi.RemoteException{
 		String options[] = {"Sell","Build House","Build Hotel","Mortgage","Unmortgage","Auction"};
 		String decision = (String) JOptionPane.showInputDialog(null, "What would you like to do with your property?",
 		        "The Choice of a Lifetime", JOptionPane.QUESTION_MESSAGE, null, // Use
@@ -211,7 +194,49 @@ public class ViewImpl implements ViewInterface{
 	}
 
 	@Override
-	public void addController(ControllerInterface controller) throws RemoteException{
+	public void addController(ControllerInterface controller) throws java.rmi.RemoteException{
 		this.ctrl = controller;
+	}
+	
+	/*
+	 * Disable buttons
+	 */
+	@Override
+	public void disableRoll() throws java.rmi.RemoteException{
+		rollButton.setEnabled(false);
+	}
+	
+	@Override
+	public synchronized void enableRoll() throws java.rmi.RemoteException{
+		rollButton.setEnabled(true);
+	}
+	
+	@Override
+	public synchronized void enableEndTurn() throws java.rmi.RemoteException{
+		endTurnButton.setEnabled(true);
+	}
+	
+	@Override
+	public synchronized void disableEndTurn() throws java.rmi.RemoteException{
+		endTurnButton.setEnabled(false);
+	}
+	
+	@Override
+	public synchronized void dispose() throws java.rmi.RemoteException{
+		System.exit(0);
+	}
+	
+	@Override
+	public synchronized void update() throws java.rmi.RemoteException {   // needs to be move to its own class?
+		msgTextArea.append(model.getMsg());
+	}
+	
+	//HJ add 
+	@Override
+	public synchronized void updateBoard() throws java.rmi.RemoteException{
+		System.out.println("Updating the board!");
+		setupBoard();
+		boardPanel.setVisible(false);
+		boardPanel.setVisible(true);	
 	}
 }

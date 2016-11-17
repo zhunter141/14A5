@@ -26,7 +26,6 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	private Bank monopolyBank;
 	private Dice dice;
 	private int counter = 0;
-	private int iterator;
 	private Player currPlayer;
 	private String msg;
 	private Token[] allTokens;
@@ -43,11 +42,11 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		//board.initCards();
 		msg = "";
 		players = new Player[numPlayers];
-		iterator = 0;
 		counter = 0;
 		createTokens();
 		hasRolled = false;
 	}
+	
 	private void createTokens(){
 		Token t1 =new Token("Horse");
 		Token t2 =new Token("Car");
@@ -63,7 +62,47 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	public void addView(ViewInterface v) throws RemoteException {
 		observers.add(v);
 	}
+	
+	@Override
+	public void rollDice() throws RemoteException{
+		System.out.println("From model, player has rolled dice.");
+		if(!hasRolled){
+			hasRolled = true;
+	
+			// Determine who is the current Player
+			currPlayer = players[counter%expectedPlayer];
+			
+			int steps = dice.roll();
+			
+			msg = ""+currPlayer.getName()+" rolled: "+steps+'\n';
+			move(steps);
+			// The player has rolled disable the roll button!
+			disableCurrViewRollButton();
+			// The player has rolled enable the end turn button
+			enableCurrViewEndTurnButton();
+		}
+		notifyAllObserversOfMsg();
+		notifyAllObserversOfBoard();
+	}
 
+	private void enableControls() throws java.rmi.RemoteException{
+		// Enable controls for a specific view
+		ViewInterface currInterface = observers.get(counter%expectedPlayer);
+		currInterface.setAllButtonsTo(true);
+	}
+	
+	/*
+	 * Manipulate Observers
+	 */
+	
+	private void disableCurrViewRollButton() throws java.rmi.RemoteException{
+		observers.get(counter%expectedPlayer).disableRoll();
+	}
+	
+	private void enableCurrViewEndTurnButton() throws java.rmi.RemoteException{
+		observers.get(counter%expectedPlayer).enableEndTurn();
+	}
+	
 	@Override
 	public void notifyAllObserversOfBoard() throws RemoteException {
 		for(ViewInterface v : observers){
@@ -76,28 +115,6 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		for(ViewInterface v : observers){
 			v.update();
 		}
-	}
-	
-	@Override
-	public void rollDice() throws RemoteException{
-		System.out.println("From model, player has rolled dice.");
-		if(!hasRolled){
-			hasRolled = true;
-	
-			// Determine who is the current Player
-			currPlayer = players[iterator%counter];
-			
-			int steps = dice.roll();
-			
-			msg = ""+currPlayer.getName()+" rolled: "+steps+'\n';
-			move(steps);
-			// The player has rolled disable the roll button!
-			//view.disableRoll();
-			// The player has rolled enable the end turn button
-			//view.enableEndTurn();
-		}
-		notifyAllObserversOfMsg();
-		notifyAllObserversOfBoard();
 	}
 	
 	@Override
@@ -129,12 +146,6 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		notifyAllObserversOfMsg();// Display who's turn it is
 		notifyAllObserversOfBoard();// all tokens should be on board.
 		enableControls();// enable controls for current player
-	}
-	
-	private void enableControls() throws java.rmi.RemoteException{
-		// Enable controls for a specific view
-		ViewInterface currInterface = observers.get(counter-1);
-		currInterface.setAllButtonsTo(true);
 	}
 	
 	@Override
