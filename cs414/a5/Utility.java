@@ -3,21 +3,15 @@ package cs414.a5;
 import java.awt.Color;
 
 public class Utility extends Square{
-	private int cost;
-	private int rentCost;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	public Utility(Color color, String name, int cost, int rentCost){
 		super(color,name);
-		this.cost = cost;
-		this.rentCost = rentCost;
+		super.cost = cost;
+		super.rentCost = rentCost;
 		this.setPurchasable(true);
-	}
-	
-	public int getCost(){
-		return cost;
-	}
-	
-	public int getRentCost(){
-		return rentCost;
 	}
 }
