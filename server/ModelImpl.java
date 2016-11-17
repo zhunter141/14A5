@@ -3,6 +3,7 @@ package server;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import common.ModelInterface;
 import common.ViewInterface;
@@ -297,11 +298,10 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	}
 
 	@Override
-	public Object getDeeds() throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+	public HashSet<Square> getDeeds() throws RemoteException {
+		 return currPlayer.getMyDeeds();
 	}
-
+	
 	@Override
 	public int getNumPlayer() throws RemoteException {
 		// TODO Auto-generated method stub
