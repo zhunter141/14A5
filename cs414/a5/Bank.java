@@ -1,9 +1,10 @@
 package cs414.a5;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Bank {
-
+public class Bank implements Serializable{ 
+	private static final long serialVersionUID = 1L; // added by TJ
 	private HashMap<Integer, Account> accounts;
 	private Model monopolyModel;
 

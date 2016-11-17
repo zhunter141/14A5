@@ -1,15 +1,17 @@
 package cs414.a5;
 
+import java.io.Serializable;
 import java.util.HashSet;
 
-public class Player {
+public class Player implements Serializable{
 	private int id;
 	private String name;
 	private HashSet<Square> myDeeds;
 	private HashSet<Card> myCards;
 	private Token token;
 	private boolean hasCard;
-	
+	private static final long serialVersionUID = 1L;
+
 	//private Model monopolyModel;
 	//private Bank monopolyBank;
 

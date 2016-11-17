@@ -1,23 +1,21 @@
 package server;
 
 import java.rmi.Naming;
-
-import common.ControllerInterface;
 import common.ModelInterface;
 
 public class GameServer {
 	
 	public GameServer(String numPlayer){
 		try{
-			ModelInterface model = new ModelImpl();
-			
- 			ControllerInterface controller = new ControllerImpl();
-
+			System.setProperty("java.rmi.server.hostname","localhost");// Fixes Connection refused on my machine - vf
 			int expectedNumPlayer = Integer.parseInt(numPlayer);
+			
+			//System.out.println("Expected number of players = "+expectedNumPlayer);
+			ModelInterface model = new ModelImpl(expectedNumPlayer);
 			model.setExpectedPlayer(expectedNumPlayer);
 
 			// Binding
-			Naming.rebind("rmi://localhost:2501/model",model);
+			Naming.rebind("rmi://localhost:2500/model",model);
 			System.out.println("Game server running...");
 		}catch(Exception e){
 			System.out.println("Trouble: " + e );
@@ -26,9 +24,6 @@ public class GameServer {
 	}
 	
 	public static void main(String args[]) {
-		new GameServer(args[1]);
-		System.out.println(args[1]);
-
-		
+		new GameServer(args[0]);
 	}
 }
