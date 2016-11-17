@@ -28,23 +28,19 @@ public class ControllerImpl implements ControllerInterface{
 		
 		// Buttons and Action Listeners
 		public JButton getBuyButton() throws RemoteException{
-			  JButton buyButton = new JButton("Buy");
-			  
-			  buyButton.addActionListener(new ActionListener() {
-				  public void actionPerformed(ActionEvent e){
-					  System.out.println("Debug-Controller: " + "Buy button pressed");
-					  /*
-					   * 
-					  //try catch by HJ
-					  try {
+			JButton buyButton = new JButton("Buy");
+			buyButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e){
+					System.out.println("Debug-Controller: " + "Buy button pressed");
+					//try catch by HJ
+					try {
 						model.buyDeed();
 					} catch (RemoteException e1) {
 						e1.printStackTrace();
 					}
-					   */
-					  } 
-			  });
-			  return buyButton;
+				} 
+			});
+			return buyButton;
 		}
 		
 		public JButton getRollDiceButton() throws RemoteException{
@@ -140,16 +136,5 @@ public class ControllerImpl implements ControllerInterface{
 		    }
 		    
 			model.auction(s,bits);
-		}
-
-		@Override
-		public JButton getBuildButton() throws RemoteException {
-			JButton buildButton = new JButton("Build");
-			buildButton.addActionListener(new ActionListener(){
-				public void actionPerformed(ActionEvent e){
-					System.out.println("build Game button pressed!");
-				}
-			});
-			return buildButton;
 		}
 }	
