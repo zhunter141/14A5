@@ -89,7 +89,7 @@ public class Model implements Serializable{
 	
 	public void move(int steps){
 		// Tell the board to Move the player's token 
-			board.move(steps,currPlayer.getToken());
+			board.move(1,currPlayer.getToken());
 			Square currLoc = currPlayer.getToken().getLoc();
 			msg+=""+currPlayer.getName()+" is now on: "+currLoc.getName()+"\n";
 			view.updateBoard();
@@ -169,9 +169,7 @@ public class Model implements Serializable{
 				currPlayer.setHasCard(true);
 				
 			}
-
-			msg += c.processCard(this);
-			view.update();
+			c.processCard(this);
 
 			
 		}
@@ -181,9 +179,7 @@ public class Model implements Serializable{
 				currPlayer.setHasCard(true);
 				
 			}
-
-			msg += c.processCard(this);
-			view.update();
+			c.processCard(this);
 
 			
 		}
@@ -265,13 +261,10 @@ public class Model implements Serializable{
 		counter++;
 		monopolyBank.addClient(p);
 	}
-	
-	
+
 	public void sellDeed(Square d){
 		msg += currPlayer.selldeed(d, monopolyBank);
-		view.update();
-
-		
+		view.update();	
 	}
 	
 	public void buyDeed(){

@@ -16,6 +16,7 @@ import java.util.Map;
 import javax.swing.*;
 
 public class View extends JFrame implements Serializable{
+	private static final long serialVersionUID = 1L;
 	public static final int DEFAULT_WIDTH = 900;
 	public static final int DEFAULT_HEIGHT = 900;
 
