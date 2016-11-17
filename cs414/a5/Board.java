@@ -286,7 +286,8 @@ public class Board implements Serializable{
 		return start;
 	}
 	
-	public LinkedHashMap<String, Square> getSquares(){
+	public synchronized LinkedHashMap<String, Square> getSquares(){
+		System.out.println("Returning my sqaures.");
 		return (LinkedHashMap<String, Square>) mySquares;
 	}
 	
