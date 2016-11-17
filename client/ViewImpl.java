@@ -5,12 +5,17 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 
 import javax.swing.*;
+
+import common.ControllerInterface;
 import common.ModelInterface;
 import common.ViewInterface;
 import cs414.a5.SquareView;
+import cs414.a5.Controller;
 import cs414.a5.Square;
 
 public class ViewImpl 
@@ -21,6 +26,7 @@ implements ViewInterface{
 	public static final int DEFAULT_HEIGHT = 900;
 	private JFrame myFrame;
 	private ModelInterface model;
+	private ControllerInterface ctrl;
 	
 	// Window objects
 	private JButton buyButton;
@@ -40,13 +46,18 @@ implements ViewInterface{
 		myFrame.setSize(DEFAULT_WIDTH,DEFAULT_HEIGHT);
 	}
 
+	/*private void startMenu() throws RemoteException{	
+		String playerName = JOptionPane.showInputDialog("Enter your name ");
+		//Send model the name of each player 
+		model.addPlayer(playerName);
+}*/
 	public void setUpGUI() throws RemoteException{
 		System.out.println("Setting up GUI.");
 		startMenu();
-
-//		addMsgPanel();
-//		addButtonPanel();
-		setupBoard();
+ 
+		addMsgPanel();
+		addButtonPanel();
+ 		setupBoard();
 		myFrame.setVisible(true);
 	}
 	
@@ -59,6 +70,20 @@ implements ViewInterface{
 	public void update() throws RemoteException {   // needs to be move to its own class?
 		System.out.println("I need to update the board!");
 	}
+	
+	//HJ add 
+	@Override
+	public void updateBoard() throws RemoteException{
+		System.out.println("Updating the board!");
+		boardPanel.setVisible(false);
+		setupBoard();
+		boardPanel.setVisible(true);	
+	}
+	
+	
+	
+	
+	
 	
 	// HELPER METHODS
 	private void startMenu() throws RemoteException{	
@@ -128,4 +153,65 @@ implements ViewInterface{
 		// add boardPanel to JFrame
 		myFrame.add(boardPanel);
 	}
+	
+	
+	public void chooseDeeds(HashSet<Square> myDeeds) throws RemoteException {
+		if(myDeeds.size()==0){			
+			JOptionPane.showMessageDialog( null, "You do not have any properties! \n "
+			,null, JOptionPane.INFORMATION_MESSAGE);
+			return;
+		}
+		HashMap <String,Square> myMap = new HashMap<String, Square>();
+		String labels[] = new String[myDeeds.size()];
+		int i = 0;
+		for(Square s: myDeeds){
+			labels[i] = s.getName();
+			myMap.put(labels[i], s);
+			i++;
+		}
+		String input = (String) JOptionPane.showInputDialog(null, "Choose property to modify",
+		        "Shop Smart", JOptionPane.QUESTION_MESSAGE, null, // Use
+		                                                                        // default
+		                                                                        // icon
+		        labels, // Array of choices
+		        labels[0]); // Initial choice
+		if(input != null){	     
+		    modifyDeed(myMap.get(input));
+		}
+	}
+	public void dispose(){
+		System.exit(0);
+	}
+	public void modifyDeed(Square myDeed) throws RemoteException{
+		String options[] = {"Sell","Build House","Build Hotel","Mortgage","Unmortgage","Auction"};
+		String decision = (String) JOptionPane.showInputDialog(null, "What would you like to do with your property?",
+		        "The Choice of a Lifetime", JOptionPane.QUESTION_MESSAGE, null, // Use
+		                                                                        // default
+		                                                                        // icon
+		        options, // Array of choices
+		        options[0]); // Initial choice
+		    System.out.println("I want to : "+decision);	
+		 if(decision != null){
+		    switch(decision){
+		    	case "Sell":
+					model.sellDeed(myDeed);break;
+		    	case "Build House":
+		    		model.buildHouse(myDeed);break;
+		    	case "Build Hotel":
+		    		model.buildHotel(myDeed);break;
+		    	case "Mortgage":
+		    		model.mortgage(myDeed);break;
+		    	case "Unmortgage":
+		    		model.umMortgage(myDeed);break;
+		    	case "Auction":
+		    		ctrl.auctionMenu(myDeed);break;
+		    	default:
+		    		throw new IllegalArgumentException("You have to pick one!");
+		    }  
+		 }  
+	}
+
+	//
+	
+
 }
