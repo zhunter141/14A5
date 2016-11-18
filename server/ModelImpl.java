@@ -278,7 +278,13 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	}
 	
 	public void setExpectedPlayer(int num){
-		this.expectedPlayer = num;
+		// make sure only up to 4 players can play
+		if(num > 4){
+			this.expectedPlayer = 4;
+		}
+		else{
+			this.expectedPlayer = num;
+		}
 		System.out.println("Setting expec p = "+expectedPlayer);
 	}
 
@@ -318,7 +324,6 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		 notifyAllObserversOfBoard();
 	 }
 
-	
 	@Override
 	public void enterBid(Square s ,int bit) throws java.rmi.RemoteException{
 		allBits[this.bidIndex+1] = bit; 
