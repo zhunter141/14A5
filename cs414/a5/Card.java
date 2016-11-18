@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.rmi.RemoteException;
 
 import common.ModelInterface;
+import server.ModelImpl;
 
 public class Card implements Serializable{
 	
@@ -55,6 +56,7 @@ public class Card implements Serializable{
 		}else if (getAction().equals("move")){
 			int distance = this.getVal();
 			theModel.move(distance);
+		/*
 		}else if (getAction().equals("toJail")){//&
 			Square sqtmp = theModel.getBoard().getSquares().get("JAIL");
 			Token t = theModel.getCurrPlayer().getToken();
@@ -65,12 +67,24 @@ public class Card implements Serializable{
 			}
 			else{
 				theModel.endTurn();
-			}
+		}
+		*/
+		}else if (getAction().equals("toJail")){
+			Square sqtmp = theModel.getBoard().getSquares().get("JAIL");
+			Token t = theModel.getCurrPlayer().getToken();
+			if(currentPlayer.hasCard() == false){
+				t.setLoc((Square)sqtmp);
+				t.getLoc().removeToken(t);
+			}else{
+				theModel.endTurn();
+		}
 
 		}else if (getAction().equals("outJail")){
 			despMsg += "You used your Get out of jail free card.";
 			currentPlayer.setHasCard(false);
 		}else if (getAction().equals("GO")){
+			int amount = this.getVal();
+			theModel.getBank().deposit(currentPlayer, amount);
 			Square sqtmp = (Square)(theModel.getBoard().getSquares().get("GO"));
 			Token t = theModel.getCurrPlayer().getToken();
 			t.getLoc().removeToken(t);

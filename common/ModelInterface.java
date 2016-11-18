@@ -29,12 +29,13 @@ public interface ModelInterface extends java.rmi.Remote{
 	public void buildHotel(Square myDeed) throws java.rmi.RemoteException;
 	public void mortgage(Square myDeed) throws java.rmi.RemoteException;
 	public void umMortgage(Square myDeed) throws java.rmi.RemoteException;
-	public void notifyAllObserversOfBoard() throws RemoteException;
-	public void notifyAllObserversOfMsg() throws RemoteException;
-	public String getMsg() throws RemoteException;
-	public void move(int steps) throws RemoteException;
-	public Player getCurrPlayer() throws RemoteException;
-	public Bank getBank() throws RemoteException;
-	public void startAuction(Square s) throws RemoteException;
+	public void notifyAllObserversOfBoard() throws java.rmi.RemoteException;
+	public void notifyAllObserversOfMsg() throws java.rmi.RemoteException;
+	public String getMsg() throws java.rmi.RemoteException;
+	public void move(int steps) throws java.rmi.RemoteException;
+	public Player getCurrPlayer() throws java.rmi.RemoteException;
+	public Bank getBank() throws java.rmi.RemoteException;
+	public void startAuction(Square s) throws java.rmi.RemoteException;
 	public void enterBid(Square s, int bit) throws java.rmi.RemoteException;
+	void goToJail()throws java.rmi.RemoteException;
 }

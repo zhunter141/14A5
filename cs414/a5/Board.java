@@ -29,7 +29,7 @@ public class Board implements Serializable{
 	public void initCards(){
 		Card[] chanceCards = new Card[16];
 		
-		chanceCards[0] = new Card("Advance to Go.","GO",0); // get the number of moved needed to go to GO
+		chanceCards[0] = new Card("Advance to Go, collect $200.","GO",200);
 		chanceCards[1] = new Card("Advance to Mayfair.","MAYFAIR",0);
 		chanceCards[2] = new Card("You are assessed for street sepairs.","pay",100);
 		chanceCards[3] = new Card("Go to Jail.","toJail",0);
@@ -50,17 +50,19 @@ public class Board implements Serializable{
 
 		Card[] comCards = new Card[16];
 		
-		comCards[0] = new Card("Income tax refund, Collect $20","collect",20);
+		//comCards[0] = new Card("Income tax refund, Collect $20","collect",20);
+		comCards[0] = new Card("Go to Jail.","toJail",0);
 		comCards[1] = new Card("From sale of stock you get $50.","collect",50);
 		comCards[2] = new Card("It is your birthday, Collect $20","collect",20);
 		comCards[3] = new Card("Receive interest on 7% preference shares, Collect $25.","collect",25);
 		comCards[4] = new Card("Get out of Jail free","outJail",0);
-		comCards[5] = new Card("Advance to Go.","GO",0);
+		comCards[5] = new Card("Advance to Go, collect $200.","GO",200);
 		comCards[6] = new Card("Pay hospital $100","pay",100);
 		comCards[7] = new Card("You have won second prize in a beauty contest, Collect $10","collect",10);
 		comCards[8] = new Card("Bank error in your favor, Collect $200","collect",200);
 		comCards[9] = new Card("You inherit $100","collect",100);
-		comCards[10] = new Card("Go to Jail.","toJail",0);
+		//comCards[10] = new Card("Go to Jail.","toJail",0);
+		comCards[10] = new Card("Income tax refund, Collect $20","collect",20);
 		comCards[11] = new Card("Pay your insurance premium $50","pay",50);
 		comCards[12] = new Card("Pay a $10 Fine","pay",10);
 		comCards[13] = new Card("Doctor's fee pay, $50 ","pay",50);
