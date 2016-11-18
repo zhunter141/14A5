@@ -41,8 +41,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		allTokens = new Token[numPlayers];		
 		dice = new Dice();
 		monopolyBank = new Bank();
-		
-		//board.initCards();
+		board.initCards();
 		msg = "";
 		players = new Player[numPlayers];
 		counter = 0;
@@ -139,27 +138,26 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 			monopolyBank.payDue(currPlayer, 300);
 		}
 	}
+	
 	private void cardChecker() throws java.rmi.RemoteException{
-		/*
-		 * 
-			else if(currPosition.getName().equals("COMMUNITY CHEST") ){
-				Card c = board.comDeck.drawCard();
-				if(c.getDescription().equals("Get out of jail free")){
-					currPlayer.setHasCard(true);	
-				}
-				c.processCard(this);
+		Square currPosition = currPlayer.getToken().getLoc();
+		if(currPosition.getName().equals("COMMUNITY CHEST") ){
+			Card c = board.comDeck.drawCard();
+			if(c.getDescription().equals("Get out of jail free")){
+				currPlayer.setHasCard(true);	
 			}
-			else if(currPosition.getName().equals("CHANCE")){
-				Card c = board.chanceDeck.drawCard();
-				if(c.getDescription().equals("Get out of jail free")){
-					currPlayer.setHasCard(true);
-					
-				}
-				c.processCard(this);
-			}
-			// If player was charged wait until now to display there balance
+			msg+=c.processCard(this);
 		}
-		 */	
+		if(currPosition.getName().equals("CHANCE")){
+			Card c = board.chanceDeck.drawCard();
+			if(c.getDescription().equals("Get out of jail free")){
+				currPlayer.setHasCard(true);
+				
+			}
+			msg+=c.processCard(this);
+		}
+		// If player was charged wait until now to display there balance
+		
 	}
 	
 	
@@ -420,12 +418,13 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 
 	@Override
 	public Player getCurrPlayer() throws RemoteException {
+		//return currPlayer;
 		return players[counter%expectedPlayer];
 	}
 
 	@Override
 	public Bank getBank() throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return monopolyBank;
 	}
+
 }
