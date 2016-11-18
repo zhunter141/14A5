@@ -128,7 +128,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 			monopolyBank.payDue(currPlayer, 200);
 			msg += "Oh, no!";
 			//move to jail
-			//goToJail();
+			goToJail();
 			endTurn();	
 		}
 		if(playerLoc.equals("INCOME TAX")){
@@ -280,8 +280,6 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		System.out.println("Setting expec p = "+expectedPlayer);
 	}
 
-	//HJ: Feel free to del after checking
-
 	@Override
 	public void endTurn() throws RemoteException {
 		// disable current players control
@@ -411,6 +409,19 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		notifyAllObserversOfMsg();
 		notifyAllObserversOfBoard();	
 	}
+	
+	@Override
+	public void goToJail(){
+		//move to jail -> may be refactor later
+		board.move(20,currPlayer.getToken());
+		Square currLoc = currPlayer.getToken().getLoc();
+		msg=""+currPlayer.getName()+" is now on: "+currLoc.getName()+'\n';
+		msg+="My properties: "+ currPlayer.toString()+'\n';
+		msg+="My money: "+ monopolyBank.getBalance(currPlayer)+'\n';
+		//view.update();
+		//view.updateBoard();
+	}
+	
 	@Override
 	public String getMsg() throws RemoteException {
 		return msg;
