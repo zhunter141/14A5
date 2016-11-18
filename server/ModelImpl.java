@@ -329,7 +329,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	
 	@Override
 	public void enterBid(Square s ,int bit){
-		allBits[this.bidIndex+1] = bit; 
+		allBits[this.bidIndex] = bit; 
 	}
 	
 	@Override
