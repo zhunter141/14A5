@@ -231,9 +231,9 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	@Override
 	public void startAuction(Square s) throws RemoteException {
 		for(ViewInterface v : observers){
-			//v.auctionMenu(s);
+			v.auctionMenu(s);
 		}
-		 auction(s, allBits) ;
+
 	}
 	
 	@Override
@@ -325,8 +325,14 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	 }
 
 	@Override
+
 	public void enterBid(Square s ,int bit) throws java.rmi.RemoteException{
-		allBits[this.bidIndex+1] = bit; 
+		allBits[this.bidIndex] = bit;
+		this.bidIndex++;
+		if(this.bidIndex == 1){
+			 auction(s, allBits) ;
+		}
+
 	}
 	
 	@Override

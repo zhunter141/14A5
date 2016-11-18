@@ -20,4 +20,5 @@ public interface ViewInterface extends java.rmi.Remote{
 	public void disableEndTurn() throws RemoteException;
 	public void enableRoll() throws java.rmi.RemoteException;
 	public void disableRoll() throws java.rmi.RemoteException;
+	public void auctionMenu(Square s) throws java.rmi.RemoteException;
 }
