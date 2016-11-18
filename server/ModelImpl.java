@@ -242,7 +242,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		for(ViewInterface v : observers){
 			v.auctionMenu(s);
 		}
-		 auction(s, allBits) ;
+
 	}
 	@Override
 	public Board getBoard() throws RemoteException {
@@ -329,7 +329,11 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	
 	@Override
 	public void enterBid(Square s ,int bit){
-		allBits[this.bidIndex] = bit; 
+		allBits[this.bidIndex] = bit;
+		this.bidIndex++;
+		if(this.bidIndex == 1){
+			 auction(s, allBits) ;
+		}
 	}
 	
 	@Override
