@@ -26,7 +26,6 @@ public class GameClient {
 			model = (ModelInterface) Naming.lookup("rmi://localhost:2500/model");
 			System.out.println("I have a model.");
 			
- 
 			view.addModel(model);//add observable to
 			view.addController(controller);
 			model.addView(viewStub);// add listeners

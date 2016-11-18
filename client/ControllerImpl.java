@@ -1,12 +1,8 @@
 package client;
 
-//import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
-import java.util.HashSet;
-
-//import java.util.HashSet;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import common.ControllerInterface;
@@ -18,7 +14,6 @@ public class ControllerImpl implements ControllerInterface{
 		
 		private ModelInterface model;
 		private ViewInterface view;
-		//private ArrayList<ViewInterface> viewList; not sure why we need a list of ViewInterfaces here - vf
 		
 		@Override		
 		public void addModel(ModelInterface m) throws RemoteException{
@@ -91,7 +86,7 @@ public class ControllerImpl implements ControllerInterface{
 					//try catch by HJ 
 					// type cast model.getDeeds() by HJ
 					try {
-						view.chooseDeeds((HashSet<Square>)model.getDeeds());
+						view.chooseDeeds(model.getDeeds());
 					} catch (RemoteException e1) {
 						e1.printStackTrace();
 					}

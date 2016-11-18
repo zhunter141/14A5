@@ -1,6 +1,7 @@
 package common;
 
 import java.rmi.RemoteException;
+import java.util.HashSet;
 
 import cs414.a5.Bank;
 import cs414.a5.Board;
@@ -19,7 +20,7 @@ public interface ModelInterface extends java.rmi.Remote{
 	//HJ : Only for non error to check with Professor
 	public void buyDeed() throws java.rmi.RemoteException;
 	public void endTurn() throws java.rmi.RemoteException;
-	public Object getDeeds() throws java.rmi.RemoteException;
+	public HashSet<Square> getDeeds() throws java.rmi.RemoteException;
 	public int getNumPlayer() throws java.rmi.RemoteException;
 	public void auction(Object o,int[] bits) throws java.rmi.RemoteException;
 	public Object endGame() throws java.rmi.RemoteException;

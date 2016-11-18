@@ -11,10 +11,6 @@ public class Player implements Serializable{
 	private Token token;
 	private boolean hasCard;
 	private static final long serialVersionUID = 1L;
-
-	//private Model monopolyModel;
-	//private Bank monopolyBank;
-
 	
 	public Player(int id, String name,Token token) {
 		this.id = id;
@@ -42,11 +38,13 @@ public class Player implements Serializable{
 	}
 	
 	public void addDeed(Square d){
-		myDeeds.add(d);
+		System.out.println("Adding "+d.getName()+" to my deeds.");
+		System.out.println("Did I add "+d.getName()+"="+myDeeds.add(d));
 	} 
 	
 	public void removeDeed(Square d){
-		myDeeds.remove(d);
+		System.out.println("Removing "+d.getName()+" from my deeds.");
+		System.out.println("Did I remove "+d.getName()+"="+myDeeds.remove(d));
 	}
 	
 	public void addCard(Card c){
@@ -60,48 +58,15 @@ public class Player implements Serializable{
 	}
 	
 	public String selldeed(Square d,Bank monopolyBank){
-				String msg = "";
 				// In this method, deed is a utility, railroad, deed
 				//Pay attention on choose deed
 				//removeDeeds()
 				this.removeDeed(d);
-				int cost = 0;
-				if(d instanceof Utility){
-					Utility utility =  (Utility)d;
-					d =  (Utility)d;
-					cost = utility.getCost();
-					//Just in case
-					utility.setOwner(null);
-				}
-				else if(d instanceof Deed){
-					Deed deed =  (Deed)d;
-					d =  (Deed)d;
-					cost = deed.getCost();
-					//Just in case
-					deed.setOwner(null);
-					
-					if(deed.hasBuilding() == true){
-						deed.setExistanceOfHouseHotel(false);
-						deed.setExistanceOfHotel(false);
-						deed.setExistanceOfHouse(false);
-
-						if(deed.hasHotel() == true){
-							cost += deed.getHotelCost();
-						}
-						else{
-							cost += deed.getHouseCost();
-						}	
-					}
-				}
-				// Square must be a RailRoad
-				else{
-					RailRoad railRoad =  (RailRoad)d;
-					d =  (RailRoad)d;
-					cost = railRoad.getCost();
-					//Just in case
-					railRoad.setOwner(null);
-				}
+				int cost = d.getCost();
+				d.setOwner(null);
+				
 				// Update player account
+				String msg = "";
 				monopolyBank.deposit(this,cost);
 				msg ="Adding: $"+cost+" to "+this.getName()+" account!";
 				msg +="My properties: "+ this.toString()+'\n';
@@ -131,9 +96,6 @@ public class Player implements Serializable{
 		
 	}
 	
-	
-	
-	
 	@Override
 	public String toString(){
 		String listOfDeeds = ""; 
@@ -141,12 +103,12 @@ public class Player implements Serializable{
 			listOfDeeds = listOfDeeds+" "+s.getName();
 		}
 		return listOfDeeds;
-		
 	}
 
 	public boolean hasCard() {
 		return this.hasCard;
 	}
+	
 	public void setHasCard(boolean b) {
 	    this.hasCard = b;
 	}

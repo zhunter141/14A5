@@ -3,6 +3,7 @@ package client;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -35,7 +36,7 @@ public class ViewImpl implements ViewInterface{
 	private JTextArea msgTextArea;
 
 	
-	public ViewImpl() throws java.rmi.RemoteException{ // remove remoteException
+	public ViewImpl() throws java.rmi.RemoteException{
 		myFrame = new JFrame();
 		myFrame.setSize(DEFAULT_WIDTH,DEFAULT_HEIGHT);
 		buttonArray = new ArrayList<JButton>();
@@ -66,6 +67,7 @@ public class ViewImpl implements ViewInterface{
 	// HELPER METHODS
 	private void startMenu() throws java.rmi.RemoteException{	
 		String playerName = JOptionPane.showInputDialog("Enter your name "); 
+		myFrame.setTitle("MonopolyGame - "+playerName);
 		model.addPlayer(playerName);
 	}
 	
@@ -244,5 +246,11 @@ public class ViewImpl implements ViewInterface{
 		setupBoard();
 		boardPanel.setVisible(false);
 		boardPanel.setVisible(true);	
+	}
+
+	@Override
+	public void auctionMenu(Square s) throws RemoteException {
+		// TODO Auto-generated method stub
+		
 	}
 }

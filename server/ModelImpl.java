@@ -9,17 +9,14 @@ import common.ModelInterface;
 import common.ViewInterface;
 import cs414.a5.Bank;
 import cs414.a5.Board;
-import cs414.a5.Card;
 import cs414.a5.Deed;
 import cs414.a5.Dice;
 import cs414.a5.Player;
-import cs414.a5.RailRoad;
 import cs414.a5.Square;
 import cs414.a5.Token;
-import cs414.a5.Utility;
 
-@SuppressWarnings("serial")
 public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
+	private static final long serialVersionUID = 1L;
 	private ArrayList<ViewInterface> observers = new ArrayList<ViewInterface>();
 	private Board board;
 	private Player[] players;
@@ -139,6 +136,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 			monopolyBank.payDue(currPlayer, 300);
 		}
 	}
+	
 	private void cardChecker() throws java.rmi.RemoteException{
 		/*
 		 * 
@@ -288,8 +286,6 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		System.out.println("Setting expec p = "+expectedPlayer);
 	}
 
-	//HJ: Feel free to del after checking
-
 	@Override
 	public void endTurn() throws RemoteException {
 		// disable current players control
@@ -307,7 +303,8 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 
 	@Override
 	public HashSet<Square> getDeeds() throws RemoteException {
-		 return currPlayer.getMyDeeds();
+		System.out.println("Returning "+currPlayer.getName()+" deeds.");
+		return currPlayer.getMyDeeds();
 	}
 	
 	@Override
@@ -430,7 +427,6 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 
 	@Override
 	public Bank getBank() throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return monopolyBank;
 	}
 }
