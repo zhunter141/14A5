@@ -249,8 +249,9 @@ public class ViewImpl implements ViewInterface{
 	@Override
 	public void auctionMenu(Square s) throws RemoteException{	
 	    String bid;	    
-	    	bid = JOptionPane.showInputDialog(model.getCurrPlayer().getName() + "  Enter your bit for : "+ s.getName());
-		model.enterBid(s,bid);
+	    bid = JOptionPane.showInputDialog(model.getCurrPlayer().getName() + "  Enter your bit for : "+ s.getName());
+	    int bidInt = Integer.parseInt(bid);
+		model.enterBid(s, bidInt);
 	}
 	
 }
