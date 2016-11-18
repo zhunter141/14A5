@@ -50,8 +50,7 @@ public class Board implements Serializable{
 
 		Card[] comCards = new Card[16];
 		
-		//comCards[0] = new Card("Income tax refund, Collect $20","collect",20);
-		comCards[0] = new Card("Go to Jail.","toJail",0);
+		comCards[0] = new Card("Income tax refund, Collect $20","collect",20);
 		comCards[1] = new Card("From sale of stock you get $50.","collect",50);
 		comCards[2] = new Card("It is your birthday, Collect $20","collect",20);
 		comCards[3] = new Card("Receive interest on 7% preference shares, Collect $25.","collect",25);
@@ -61,8 +60,7 @@ public class Board implements Serializable{
 		comCards[7] = new Card("You have won second prize in a beauty contest, Collect $10","collect",10);
 		comCards[8] = new Card("Bank error in your favor, Collect $200","collect",200);
 		comCards[9] = new Card("You inherit $100","collect",100);
-		//comCards[10] = new Card("Go to Jail.","toJail",0);
-		comCards[10] = new Card("Income tax refund, Collect $20","collect",20);
+		comCards[10] = new Card("Go to Jail.","toJail",0);
 		comCards[11] = new Card("Pay your insurance premium $50","pay",50);
 		comCards[12] = new Card("Pay a $10 Fine","pay",10);
 		comCards[13] = new Card("Doctor's fee pay, $50 ","pay",50);

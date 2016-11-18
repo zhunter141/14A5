@@ -73,8 +73,8 @@ public class Card implements Serializable{
 			Square sqtmp = theModel.getBoard().getSquares().get("JAIL");
 			Token t = theModel.getCurrPlayer().getToken();
 			if(currentPlayer.hasCard() == false){
-				t.setLoc((Square)sqtmp);
 				t.getLoc().removeToken(t);
+				t.setLoc((Square)sqtmp);
 			}else{
 				theModel.endTurn();
 		}
