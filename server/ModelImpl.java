@@ -78,8 +78,13 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 			msg = ""+currPlayer.getName()+" rolled: "+steps+'\n';
 			move(steps);
 			rentChecker();
+			taxChecker();
+			// If player was charged show now
+			msg+=currPlayer.getName()+" Account: $"+monopolyBank.getBalance(currPlayer)+"\n";
+			
 			// The player has rolled disable the roll button!
 			disableCurrViewRollButton();
+			
 			// The player has rolled enable the end turn button
 			enableCurrViewEndTurnButton();
 		}
@@ -95,7 +100,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		msg+=""+currPlayer.getName()+" is now on: "+currLoc.getName()+"\n";
 	}
 	
-	private void rentChecker(){
+	private void rentChecker() throws RemoteException{
 		Square currPosition = currPlayer.getToken().getLoc();
 		
 		if(currPosition.getOwner()!=null && currPosition.getOwner()!=currPlayer){
@@ -105,33 +110,38 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 
 			if(monopolyBank.payDue(currPlayer, cost)){
 				monopolyBank.deposit(currPosition.getOwner(), cost);
-				msg += ""+currPlayer.getName()+" paid rent $"+cost+ " to "+currPosition.getOwner()+"\n";
+				msg += ""+currPlayer.getName()+" paid rent $"+cost+ " to "+currPosition.getOwner().getName()+"\n";
 			}
 			else{
 				msg += "Not enough money to pay rent/taxes\n";
 			}	
 		}
-		
-		/*
-		 * 
-				else if(currPosition.getName().equals("GO TO JAIL")){
-			//May breakup here
+	}
+	
+	private void taxChecker() throws java.rmi.RemoteException{
+		String playerLoc = currPlayer.getToken().getLoc().getName();
+		if(playerLoc.equals("GO TO JAIL")){
 			monopolyBank.payDue(currPlayer, 200);
 			msg += "Oh, no!";
 			//move to jail
-			goToJail();
-			endTurn();
-				
+			//goToJail();
+			endTurn();	
 		}
+		if(playerLoc.equals("INCOME TAX")){
+			monopolyBank.payDue(currPlayer, 200);
+		}
+		if(playerLoc.equals("LUXURY TAX")){
+			monopolyBank.payDue(currPlayer, 300);
+		}
+	}
+	/*
+	 * 
 		else if(currPosition.getName().equals("COMMUNITY CHEST") ){
 			Card c = board.comDeck.drawCard();
 			if(c.getDescription().equals("Get out of jail free")){
-				currPlayer.setHasCard(true);
-				
+				currPlayer.setHasCard(true);	
 			}
 			c.processCard(this);
-
-			
 		}
 		else if(currPosition.getName().equals("CHANCE")){
 			Card c = board.chanceDeck.drawCard();
@@ -140,36 +150,13 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 				
 			}
 			c.processCard(this);
-
-			
-		}
-		else{
-			//Two more case for Luxury and income tax squares
-			if(currPosition.getName().equals("INCOME TAX")){
-				monopolyBank.payDue(currPlayer, 200);
-			}
-			else if(currPosition.getName().equals("LUXURY TAX")){
-				monopolyBank.payDue(currPlayer, 300);
-			}
-			else if(currPosition.getName().equals("GO TO JAIL")){
-				//May breakup here
-				monopolyBank.payDue(currPlayer, 200);
-				//move to jail
-				goToJail();
-				endTurn();		
-			}	
 		}
 		// If player was charged wait until now to display there balance
-		 */
-		msg+=currPlayer.toString()+" Account: $"+monopolyBank.getBalance(currPlayer)+"\n";
-	
 	}
+	 */
 	
 	@Override
 	public void buyDeed() throws java.rmi.RemoteException{
-		/*
-		 * 
-		 */
 		Square myLoc = currPlayer.getToken().getLoc();
 		
 		if(!myLoc.isPurchasable()){
@@ -351,5 +338,16 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	@Override
 	public String getMsg() throws RemoteException {
 		return msg;
+	}
+
+	@Override
+	public Player getCurrPlayer() throws RemoteException {
+		return players[counter%expectedPlayer];
+	}
+
+	@Override
+	public Bank getBank() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
