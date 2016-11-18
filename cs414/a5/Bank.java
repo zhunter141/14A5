@@ -91,7 +91,7 @@ public class Bank implements Serializable{
 					msg = "Nobody want this deed"+'\n';
 
 				}
-				else if(deed.hasHotel() || deed.addHouse()){
+				else if(deed.hasHotel() || deed.hasHouse()){
 					msg = "Can not sell a deed with house/hotel";
 				}
 				else{
@@ -99,10 +99,14 @@ public class Bank implements Serializable{
 
 					int bitAmount =  indexAndMax[1];
 					if(this.payDue(winner, bitAmount) == true){
+						Player oldOwner = deed.getOwner();
+
 						if(deed.getOwner() != null){
-							deed.getOwner().removeDeed(deed);
+
+							oldOwner.removeDeed(deed);
+
 							deposit(deed.getOwner(), bitAmount);
-							System.out.println("Hello"+deed.getOwner().getName()+bitAmount);
+
 							
 							}
 						deed.setOwner(winner);
