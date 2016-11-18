@@ -10,9 +10,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 public class Square implements Serializable{
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Color color;
 	private String name;
@@ -58,7 +55,7 @@ public class Square implements Serializable{
 	}
 	
 	public void setOwner(Player p){
-		// Do nothing because regular squares cannot be owned by anyone
+		// no players can own regular squares
 	}
 	
 	public String buildHotel(Player currPlayer, Bank monopolyBank, Square s) {
@@ -117,6 +114,7 @@ public class Square implements Serializable{
 		return c;
 		
 	}
+	
 	private boolean checkHouseHotelNumber(Deed d) {
 		 int houseNum = d.getHouseNum();
 		 int hotelNum = d.getHotelNum();
@@ -213,6 +211,11 @@ public class Square implements Serializable{
 			return ((Square) o).getName().equals(this.getName());
 		}
 		return false;
+	}
+	
+	@Override
+	public int hashCode(){
+		return getName().hashCode();
 	}
 	
 	public boolean getPurchasable() {
