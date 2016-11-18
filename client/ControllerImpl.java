@@ -80,13 +80,13 @@ public class ControllerImpl implements ControllerInterface{
 			});
 			return endTurnButton;
 		}
+		
 		@Override
 		public JButton getMyPropertiesButton() throws RemoteException{
 			JButton myPropertiesButton = new JButton("My properties");
 			myPropertiesButton.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){
-					System.out.println("My Deeds button pressed!");
-					
+					System.out.println("My Deeds button pressed!");			
 					 
 					//try catch by HJ 
 					// type cast model.getDeeds() by HJ

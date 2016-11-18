@@ -290,50 +290,101 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	}
 	
 	@Override
-	public int getNumPlayer() throws RemoteException {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getNumPlayer()throws RemoteException{
+		return counter;
 	}
 
 	@Override
-	public void auction(Square s, int[] bits) throws RemoteException {
-		// TODO Auto-generated method stub	
-	}
+	public void auction(Object o,int[] bits) throws RemoteException{
+		 msg = monopolyBank.auction(o,bits,players,currPlayer);
+		 msg += currPlayer.getName()+", Location: " + currPlayer.getToken().getLoc().getName()+'\n';
+		 msg += "Account: $"+monopolyBank.getBalance(currPlayer)+'\n';
+		 notifyAllObserversOfMsg();
+		 notifyAllObserversOfBoard();
+	 }
 
 	@Override
-	public Object endGame() throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public String endGame(){
+		 Player winner = players[0];
+		 for(int i=1;i<counter;i++){
+			 if(monopolyBank.getBalance(winner) < monopolyBank.getBalance(players[i])){
+				 winner = players[i];
+			 }
+		 }
+		 return winner.getName()+" is the winner! Final amount: $"+monopolyBank.getBalance(winner);
+	 }
 	
 	@Override
-	public void sellDeed(Square myDeed) throws RemoteException {
-		// TODO Auto-generated method stub
-		
+	public void sellDeed(Square d) throws RemoteException{
+		msg += currPlayer.selldeed(d, monopolyBank);
+		notifyAllObserversOfMsg();
+		notifyAllObserversOfBoard();
 	}
 	
 	@Override
 	public void buildHouse(Square myDeed) throws RemoteException{
-		// TODO Auto-generated method stub
+
+		msg += myDeed.buildHouse( currPlayer,  monopolyBank);
+		msg +="My money: $"+ monopolyBank.getBalance(currPlayer)+"\n";
 		
+		notifyAllObserversOfMsg();
+		notifyAllObserversOfBoard();
 	}
 	
 	@Override
 	public void buildHotel(Square myDeed) throws RemoteException{
-		// TODO Auto-generated method stub
+		msg += myDeed.buildHouse( currPlayer,  monopolyBank);
+		msg +="My money: $"+ monopolyBank.getBalance(currPlayer)+"\n";
 		
+		notifyAllObserversOfMsg();
+		notifyAllObserversOfBoard();		
 	}
 	
 	@Override
 	public void mortgage(Square myDeed) throws RemoteException{
-		// TODO Auto-generated method stub
-		
+		if(myDeed instanceof Deed ){
+			Deed deed =  (Deed)myDeed;
+			if(deed.hasBuilding() == false && deed.isMortgagable() == false){
+				monopolyBank.deposit(currPlayer, (int) (0.5*deed.getCost()));
+				deed.setMortgage(true);
+				msg += "Succesfully mortgaged: "+myDeed.getName()+"\n";
+			}
+			else{
+				msg += "You can't mortgage it, because there is a building.\n"; 
+			}
+		}
+		else{
+			msg += "You can't mortgage it, it is not a deed!\n";
+		}
+		msg +="My money: $"+ monopolyBank.getBalance(currPlayer)+"\n";
+		notifyAllObserversOfMsg();
+		notifyAllObserversOfBoard();	
 	}
 	
 	@Override
 	public void umMortgage(Square myDeed) throws RemoteException{
-		// TODO Auto-generated method stub
-		
+		if(!(myDeed instanceof Deed)){
+			msg += "Can not be unmortgaged."+'\n'; 
+		}
+		else{
+			Deed deed =  (Deed)myDeed;
+			
+			if(deed.isMortgagable() == true){
+				if(monopolyBank.payDue(currPlayer, (int)(1.1*deed.getCost())) == true){
+					deed.setMortgage(false);
+					msg += "Succesfully ummortgaged it"+'\n';
+				}
+				else{
+					msg += "Failure to mortgage because not enough money."+'\n';
+				}
+			}
+			else{
+				msg += "It is not mortgaged yet."+'\n'; 
+			}
+		}
+		msg +="Account: $"+ monopolyBank.getBalance(currPlayer)+'\n';
+		notifyAllObserversOfMsg();
+		notifyAllObserversOfBoard();	
 	}
 	@Override
 	public String getMsg() throws RemoteException {

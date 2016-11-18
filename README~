@@ -10,8 +10,12 @@
    run "java client.GameClient". This will open the pop up window for each player to enter their
    name, once they all do that, a Monopoly game board will appear and the game will start.
 
-3. discusses what is especially strong, weak, or missing from the assignment
+3. No login or password is used.
 
-4. Model View Controller, and Broker pattern is used for the code design. 
-   Componentization, extract class, and extract method
-   were used to refactoring the old code.
+4. discusses what is especially strong, weak, or missing from the assignment
+   Visual aethetic is lacking in the board, but if we had more time this aspect could definitily 
+   be improved. Model view seperation is strong with this assignment, we had ahead start in A4.
+
+5. Model View Controller, and Broker pattern is used for the code design. 
+   Componentization, extract class, and extract method were used to refactoring 
+   the old code.
