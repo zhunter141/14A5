@@ -19,8 +19,8 @@ public class Board implements Serializable{
 	private HashMap<String, Square> mySquares;
 	
 
-	DeckOfCards chanceDeck;
-	DeckOfCards comDeck;
+	public DeckOfCards chanceDeck;
+	public DeckOfCards comDeck;
 	
 	public Board(){
 		mySquares = new LinkedHashMap<String,Square>();
