@@ -20,7 +20,7 @@ public interface ModelInterface extends java.rmi.Remote{
 	public void endTurn() throws java.rmi.RemoteException;
 	public Object getDeeds() throws java.rmi.RemoteException;
 	public int getNumPlayer() throws java.rmi.RemoteException;
-	public void auction(Square s, int[] bits) throws java.rmi.RemoteException;
+	public void auction(Object o,int[] bits) throws java.rmi.RemoteException;
 	public Object endGame() throws java.rmi.RemoteException;
 	public void sellDeed(Square myDeed) throws java.rmi.RemoteException;
 	public void buildHouse(Square myDeed) throws java.rmi.RemoteException;

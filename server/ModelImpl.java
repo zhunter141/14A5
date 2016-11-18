@@ -303,26 +303,35 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	}
 	
 	@Override
-	public int getNumPlayer() throws RemoteException {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getNumPlayer()throws RemoteException{
+		return counter;
 	}
 
 	@Override
-	public void auction(Square s, int[] bits) throws RemoteException {
-		// TODO Auto-generated method stub	
-	}
+	public void auction(Object o,int[] bits) throws RemoteException{
+		 msg = monopolyBank.auction(o,bits,players,currPlayer);
+		 msg += currPlayer.getName()+", Location: " + currPlayer.getToken().getLoc().getName()+'\n';
+		 msg += "Account: $"+monopolyBank.getBalance(currPlayer)+'\n';
+		 notifyAllObserversOfMsg();
+		 notifyAllObserversOfBoard();
+	 }
 
 	@Override
-	public Object endGame() throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public String endGame(){
+		 Player winner = players[0];
+		 for(int i=1;i<counter;i++){
+			 if(monopolyBank.getBalance(winner) < monopolyBank.getBalance(players[i])){
+				 winner = players[i];
+			 }
+		 }
+		 return winner.getName()+" is the winner! Final amount: $"+monopolyBank.getBalance(winner);
+	 }
 	
 	@Override
-	public void sellDeed(Square myDeed) throws RemoteException {
-		// TODO Auto-generated method stub
-		
+	public void sellDeed(Square d) throws RemoteException{
+		msg += currPlayer.selldeed(d, monopolyBank);
+		notifyAllObserversOfMsg();
+		notifyAllObserversOfBoard();
 	}
 	
 	@Override
