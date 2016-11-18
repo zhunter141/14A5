@@ -114,7 +114,7 @@ public class Bank implements Serializable{
 
 					}
 					else{
-						msg = "No enough money"+'\n';
+						msg = "Not enough money"+'\n';
 
 					}
 				}

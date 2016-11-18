@@ -2,6 +2,7 @@ package common;
 
 import java.rmi.RemoteException;
 
+import cs414.a5.Bank;
 import cs414.a5.Board;
 import cs414.a5.Square;
 import cs414.a5.Player;
@@ -32,6 +33,8 @@ public interface ModelInterface extends java.rmi.Remote{
 	public String getMsg() throws RemoteException;
 	public void move(int steps) throws RemoteException;
 	public Player getCurrPlayer() throws RemoteException;
-	void startAuction(Square s) throws RemoteException;
-	public void enterBid(Square s ,int bit) throws RemoteException;
+
+	public Bank getBank() throws RemoteException;
+	public void startAuction(Square s) throws RemoteException;
+	public void enterBid(Square s, int bit) throws java.rmi.RemoteException;
 }
