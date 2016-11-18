@@ -12,8 +12,10 @@
 
 3. No login or password is used.
 
-4. discusses what is especially strong, weak, or missing from the assignment
+4. Visual aethetic is lacking in the board, but if we had more time this aspect could definitily 
+   be improved. Model view seperation is strong with this assignment, we had ahead start in A4,
+   and have always paied attention to it.
 
 5. Model View Controller, and Broker pattern is used for the code design. 
-   Componentization, extract class, and extract method
-   were used to refactoring the old code.
+   Componentization, extract class, and extract method were used to refactoring 
+   the old code.
