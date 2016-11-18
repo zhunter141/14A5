@@ -3,6 +3,7 @@ package client;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -191,7 +192,7 @@ public class ViewImpl implements ViewInterface{
 		    	case "Unmortgage":
 		    		model.umMortgage(myDeed);break;
 		    	case "Auction":
-		    		ctrl.auctionMenu(myDeed);break;
+		    		model.startAuction(myDeed);break;
 		    	default:
 		    		throw new IllegalArgumentException("You have to pick one!");
 		    }  
@@ -245,4 +246,11 @@ public class ViewImpl implements ViewInterface{
 		boardPanel.setVisible(false);
 		boardPanel.setVisible(true);	
 	}
+	@Override
+	public void auctionMenu(Square s) throws RemoteException{	
+	    String bid;	    
+	    	bid = JOptionPane.showInputDialog(model.getCurrPlayer().getName() + "  Enter your bit for : "+ s.getName());
+		model.enterBid(s,bid);
+	}
+	
 }

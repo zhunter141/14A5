@@ -86,6 +86,9 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		notifyAllObserversOfMsg();
 		notifyAllObserversOfBoard();
 	}
+	public Player getCurrPlayer(){
+		return currPlayer;
+	}
 	
 	@Override
 	public void move(int steps) throws RemoteException{

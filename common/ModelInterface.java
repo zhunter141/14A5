@@ -31,4 +31,5 @@ public interface ModelInterface extends java.rmi.Remote{
 	public void notifyAllObserversOfMsg() throws RemoteException;
 	public String getMsg() throws RemoteException;
 	public void move(int steps) throws RemoteException;
+	public Player getCurrPlayer() throws RemoteException;
 }

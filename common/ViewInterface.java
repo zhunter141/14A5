@@ -11,6 +11,7 @@ public interface ViewInterface extends java.rmi.Remote{
 	public void modifyDeed(Square myDeed) throws java.rmi.RemoteException;
 	
 	//HJ : Only for non error to check with Professor
+	public void auctionMenu(Square s)throws java.rmi.RemoteException;
 	public void chooseDeeds(HashSet<Square> myDeeds) throws java.rmi.RemoteException;
 	public void dispose() throws java.rmi.RemoteException;
 	public void updateBoard() throws java.rmi.RemoteException;
