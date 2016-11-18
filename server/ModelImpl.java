@@ -31,6 +31,8 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	private String msg;
 	private Token[] allTokens;
 	private boolean hasRolled;
+	private int[] allBits;
+	private int bidIndex;
 	
 	public ModelImpl(int numPlayers) throws RemoteException {
 		super();	
@@ -46,6 +48,8 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		counter = 0;
 		createTokens();
 		hasRolled = false;
+		allBits = new int[numPlayers];
+		bidIndex = 0;
 	}
 	
 	private void createTokens(){
@@ -224,6 +228,13 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		}
 	}
 	
+	@Override
+	public void startAuction(Square s) throws RemoteException {
+		for(ViewInterface v : observers){
+			//v.auctionMenu(s);
+		}
+		 auction(s, allBits) ;
+	}
 	
 	@Override
 	public Board getBoard() throws RemoteException {
@@ -307,6 +318,12 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		 notifyAllObserversOfBoard();
 	 }
 
+	
+	@Override
+	public void enterBid(Square s ,int bit) throws java.rmi.RemoteException{
+		allBits[this.bidIndex+1] = bit; 
+	}
+	
 	@Override
 	public String endGame(){
 		 Player winner = players[0];

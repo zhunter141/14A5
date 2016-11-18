@@ -34,4 +34,6 @@ public interface ModelInterface extends java.rmi.Remote{
 	public void move(int steps) throws RemoteException;
 	public Player getCurrPlayer() throws RemoteException;
 	public Bank getBank() throws RemoteException;
+	public void startAuction(Square s) throws RemoteException;
+	public void enterBid(Square s, int bit) throws java.rmi.RemoteException;
 }
