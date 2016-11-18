@@ -79,6 +79,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 			move(steps);
 			rentChecker();
 			taxChecker();
+			cardChecker();
 			// If player was charged show now
 			msg+=currPlayer.getName()+" Account: $"+monopolyBank.getBalance(currPlayer)+"\n";
 			
@@ -134,26 +135,29 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 			monopolyBank.payDue(currPlayer, 300);
 		}
 	}
-	/*
-	 * 
-		else if(currPosition.getName().equals("COMMUNITY CHEST") ){
-			Card c = board.comDeck.drawCard();
-			if(c.getDescription().equals("Get out of jail free")){
-				currPlayer.setHasCard(true);	
+	private void cardChecker() throws java.rmi.RemoteException{
+		/*
+		 * 
+			else if(currPosition.getName().equals("COMMUNITY CHEST") ){
+				Card c = board.comDeck.drawCard();
+				if(c.getDescription().equals("Get out of jail free")){
+					currPlayer.setHasCard(true);	
+				}
+				c.processCard(this);
 			}
-			c.processCard(this);
-		}
-		else if(currPosition.getName().equals("CHANCE")){
-			Card c = board.chanceDeck.drawCard();
-			if(c.getDescription().equals("Get out of jail free")){
-				currPlayer.setHasCard(true);
-				
+			else if(currPosition.getName().equals("CHANCE")){
+				Card c = board.chanceDeck.drawCard();
+				if(c.getDescription().equals("Get out of jail free")){
+					currPlayer.setHasCard(true);
+					
+				}
+				c.processCard(this);
 			}
-			c.processCard(this);
+			// If player was charged wait until now to display there balance
 		}
-		// If player was charged wait until now to display there balance
+		 */	
 	}
-	 */
+	
 	
 	@Override
 	public void buyDeed() throws java.rmi.RemoteException{
