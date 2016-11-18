@@ -72,6 +72,8 @@ public class Card implements Serializable{
 			despMsg += "You used your Get out of jail free card.";
 			currentPlayer.setHasCard(false);
 		}else if (getAction().equals("GO")){
+			int amount = this.getVal();
+			theModel.getBank().deposit(currentPlayer, amount);
 			Square sqtmp = (Square)(theModel.getBoard().getSquares().get("GO"));
 			Token t = theModel.getCurrPlayer().getToken();
 			t.getLoc().removeToken(t);
