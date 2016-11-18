@@ -36,8 +36,8 @@ public class ViewImpl implements ViewInterface{
 	private JTextArea msgTextArea;
 
 	
-	public ViewImpl() throws java.rmi.RemoteException{ // remove remoteException
-		myFrame = new JFrame("MonopolyGame");
+	public ViewImpl() throws java.rmi.RemoteException{
+		myFrame = new JFrame();
 		myFrame.setSize(DEFAULT_WIDTH,DEFAULT_HEIGHT);
 		buttonArray = new ArrayList<JButton>();
 	}
@@ -67,7 +67,8 @@ public class ViewImpl implements ViewInterface{
 	// HELPER METHODS
 	private void startMenu() throws java.rmi.RemoteException{	
 		String playerName = JOptionPane.showInputDialog("Enter your name "); 
-		model.addPlayer(playerName);   // client side got stuck here......
+		myFrame.setTitle("MonopolyGame - "+playerName);
+		model.addPlayer(playerName);
 	}
 	
 	private void addMsgPanel() {
@@ -254,4 +255,5 @@ public class ViewImpl implements ViewInterface{
 		model.enterBid(s, bidInt);
 	}
 	
+
 }

@@ -13,13 +13,11 @@ import cs414.a5.Card;
 import cs414.a5.Deed;
 import cs414.a5.Dice;
 import cs414.a5.Player;
-import cs414.a5.RailRoad;
 import cs414.a5.Square;
 import cs414.a5.Token;
-import cs414.a5.Utility;
 
-@SuppressWarnings("serial")
 public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
+	private static final long serialVersionUID = 1L;
 	private ArrayList<ViewInterface> observers = new ArrayList<ViewInterface>();
 	private Board board;
 	private Player[] players;
@@ -128,7 +126,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 			monopolyBank.payDue(currPlayer, 200);
 			msg += "Oh, no!";
 			//move to jail
-			//goToJail();
+			goToJail();
 			endTurn();	
 		}
 		if(playerLoc.equals("INCOME TAX")){
@@ -276,11 +274,15 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	}
 	
 	public void setExpectedPlayer(int num){
-		this.expectedPlayer = num;
+		// make sure only up to 4 players can play
+		if(num > 4){
+			this.expectedPlayer = 4;
+		}
+		else{
+			this.expectedPlayer = num;
+		}
 		System.out.println("Setting expec p = "+expectedPlayer);
 	}
-
-	//HJ: Feel free to del after checking
 
 	@Override
 	public void endTurn() throws RemoteException {
@@ -299,7 +301,8 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 
 	@Override
 	public HashSet<Square> getDeeds() throws RemoteException {
-		 return currPlayer.getMyDeeds();
+		System.out.println("Returning "+currPlayer.getName()+" deeds.");
+		return currPlayer.getMyDeeds();
 	}
 	
 	@Override
@@ -316,7 +319,6 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		 notifyAllObserversOfBoard();
 	 }
 
-	
 	@Override
 
 	public void enterBid(Square s ,int bit) throws java.rmi.RemoteException{
@@ -411,6 +413,19 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		notifyAllObserversOfMsg();
 		notifyAllObserversOfBoard();	
 	}
+	
+	@Override
+	public void goToJail(){
+		//move to jail -> may be refactor later
+		board.move(20,currPlayer.getToken());
+		Square currLoc = currPlayer.getToken().getLoc();
+		msg=""+currPlayer.getName()+" is now on: "+currLoc.getName()+'\n';
+		msg+="My properties: "+ currPlayer.toString()+'\n';
+		msg+="My money: "+ monopolyBank.getBalance(currPlayer)+'\n';
+		//view.update();
+		//view.updateBoard();
+	}
+	
 	@Override
 	public String getMsg() throws RemoteException {
 		return msg;
