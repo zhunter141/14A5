@@ -231,7 +231,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	@Override
 	public void startAuction(Square s) throws RemoteException {
 		for(ViewInterface v : observers){
-			//v.auctionMenu(s);
+			v.auctionMenu(s);
 		}
 
 	}
