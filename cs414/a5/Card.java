@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.rmi.RemoteException;
 
 import common.ModelInterface;
+import server.ModelImpl;
 
 public class Card implements Serializable{
 	
