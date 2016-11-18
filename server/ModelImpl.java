@@ -324,7 +324,8 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	public void enterBid(Square s ,int bit) throws java.rmi.RemoteException{
 		allBits[this.bidIndex] = bit;
 		this.bidIndex++;
-		if(this.bidIndex == 1){
+
+		if(this.bidIndex == 2){
 			 auction(s, allBits) ;
 		}
 
