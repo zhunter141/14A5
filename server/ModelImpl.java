@@ -327,8 +327,12 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	
 	@Override
 	public void buildHouse(Square myDeed) throws RemoteException{
-		// TODO Auto-generated method stub
+
+		msg += myDeed.buildHouse( currPlayer,  monopolyBank);
+		msg +="My money: $"+ monopolyBank.getBalance(currPlayer)+"\n";
 		
+		notifyAllObserversOfMsg();
+		notifyAllObserversOfBoard();
 	}
 	
 	@Override
