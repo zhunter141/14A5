@@ -3,14 +3,13 @@ package cs414.a5;
 import java.awt.Color;
 
 public class Deed extends Square {
-	private int cost;
+	private static final long serialVersionUID = 1L;
 	private int houseCost;
 	private int hotelCost;
 	private int houseIndex ;
 	private int hotelIndex ;
 
 	private Player owner;
-	private int rentCost;
 	private boolean hasBuilding;
 	private boolean hasHouse;
 	private boolean hasHotel;
@@ -25,19 +24,15 @@ public class Deed extends Square {
 		this.houseIndex = 0;
 		this.hotelIndex = 0;
 
-		this.cost = cost;
+		super.cost = cost;
+		super.rentCost = rentCost;
 		this.houseCost = houseCost;
 		this.hotelCost = hotelCost;
 		owner = null;
 		this.setPurchasable(true);
-		this.rentCost = rentCost;
 		this.setExistanceOfHouseHotel(false);
 		this.setExistanceOfHouse(false);
 		this.setExistanceOfHotel(false);
-	}
-	
-	public int getCost(){
-		return cost;
 	}
 	
 	public int getHouseCost(){
@@ -49,13 +44,17 @@ public class Deed extends Square {
 	}
 	
 	public void setOwner(Player o){
-		owner = o;
+		System.out.println("Change of ownership, player class, ");
 		if (o == null){
+			System.out.println("Game owns the deed now.");
 			this.setPurchasable(true);
+			owner = null;
 		} 
 		else{
+			System.out.println("o owns the deed now.");
 			this.setPurchasable(false);
-			}
+			owner = o;
+		}
 	}
 	
 	public int getRentCost(){
@@ -139,14 +138,28 @@ public class Deed extends Square {
 
 	public void updateRent() {
 		this.rentCost += 90;
-		
 	}
 
 	public void updateRentHotel() {
 		this.rentCost = (int) (rentCost*2);
+	}	
+	
+	@Override
+	public int getCost(){
+		cost = super.getCost();
 		
-	}
+		if(hasBuilding() == true){
+			setExistanceOfHouseHotel(false);
+			setExistanceOfHotel(false);
+			setExistanceOfHouse(false);
 
-	
-	
+			if(hasHotel() == true){
+				cost += getHotelCost();
+			}
+			else{
+				cost += getHouseCost();
+			}	
+		}
+		return cost;
+	}
 }

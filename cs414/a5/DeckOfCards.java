@@ -18,7 +18,6 @@ public class DeckOfCards implements Serializable {
 			cards.add(card[x]);
 		}
 		
-
 		Collections.shuffle(cards);
 	}
 
