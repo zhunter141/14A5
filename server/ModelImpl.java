@@ -81,7 +81,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 			move(steps);
 			rentChecker();
 			taxChecker();
-			//cardChecker(); // will need to comment back once it's working
+			cardChecker(); // will need to comment back once it's working
 			// If player was charged show now
 			msg+=currPlayer.getName()+" Account: $"+monopolyBank.getBalance(currPlayer)+"\n";
 			
