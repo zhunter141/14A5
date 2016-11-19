@@ -1,6 +1,7 @@
 package common;
 
 import java.rmi.RemoteException;
+import java.util.Collection;
 import java.util.HashSet;
 import cs414.a5.Square;
 
@@ -11,7 +12,7 @@ public interface ViewInterface extends java.rmi.Remote{
 	public void modifyDeed(Square myDeed) throws java.rmi.RemoteException;
 	
 	//HJ : Only for non error to check with Professor
-	public void chooseDeeds(HashSet<Square> myDeeds) throws java.rmi.RemoteException;
+	public void chooseDeeds(Collection<Square> myDeeds) throws java.rmi.RemoteException;
 	public void dispose() throws java.rmi.RemoteException;
 	public void updateBoard() throws java.rmi.RemoteException;
 	public void addController(ControllerInterface controller) throws java.rmi.RemoteException;

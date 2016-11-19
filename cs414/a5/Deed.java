@@ -8,8 +8,6 @@ public class Deed extends Square {
 	private int hotelCost;
 	private int houseIndex ;
 	private int hotelIndex ;
-
-	private Player owner;
 	private boolean hasBuilding;
 	private boolean hasHouse;
 	private boolean hasHotel;
@@ -17,8 +15,6 @@ public class Deed extends Square {
 	private Object[] houseContainer= new Object[4];
 	private Object[] hotelContainer= new Object[1];
 
-
-	
 	public Deed(Color color, String name,int cost,int houseCost,int hotelCost, int rentCost) {
 		super(color,name);
 		this.houseIndex = 0;
@@ -28,8 +24,7 @@ public class Deed extends Square {
 		super.rentCost = rentCost;
 		this.houseCost = houseCost;
 		this.hotelCost = hotelCost;
-		owner = null;
-		this.setPurchasable(true);
+		super.setPurchasable(true);
 		this.setExistanceOfHouseHotel(false);
 		this.setExistanceOfHouse(false);
 		this.setExistanceOfHotel(false);
@@ -44,30 +39,23 @@ public class Deed extends Square {
 	}
 	
 	public void setOwner(Player o){
-		System.out.println("Change of ownership, player class, ");
+		System.out.println("Change of ownership, player class.");
 		if (o == null){
 			System.out.println("Game owns the deed now.");
-			this.setPurchasable(true);
-			owner = null;
+			super.setPurchasable(true);
+			super.setOwner(null);
 		} 
 		else{
-			System.out.println("o owns the deed now.");
-			this.setPurchasable(false);
-			owner = o;
+			System.out.println(o.getName()+" owns the deed now.");
+			super.setPurchasable(false);
+			super.setOwner(o);
 		}
-	}
-	
-	public int getRentCost(){
-		return rentCost;
-	}
-	
-	public Player getOwner(){
-		return owner;
 	}
 	
 	public int getHouseNum(){
 		return houseIndex;
 	}
+	
 	public int getHotelNum(){
 		return hotelIndex;
 	}
@@ -98,6 +86,7 @@ public class Deed extends Square {
 	public boolean hasHotel(){
 		return hasHotel;
 	}
+	
 	public boolean addHotel() {
 		
 		if(this.hotelIndex==1){
@@ -116,6 +105,7 @@ public class Deed extends Square {
 		return true;
 		}		
 	}
+	
 	public boolean addHouse() {
 		if(this.houseIndex ==4){
 			return false;
@@ -129,24 +119,23 @@ public class Deed extends Square {
 
 		return true;
 		}
-
-		
 	}
+	
 	public boolean isMortgagable() {
 		return isMortgaged;
 	}
 
 	public void updateRent() {
-		this.rentCost += 90;
+		
 	}
 
 	public void updateRentHotel() {
-		this.rentCost = (int) (rentCost*2);
+		//this.rentCost = (int) (rentCost*2);
 	}	
 	
 	@Override
 	public int getCost(){
-		cost = super.getCost();
+		int cost = super.getCost();
 		
 		if(hasBuilding() == true){
 			setExistanceOfHouseHotel(false);

@@ -1,12 +1,13 @@
 package cs414.a5;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class Player implements Serializable{
 	private int id;
 	private String name;
-	private HashSet<Square> myDeeds;
+	private HashMap<String,Square> myDeeds;
 	private HashSet<Card> myCards;
 	private Token token;
 	private boolean hasCard;
@@ -17,7 +18,7 @@ public class Player implements Serializable{
 		this.name = name;
 		this.token = token;
 		this.hasCard = false;
-		myDeeds = new HashSet<Square>();
+		myDeeds = new HashMap<String,Square>();
 		myCards = new HashSet<Card>();
 	}
 	
@@ -33,18 +34,19 @@ public class Player implements Serializable{
 		return token;
 	}
 	
-	public HashSet<Square> getMyDeeds(){
+	public HashMap<String,Square> getMyDeeds(){
 		return myDeeds;
 	}
 	
 	public void addDeed(Square d){
 		System.out.println("Adding "+d.getName()+" to my deeds.");
-		System.out.println("Did I add "+d.getName()+"="+myDeeds.add(d));
+		System.out.println("Did I add "+d.getName()+"="+myDeeds.put(d.getName(),d));
 	} 
 	
 	public void removeDeed(Square d){
 		System.out.println("Removing "+d.getName()+" from my deeds.");
-		System.out.println("Did I remove "+d.getName()+"="+myDeeds.remove(d));
+		myDeeds.remove(d.getName());
+		System.out.println("Do I still have "+d.getName()+"="+myDeeds.containsKey(d.getName()));
 	}
 	
 	public void addCard(Card c){
@@ -74,32 +76,10 @@ public class Player implements Serializable{
 				return msg;
 	}
 
-	public int buyDeed(Bank monopolyBank,Square myLoc){
-		int costOfDeed;
-		// The square is purchasable because it is not own by anyone
-		// determine the cost of the square
-		// Implied 'else'
-		if(myLoc instanceof Utility){
-			Utility util =  (Utility)myLoc;
-			costOfDeed = util.getCost();
-		}
-		else if(myLoc instanceof Deed){
-			Deed deed =  (Deed)myLoc;
-			costOfDeed = deed.getCost();
-		}
-		// Square MUST be RailRoad
-		else{
-			RailRoad railRoad =  (RailRoad)myLoc;
-			costOfDeed = railRoad.getCost();
-		}
-		return costOfDeed;
-		
-	}
-	
 	@Override
 	public String toString(){
 		String listOfDeeds = ""; 
-		for(Square s: myDeeds){
+		for(Square s: myDeeds.values()){
 			listOfDeeds = listOfDeeds+" "+s.getName();
 		}
 		return listOfDeeds;

@@ -86,7 +86,7 @@ public class ControllerImpl implements ControllerInterface{
 					//try catch by HJ 
 					// type cast model.getDeeds() by HJ
 					try {
-						view.chooseDeeds(model.getDeeds());
+						view.chooseDeeds(model.getDeeds().values());
 					} catch (RemoteException e1) {
 						e1.printStackTrace();
 					}

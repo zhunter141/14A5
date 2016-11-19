@@ -1,6 +1,7 @@
 package common;
 
 import java.rmi.RemoteException;
+import java.util.HashMap;
 import java.util.HashSet;
 
 import cs414.a5.Bank;
@@ -20,7 +21,7 @@ public interface ModelInterface extends java.rmi.Remote{
 	//HJ : Only for non error to check with Professor
 	public void buyDeed() throws java.rmi.RemoteException;
 	public void endTurn() throws java.rmi.RemoteException;
-	public HashSet<Square> getDeeds() throws java.rmi.RemoteException;
+	public HashMap<String, Square> getDeeds() throws java.rmi.RemoteException;
 	public int getNumPlayer() throws java.rmi.RemoteException;
 	public void auction(Object o,int[] bits) throws java.rmi.RemoteException;
 	public Object endGame() throws java.rmi.RemoteException;
@@ -37,5 +38,5 @@ public interface ModelInterface extends java.rmi.Remote{
 	public Bank getBank() throws java.rmi.RemoteException;
 	public void startAuction(Square s) throws java.rmi.RemoteException;
 	public void enterBid(Square s, int bit) throws java.rmi.RemoteException;
-	void goToJail()throws java.rmi.RemoteException;
+	public void goToJail()throws java.rmi.RemoteException;
 }
