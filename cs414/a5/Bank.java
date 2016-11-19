@@ -6,7 +6,6 @@ import java.util.HashMap;
 public class Bank implements Serializable{ 
 	private static final long serialVersionUID = 1L; // added by TJ
 	private HashMap<Integer, Account> accounts;
-	private Model monopolyModel;
 
 	public Bank(){
 		accounts = new HashMap<Integer,Account>();
@@ -29,7 +28,6 @@ public class Bank implements Serializable{
 		else{
 			curAccount.takeOutBalance(amount);
 			return true;
-
 		}	
 	}
 	

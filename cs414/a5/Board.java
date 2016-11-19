@@ -11,12 +11,9 @@ import java.util.LinkedHashMap;
 
 
 public class Board implements Serializable{
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Square start;
-	private HashMap<String, Square> mySquares;
+	private LinkedHashMap<String, Square> mySquares;
 	
 
 	public DeckOfCards chanceDeck;
@@ -287,11 +284,11 @@ public class Board implements Serializable{
 	}
 	
 	public synchronized LinkedHashMap<String, Square> getSquares(){
-		System.out.println("Returning my sqaures.");
-		return (LinkedHashMap<String, Square>) mySquares;
+		System.out.println("Returning my squares.");
+		return mySquares;
 	}
 	
-	private void add(String key, Square s){
-		mySquares.put(key, s);
+	private void add(String key, Square value){
+		mySquares.put(key, value);
 	}
 }

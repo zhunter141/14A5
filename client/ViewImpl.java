@@ -5,10 +5,13 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import javax.swing.*;
+import javax.swing.text.DefaultCaret;
+
 import common.ControllerInterface;
 import common.ModelInterface;
 import common.ViewInterface;
@@ -34,7 +37,7 @@ public class ViewImpl implements ViewInterface{
 	private JPanel gameMsgPanel;
 	private JPanel boardPanel;
 	private JTextArea msgTextArea;
-
+	private JScrollPane scroll;
 	
 	public ViewImpl() throws java.rmi.RemoteException{
 		myFrame = new JFrame();
@@ -81,7 +84,9 @@ public class ViewImpl implements ViewInterface{
 		msgTextArea = new JTextArea(30,20);
 		msgTextArea.setText("Waiting for players to connect...");
 		msgTextArea.setEditable(false);
-		JScrollPane scroll = new JScrollPane (msgTextArea,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scroll = new JScrollPane (msgTextArea,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		DefaultCaret caret = (DefaultCaret) msgTextArea.getCaret();
+		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
 		
 		// Add a textfield to the gameMsgPanel
 		gameMsgPanel.add(scroll);
@@ -132,21 +137,17 @@ public class ViewImpl implements ViewInterface{
 
 		LinkedHashMap<String, Square> listOfSquares = model.getBoard().getSquares();
 		System.out.println("I have a list of squares.");
-		/*
-		 * 
-		 */
 		System.out.println("size of board = "+listOfSquares.size());
 		for(Square s : listOfSquares.values()){
 			SquareView aSquare = new SquareView(s);
 			boardPanel.add(aSquare);
-			//System.out.println("adding square to view.");
 		}
 		// add boardPanel to JFrame
 		myFrame.add(boardPanel);
 	}
 	
 	
-	public void chooseDeeds(HashSet<Square> myDeeds) throws java.rmi.RemoteException {
+	public void chooseDeeds(Collection<Square> myDeeds) throws java.rmi.RemoteException {
 		if(myDeeds.size()==0){			
 			JOptionPane.showMessageDialog( null, "You do not have any properties! \n "
 			,null, JOptionPane.INFORMATION_MESSAGE);
@@ -211,6 +212,7 @@ public class ViewImpl implements ViewInterface{
 	
 	@Override
 	public void disableRoll() throws java.rmi.RemoteException{
+		System.out.println("Diabled roll button.");
 		rollButton.setEnabled(false);
 	}
 	
