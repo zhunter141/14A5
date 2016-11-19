@@ -83,7 +83,7 @@ public class Card implements Serializable{
 
 		}else if (getAction().equals("outJail")){
 			despMsg += "You got Get out of jail free card.\n";
-			currentPlayer.setHasCard(true); // call addCard now
+			currentPlayer.setHasCard(true);
 		}else if (getAction().equals("GO")){
 			int amount = this.getVal();
 			theModel.getBank().deposit(currentPlayer, amount);

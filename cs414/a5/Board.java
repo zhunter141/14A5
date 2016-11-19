@@ -29,12 +29,10 @@ public class Board implements Serializable{
 	public void initCards(){
 		Card[] chanceCards = new Card[16];
 		
-		//chanceCards[0] = new Card("Advance to Go, collect $200.","GO",200);
-		chanceCards[0] = new Card("Go to Jail.","toJail",0);
+		chanceCards[0] = new Card("Advance to Go, collect $200.","GO",200);
 		chanceCards[1] = new Card("Advance to Mayfair.","MAYFAIR",0);
 		chanceCards[2] = new Card("You are assessed for street sepairs.","pay",100);
-		//chanceCards[3] = new Card("Go to Jail.","toJail",0);
-		chanceCards[3] = new Card("Advance to Go, collect $200.","GO",200);
+		chanceCards[3] = new Card("Go to Jail.","toJail",0);
 		chanceCards[4] = new Card("Bank pays you Dividend of $50.","collect",50);
 		chanceCards[5] = new Card("Go back 3 spaces.","move",37); //we don't have move back
 		chanceCards[6] = new Card("Pay school fees of $150.","pay",150);
