@@ -18,17 +18,13 @@ public class DeckOfCards implements Serializable {
 			cards.add(card[x]);
 		}
 		
-		//Collections.shuffle(cards);
+		Collections.shuffle(cards);
 	}
 
 	// Should cover both draw the top card and return it back in the bottom
 	public Card drawCard() {
 		firstCard = cards.getFirst();
 		cards.removeFirst();
-		//if(firstCard.getDescription().equals("Get out of Jail free")){
-		//	//do nothing 
-		//}
-		//else{cards.addLast(firstCard);}
 		cards.addLast(firstCard);
 		return firstCard;
 	}
