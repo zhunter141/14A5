@@ -25,11 +25,7 @@ public class DeckOfCards implements Serializable {
 	public Card drawCard() {
 		firstCard = cards.getFirst();
 		cards.removeFirst();
-		if(firstCard.getDescription().equals("Get out of Jail free")){
-			//do nothing 
-		}
-		else{cards.addLast(firstCard);}
-		
+		cards.addLast(firstCard);
 		return firstCard;
 	}
 	

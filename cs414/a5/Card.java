@@ -75,13 +75,15 @@ public class Card implements Serializable{
 			if(currentPlayer.hasCard() == false){
 				t.getLoc().removeToken(t);
 				t.setLoc((Square)sqtmp);
+				//theModel.endTurn();
 			}else{
-				theModel.endTurn();
-		}
+				despMsg += "You used your Get out of jail free card.\n";
+				currentPlayer.setHasCard(false);
+			}
 
 		}else if (getAction().equals("outJail")){
-			despMsg += "You used your Get out of jail free card.";
-			currentPlayer.setHasCard(false);
+			despMsg += "You got Get out of jail free card.\n";
+			currentPlayer.setHasCard(true);
 		}else if (getAction().equals("GO")){
 			int amount = this.getVal();
 			theModel.getBank().deposit(currentPlayer, amount);

@@ -127,7 +127,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 			msg += "Oh, no!";
 			//move to jail
 			goToJail();
-			endTurn();	
+			//endTurn();	
 		}
 		if(playerLoc.equals("INCOME TAX")){
 			monopolyBank.payDue(currPlayer, 200);
@@ -150,11 +150,9 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 			Card c = board.chanceDeck.drawCard();
 			if(c.getDescription().equals("Get out of jail free")){
 				currPlayer.setHasCard(true);
-				
 			}
 			msg+=c.processCard(this);
 		}
-		// If player was charged wait until now to display there balance
 		
 	}
 	
@@ -417,13 +415,18 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	@Override
 	public void goToJail(){
 		//move to jail -> may be refactor later
-		board.move(20,currPlayer.getToken());
-		Square currLoc = currPlayer.getToken().getLoc();
-		msg=""+currPlayer.getName()+" is now on: "+currLoc.getName()+'\n';
-		msg+="My properties: "+ currPlayer.toString()+'\n';
-		msg+="My money: "+ monopolyBank.getBalance(currPlayer)+'\n';
-		//view.update();
-		//view.updateBoard();
+		if(currPlayer.hasCard() == false){
+			board.move(20,currPlayer.getToken());
+			Square currLoc = currPlayer.getToken().getLoc();
+			msg=""+currPlayer.getName()+" is now on: "+currLoc.getName()+'\n';
+			msg+="My properties: "+ currPlayer.toString()+'\n';
+			msg+="My money: "+ monopolyBank.getBalance(currPlayer)+'\n';
+			//view.update();
+			//view.updateBoard();
+		}else{
+			msg += "You used your Get out of jail free card.\n";
+			currPlayer.setHasCard(false);
+		}
 	}
 	
 	@Override
