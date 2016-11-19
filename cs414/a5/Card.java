@@ -75,7 +75,8 @@ public class Card implements Serializable{
 			if(currentPlayer.hasCard() == false){
 				t.getLoc().removeToken(t);
 				t.setLoc((Square)sqtmp);
-				//theModel.endTurn();
+				theModel.endTurn();
+				
 			}else{
 				despMsg += "You used your Get out of jail free card.\n";
 				currentPlayer.setHasCard(false);
