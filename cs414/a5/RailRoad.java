@@ -3,14 +3,13 @@ package cs414.a5;
 import java.awt.Color;
 
 public class RailRoad extends Square{
-	private int cost;
-	private int rentCost;
-	
+	private static final long serialVersionUID = 1L;
+
 	public RailRoad(Color color, String name,int cost, int rentCost) {
 		super(color, name);
-		this.cost = cost;
-		this.rentCost = rentCost;
-		this.setPurchasable(true);
+		super.cost = cost;
+		super.rentCost = rentCost;
+		super.setPurchasable(true);
 	}
 	
 	public int getCost(){

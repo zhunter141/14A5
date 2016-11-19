@@ -13,13 +13,11 @@ import cs414.a5.Card;
 import cs414.a5.Deed;
 import cs414.a5.Dice;
 import cs414.a5.Player;
-import cs414.a5.RailRoad;
 import cs414.a5.Square;
 import cs414.a5.Token;
-import cs414.a5.Utility;
 
-@SuppressWarnings("serial")
 public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
+	private static final long serialVersionUID = 1L;
 	private ArrayList<ViewInterface> observers = new ArrayList<ViewInterface>();
 	private Board board;
 	private Player[] players;
@@ -227,9 +225,9 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	@Override
 	public void startAuction(Square s) throws RemoteException {
 		for(ViewInterface v : observers){
-			//v.auctionMenu(s);
+			v.auctionMenu(s);
 		}
-		 auction(s, allBits) ;
+
 	}
 	
 	@Override
@@ -274,7 +272,13 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	}
 	
 	public void setExpectedPlayer(int num){
-		this.expectedPlayer = num;
+		// make sure only up to 4 players can play
+		if(num > 4){
+			this.expectedPlayer = 4;
+		}
+		else{
+			this.expectedPlayer = num;
+		}
 		System.out.println("Setting expec p = "+expectedPlayer);
 	}
 
@@ -295,7 +299,8 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 
 	@Override
 	public HashSet<Square> getDeeds() throws RemoteException {
-		 return currPlayer.getMyDeeds();
+		System.out.println("Returning "+currPlayer.getName()+" deeds.");
+		return currPlayer.getMyDeeds();
 	}
 	
 	@Override
@@ -312,10 +317,15 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		 notifyAllObserversOfBoard();
 	 }
 
-	
 	@Override
+
 	public void enterBid(Square s ,int bit) throws java.rmi.RemoteException{
-		allBits[this.bidIndex+1] = bit; 
+		allBits[this.bidIndex] = bit;
+		this.bidIndex++;
+		if(this.bidIndex == 1){
+			 auction(s, allBits) ;
+		}
+
 	}
 	
 	@Override
