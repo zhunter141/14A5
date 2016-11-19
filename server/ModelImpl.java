@@ -3,6 +3,7 @@ package server;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 
 import common.ModelInterface;
@@ -80,7 +81,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 			move(steps);
 			rentChecker();
 			taxChecker();
-			cardChecker();
+			//cardChecker(); // will need to comment back once it's working
 			// If player was charged show now
 			msg+=currPlayer.getName()+" Account: $"+monopolyBank.getBalance(currPlayer)+"\n";
 			
@@ -109,7 +110,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 			//pay rent
 
 			int cost = currPosition.getRentCost();
-
+			System.out.println(""+currPosition.getName()+" thinks owner is = "+currPosition.getOwner().getName());
 			if(monopolyBank.payDue(currPlayer, cost)){
 				monopolyBank.deposit(currPosition.getOwner(), cost);
 				msg += ""+currPlayer.getName()+" paid rent $"+cost+ " to "+currPosition.getOwner().getName()+"\n";
@@ -153,11 +154,8 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 				
 			}
 			msg+=c.processCard(this);
-		}
-		// If player was charged wait until now to display there balance
-		
+		}		
 	}
-	
 	
 	@Override
 	public void buyDeed() throws java.rmi.RemoteException{
@@ -175,11 +173,11 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 			
 			if(monopolyBank.payDue(currPlayer, costOfDeed) == false){
 				msg += "Bank: "+currPlayer.getName()+" does not have enough money!\n";
+				msg +="Account: $"+monopolyBank.getBalance(currPlayer)+"\n";
 			}
 			else{
 				currPlayer.addDeed(myLoc);
 				myLoc.setOwner(currPlayer);
-				myLoc.setPurchasable(false);
 				msg +="Successfull purchased: "+myLoc.getName()+"! \n";
 				msg +="It has been added your list of deeds.\n";
 				msg +="Account: $"+monopolyBank.getBalance(currPlayer)+"\n";
@@ -188,6 +186,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 		notifyAllObserversOfMsg();
 		notifyAllObserversOfBoard();
 	}
+	
 	/*
 	 * Manipulate Observers
 	 */
@@ -300,7 +299,7 @@ public class ModelImpl extends UnicastRemoteObject implements ModelInterface{
 	}
 
 	@Override
-	public HashSet<Square> getDeeds() throws RemoteException {
+	public HashMap<String, Square> getDeeds() throws RemoteException {
 		System.out.println("Returning "+currPlayer.getName()+" deeds.");
 		return currPlayer.getMyDeeds();
 	}

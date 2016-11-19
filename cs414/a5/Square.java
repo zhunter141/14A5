@@ -18,16 +18,19 @@ public class Square implements Serializable{
 	private ArrayList<Token> myTokens;
 	protected int rentCost;
 	protected int cost;
+	private Player owner;
 	
 	public Square(Color color,String name){
 		this.color = color;
 		this.name = name.toUpperCase();
-		setPurchasable(false);
+		isPurchasable = false;
 		next = null;
+		owner = null;
 		myTokens = new ArrayList<Token>();
 		rentCost = 0;
 		cost = 0;
 	}
+	
 	// Getters
 	public Color getColor(){
 		return color;
@@ -46,21 +49,26 @@ public class Square implements Serializable{
 	}
 	
 	public Player getOwner(){
-		return null;
+		return owner;
 	}
 	
 	// Setters
 	public void setNext(Square next){
 		this.next = next;
 	}
-	
+	/*
+	 * 
+	 */
 	public void setOwner(Player p){
-		// no players can own regular squares
+		//System.out.println("From sqr class. Owner is "+p.getName());
+		owner = p;
 	}
 	
+	/*
 	public String buildHotel(Player currPlayer, Bank monopolyBank, Square s) {
+		 * 
 		String msg = "";
-		HashSet<Square>  myDeeds = currPlayer.getMyDeeds();
+		HashMap<String,Square>  myDeeds = currPlayer.getMyDeeds();
 		if(!(s instanceof Deed)){
 			msg = "It is not a deed"+'\n';
 		}
@@ -90,6 +98,7 @@ public class Square implements Serializable{
 
 		return msg;
 	}
+	 */
 	
 	private int checkColorGroup(Square s2, Player currPlayer, HashSet<Square> myDeeds) {
 		Color sqrOriginal = ((Deed)s2).getColor();
@@ -200,10 +209,7 @@ public class Square implements Serializable{
 		}
 	
 		return msg;
-}
-	
-	
-	
+	}
 	
 	@Override
 	public boolean equals(Object o){
@@ -213,17 +219,9 @@ public class Square implements Serializable{
 		return false;
 	}
 	
-	@Override
-	public int hashCode(){
-		return getName().hashCode();
-	}
-	
-	public boolean getPurchasable() {
-		return isPurchasable;
-	}
-	
 	public void setPurchasable(boolean isPurchasable) {
 		this.isPurchasable = isPurchasable;
+		System.out.println("Am I purchaseable = "+this.isPurchasable);
 	}
 	
 	public void addToken(Token t){
@@ -244,5 +242,4 @@ public class Square implements Serializable{
 	public int getCost(){
 		return cost;
 	}
-	
 }

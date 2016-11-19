@@ -17,7 +17,7 @@ public class GameServer {
 			Naming.rebind("rmi://localhost:2500/model",model);
 			System.out.println("Game server running...");
 		}catch(Exception e){
-			System.out.println("Trouble: " + e );
+			System.out.println("Trouble: " + e);
 			System.exit(-1);
 		}
 	}
